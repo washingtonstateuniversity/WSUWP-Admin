@@ -17,6 +17,7 @@ class WSU_Admin {
 		add_action( 'manage_pages_custom_column', array( $this, 'last_updated_column_data' ), 10, 2 );
 		add_action( 'manage_posts_custom_column', array( $this, 'last_updated_column_data' ), 10, 2 );
 		add_filter( 'srm_max_redirects', array( $this, 'srm_max_redirects' ), 10, 1 );
+		add_filter( 'document_revisions_enable_webdav', '__return_false' );
 	}
 
 	/**
