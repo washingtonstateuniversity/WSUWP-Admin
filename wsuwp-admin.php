@@ -18,6 +18,7 @@ class WSU_Admin {
 		add_action( 'manage_posts_custom_column', array( $this, 'last_updated_column_data' ), 10, 2 );
 		add_filter( 'srm_max_redirects', array( $this, 'srm_max_redirects' ), 10, 1 );
 		add_filter( 'document_revisions_enable_webdav', '__return_false' );
+		add_action( 'admin_init', array( $this, 'remove_events_calendar_actions' ), 9 );
 	}
 
 	/**
@@ -68,6 +69,16 @@ class WSU_Admin {
 	 */
 	public function srm_max_redirects() {
 		return 500;
+	}
+
+	/**
+	 * The Events Calendar Pro offers geolocation for venues. While we'll use that, we don't want
+	 * to show a notice on every page of the admin when geopoints need to be generated.
+	 */
+	public function remove_events_calendar_actions() {
+		$tribe_events = TribeEventsGeoLoc::instance();
+		remove_action( 'admin_init', array( $tribe_events, 'maybe_generate_geopoints_for_all_venues' ) );
+		remove_action( 'admin_init', array( $tribe_events, 'maybe_offer_generate_geopoints' ) );
 	}
 }
 new WSU_Admin();
