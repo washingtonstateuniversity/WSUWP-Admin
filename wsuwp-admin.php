@@ -132,6 +132,8 @@ class WSU_Admin {
 		update_option( 'widget_p2_recent_tags', array( 2 => array( 'title' => '', 'num_to_show' => 15 ), '_multiwidget' => 1 ) );
 		update_option( 'widget_p2_recent_comments', array( 2 => array( 'title' => '', 'num_to_show' => 5, 'avatar_size' => 32 ), '_multiwidget' => 1 ) );
 		update_option( 'sidebars_widgets',       array ( 'wp_inactive_widgets' => array (), 'sidebar-1' => array ( 0 => 'search-2', 1 => 'mention_me-2', 2 => 'p2_recent_tags-2', 3 => 'p2_recent_comments-2', 4 => 'recent-posts-2' ), 'sidebar-2' => array (), 'sidebar-3' => array (), 'array_version' => 3 ) );
+
+		wp_cache_delete( 'alloptions', 'options' );
 		restore_current_blog();
 
 		refresh_blog_details( $blog_id );
