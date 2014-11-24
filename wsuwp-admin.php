@@ -100,7 +100,7 @@ class WSU_Admin {
 	 */
 	public function preconfigure_project_site( $blog_id, $user_id, $domain ) {
 		// Only apply these defaults to project sites.
-		if ( 'project.wsu.edu' !== $domain ) {
+		if ( ! in_array( $domain, array( 'project.wsu.edu', 'project.wsu.dev' ) ) ) {
 			return;
 		}
 
@@ -116,13 +116,16 @@ class WSU_Admin {
 		// Restrict access to logged in users only.
 		update_option( 'blog_public', 2 );
 
-		// Replace HTTP with HTTPS in the site and home URLs.
-		$site_url = get_option( 'siteurl' );
-		$site_url = str_replace( 'http://', 'https://', $site_url );
-		update_option( 'siteurl', $site_url );
-		$home_url = get_option( 'home' );
-		$home_url = str_replace( 'http://', 'https://', $home_url );
-		update_option( 'home', $home_url );
+		// We're only prepared for SSL on production.
+		if ( 'project.wsu.edu' === $domain ) {
+			// Replace HTTP with HTTPS in the site and home URLs.
+			$site_url = get_option( 'siteurl' );
+			$site_url = str_replace( 'http://', 'https://', $site_url );
+			update_option( 'siteurl', $site_url );
+			$home_url = get_option( 'home' );
+			$home_url = str_replace( 'http://', 'https://', $home_url );
+			update_option( 'home', $home_url );
+		}
 
 		// Setup common P2 widgets.
 		update_option( 'widget_mention_me', array( 2 => array( 'title' => '', 'num_to_show' => 5, 'avatar_size' => 32, 'show_also_post_followups' => false, 'show_also_comment_followups' => false ), '_multiwidget' => 1 ) );
