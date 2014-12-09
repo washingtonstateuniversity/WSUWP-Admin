@@ -20,6 +20,7 @@ class WSU_Admin {
 		add_filter( 'document_revisions_enable_webdav', '__return_false' );
 		add_action( 'admin_init', array( $this, 'remove_events_calendar_actions' ), 9 );
 		add_action( 'wpmu_new_blog', array( $this, 'preconfigure_project_site' ), 10, 3 );
+		add_action( 'wsuwp_project_flush_rewrite_rules', array( $this, 'flush_rewrite_rules' ), 10 );
 	}
 
 	/**
@@ -133,10 +134,19 @@ class WSU_Admin {
 		update_option( 'widget_p2_recent_comments', array( 2 => array( 'title' => '', 'num_to_show' => 5, 'avatar_size' => 32 ), '_multiwidget' => 1 ) );
 		update_option( 'sidebars_widgets',       array ( 'wp_inactive_widgets' => array (), 'sidebar-1' => array ( 0 => 'search-2', 1 => 'mention_me-2', 2 => 'p2_recent_tags-2', 3 => 'p2_recent_comments-2', 4 => 'recent-posts-2' ), 'sidebar-2' => array (), 'sidebar-3' => array (), 'array_version' => 3 ) );
 
+		wp_schedule_single_event( time() + 5, 'wsuwp_project_flush_rewrite_rules' );
 		wp_cache_delete( 'alloptions', 'options' );
 		restore_current_blog();
 
 		refresh_blog_details( $blog_id );
 	}
+
+	/**
+	 * Flush the rewrite rules on the site.
+	 */
+	public function flush_rewrite_rules() {
+		flush_rewrite_rules();
+	}
+
 }
 new WSU_Admin();
