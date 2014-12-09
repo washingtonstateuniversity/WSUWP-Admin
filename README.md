@@ -4,6 +4,10 @@ A WordPress plugin to customize portions of the admin for Washington State Unive
 
 ## Customizations
 
+### 0.2.3
+
+* Flush rewrite rules on new WSU Project sites.
+
 ### 0.1.1
 
 * Filter a forked WP Document Revisions to remove support for WebDAV
