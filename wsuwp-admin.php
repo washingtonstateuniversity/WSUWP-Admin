@@ -20,6 +20,7 @@ class WSU_Admin {
 		add_filter( 'document_revisions_enable_webdav', '__return_false' );
 		add_action( 'admin_init', array( $this, 'remove_events_calendar_actions' ), 9 );
 		add_action( 'wpmu_new_blog', array( $this, 'preconfigure_project_site' ), 10, 3 );
+		add_action( 'wpmu_new_blog', array( $this, 'preconfigure_sites_site' ), 10, 3 );
 		add_action( 'wsuwp_project_flush_rewrite_rules', array( $this, 'flush_rewrite_rules' ), 10 );
 	}
 
@@ -135,6 +136,49 @@ class WSU_Admin {
 		update_option( 'sidebars_widgets',       array ( 'wp_inactive_widgets' => array (), 'sidebar-1' => array ( 0 => 'search-2', 1 => 'mention_me-2', 2 => 'p2_recent_tags-2', 3 => 'p2_recent_comments-2', 4 => 'recent-posts-2' ), 'sidebar-2' => array (), 'sidebar-3' => array (), 'array_version' => 3 ) );
 
 		wp_schedule_single_event( time() + 5, 'wsuwp_project_flush_rewrite_rules' );
+		wp_cache_delete( 'alloptions', 'options' );
+		restore_current_blog();
+
+		refresh_blog_details( $blog_id );
+	}
+
+	/**
+	 * Preconfigure a student portfolio site to reduce the overall setup experience.
+	 *
+	 *     - Use latest posts instead of page on front.
+	 *     - Restrict to logged in users by default.
+	 *     - Force HTTPS
+	 *
+	 * @param int    $blog_id ID of the site being created.
+	 * @param int    $user_id ID of the user creating the site.
+	 * @param string $domain  Domain of the site being created.
+	 */
+	public function preconfigure_sites_site( $blog_id, $user_id, $domain ) {
+		// Only apply these defaults to sites sites. ;)
+		if ( ! in_array( $domain, array( 'sites.wsu.edu', 'sites.wsu.dev' ) ) ) {
+			return;
+		}
+
+		switch_to_blog( $blog_id );
+
+		// Show posts on the front page rather than a page. Sites are primarily for
+		// student portfolios and will likely have a log format.
+		update_option( 'show_on_front', 'posts' );
+
+		// Restrict access to logged in users only.
+		update_option( 'blog_public', 2 );
+
+		// We're prepared for SSL everywhere on production.
+		if ( 'sites.wsu.edu' === $domain ) {
+			// Replace HTTP with HTTPS in the site and home URLs.
+			$site_url = get_option( 'siteurl' );
+			$site_url = str_replace( 'http://', 'https://', $site_url );
+			update_option( 'siteurl', $site_url );
+			$home_url = get_option( 'home' );
+			$home_url = str_replace( 'http://', 'https://', $home_url );
+			update_option( 'home', $home_url );
+		}
+
 		wp_cache_delete( 'alloptions', 'options' );
 		restore_current_blog();
 
