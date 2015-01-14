@@ -18,7 +18,7 @@ class WSU_Admin {
 		add_action( 'manage_posts_custom_column', array( $this, 'last_updated_column_data' ), 10, 2 );
 		add_filter( 'srm_max_redirects', array( $this, 'srm_max_redirects' ), 10, 1 );
 		add_filter( 'document_revisions_enable_webdav', '__return_false' );
-		add_filter( 'wp_headers', array( $this, 'document_revisions_headers' ), 10, 1 );
+		//add_filter( 'wp_headers', array( $this, 'document_revisions_headers' ), 10, 1 );
 		add_action( 'admin_init', array( $this, 'remove_events_calendar_actions' ), 9 );
 		add_action( 'wpmu_new_blog', array( $this, 'preconfigure_project_site' ), 10, 3 );
 		add_action( 'wpmu_new_blog', array( $this, 'preconfigure_sites_site' ), 10, 3 );
