@@ -224,7 +224,7 @@ class WSU_Admin {
 			return $headers;
 		}
 
-		$headers['Content-Type'] = $mime_type . '; charset=UTF-8';
+		$headers['Content-Type'] = esc_attr( $mime_type ) . '; charset=UTF-8';
 
 		return $headers;
 	}
