@@ -4,6 +4,14 @@ A WordPress plugin to customize portions of the admin for Washington State Unive
 
 ## Customizations
 
+### 0.3.1
+
+* Provide a better `Content-Type` header when serving documents from WP Document Revisions.
+
+### 0.3.0
+
+* Provide default options for any portfolio sites created.
+
 ### 0.2.3
 
 * Flush rewrite rules on new WSU Project sites.
