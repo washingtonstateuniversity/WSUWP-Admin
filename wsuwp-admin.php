@@ -205,14 +205,20 @@ class WSU_Admin {
 	public function document_revisions_headers( $headers ) {
 		/* @var WPDB $wpdb */
 		global $wpdb, $wp;
+
+		// Only modify headers for document revisions.
 		if ( isset( $wp->query_vars['post_type'] ) && 'document' !== $wp->query_vars['post_type'] ) {
 			return $headers;
 		}
 
+		// Retrieve post_content for the post matching this document request. This post_content is really
+		// the ID of the attachment the document is a mask for.
 		$post_id = $wpdb->get_var( $wpdb->prepare( "SELECT post_content FROM $wpdb->posts WHERE post_type='document' AND post_name = %s", sanitize_title( $wp->query_vars['name'] ) ) );
 		if ( empty( absint( $post_id ) ) ) {
 			return $headers;
 		}
+
+		// Retrieve the mime type assigned to the attachment originally.
 		$mime_type = $wpdb->get_var( $wpdb->prepare( "SELECT post_mime_type FROM $wpdb->posts WHERE ID = %d", $post_id ) );
 		if ( empty( $mime_type ) ) {
 			return $headers;
