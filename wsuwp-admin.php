@@ -23,6 +23,8 @@ class WSU_Admin {
 		add_action( 'wpmu_new_blog', array( $this, 'preconfigure_project_site' ), 10, 3 );
 		add_action( 'wpmu_new_blog', array( $this, 'preconfigure_sites_site' ), 10, 3 );
 		add_action( 'wsuwp_project_flush_rewrite_rules', array( $this, 'flush_rewrite_rules' ), 10 );
+		add_filter( 'restricted_site_access_is_restricted', array( $this, 'restrict_access_to_site_members' ), 10 );
+		add_filter( 'restricted_site_access_redirect_url', array( $this, 'restrict_access_redirect_url' ), 10 );
 	}
 
 	/**
@@ -227,6 +229,38 @@ class WSU_Admin {
 		$headers['Content-Type'] = esc_attr( $mime_type ) . '; charset=UTF-8';
 
 		return $headers;
+	}
+
+	/**
+	 * Ensure that access is restricted for platform users who are not also members
+	 * of the site.
+	 *
+	 * @param bool $is_restricted If access is restricted.
+	 *
+	 * @return bool If access is restricted.
+	 */
+	public function restrict_access_to_site_members( $is_restricted ) {
+		if ( 2 == get_option( 'blog_public' ) && false === is_user_member_of_blog() ) {
+			return true;
+		}
+
+		return $is_restricted;
+	}
+
+	/**
+	 * We can't redirect the user to the login prompt if they are already logged in, so redirect
+	 * them to web.wsu.edu.
+	 *
+	 * @param $redirect_url
+	 *
+	 * @return string
+	 */
+	public function restrict_access_redirect_url( $redirect_url ) {
+		if ( 2 == get_option( 'blog_public' ) && is_user_logged_in() && false === is_user_member_of_blog() ) {
+			return 'http://web.wsu.edu';
+		}
+
+		return $redirect_url;
 	}
 }
 new WSU_Admin();
