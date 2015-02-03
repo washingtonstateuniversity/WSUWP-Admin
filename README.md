@@ -4,6 +4,10 @@ A WordPress plugin to customize portions of the admin for Washington State Unive
 
 ## Customizations
 
+### 0.3.4
+
+* Re-provide a better `Content-Type` header when serving documents from WP Document Revisions.
+
 ### 0.3.3
 
 * Restrict site access to members of a site rather than users of the platform.
