@@ -25,6 +25,11 @@ class WSU_Admin {
 		add_action( 'wsuwp_project_flush_rewrite_rules', array( $this, 'flush_rewrite_rules' ), 10 );
 		add_filter( 'restricted_site_access_is_restricted', array( $this, 'restrict_access_to_site_members' ), 10 );
 		add_filter( 'restricted_site_access_redirect_url', array( $this, 'restrict_access_redirect_url' ), 10 );
+
+		// Don't send submit for review emails in Duplicate and Merge Posts.
+		add_filter( 'duplicate_post_notification_message', '__return_false' );
+		// Don't enable the submit for review feature in Duplicate and Merge Posts.
+		add_filter( 'duplicate_post_allow_submit_for_review', '__return_false' );
 	}
 
 	/**
