@@ -59,13 +59,16 @@ class WSU_Admin {
 		// Retrieve the last revision for this post, which should also be the last updated record.
 		$revisions = wp_get_post_revisions( $post_id, array( 'numberposts' => 1 ) );
 
+		// Calculate the last updated display based on our current timezone.
+		$current_time = time() + ( get_option( 'gmt_offset', 0 ) * HOUR_IN_SECONDS );
+
 		foreach ( $revisions as $revision ) {
 			echo get_the_author_meta('display_name', $revision->post_author );
 			echo '<br>';
 
 			// If within 24 hours, show a human readable version instead
-			if ( ( time() - strtotime( $revision->post_date ) ) < DAY_IN_SECONDS ) {
-				echo human_time_diff( time(), strtotime( $revision->post_date ) ) . ' ago';
+			if ( ( $current_time - strtotime( $revision->post_date ) ) < DAY_IN_SECONDS ) {
+				echo human_time_diff( $current_time, strtotime( $revision->post_date ) ) . ' ago';
 			} else {
 				echo date( 'Y/m/d', strtotime( $revision->post_date ) );
 			}
