@@ -30,6 +30,8 @@ class WSU_Admin {
 		add_filter( 'duplicate_post_notification_message', '__return_false' );
 		// Don't enable the submit for review feature in Duplicate and Merge Posts.
 		add_filter( 'duplicate_post_allow_submit_for_review', '__return_false' );
+
+		add_filter( 'http_request_args', array( $this, 'hide_custom_themes_from_update_check' ), 10, 2 );
 	}
 
 	/**
@@ -283,6 +285,30 @@ class WSU_Admin {
 		}
 
 		return $redirect_url;
+	}
+
+	/**
+	 * Catch any checks for theme updates and remove our custom themes from the object. We don't
+	 * want to deal with false positives because of themes in the repository with the same slug.
+	 *
+	 * @param array  $r   Arguments being passed to this HTTP request.
+	 * @param string $url URL being used for the HTTP request.
+	 *
+	 * @return array Modified list of arguments.
+	 */
+	public function hide_custom_themes_from_update_check( $r, $url ) {
+		if ( 0 !== strpos( $url, 'https://api.wordpress.org/themes/update-check' ) ) {
+			return $r;
+		}
+
+		$themes = json_decode( $r['body']['themes'] );
+
+		unset( $themes->themes->spine );
+		unset( $themes->themes->brand );
+
+		$r['body']['themes'] = json_encode( $themes );
+
+		return $r;
 	}
 }
 new WSU_Admin();
