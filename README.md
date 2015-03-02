@@ -8,6 +8,14 @@ A WordPress plugin to customize portions of the admin for Washington State Unive
 
 * Exclude some custom themes from the WordPress theme update check.
 
+### 0.3.6
+
+* Fix bug in last modified date offset, introduced in 0.0.1
+
+### 0.3.5
+
+* Add filters to support new Duplicate and Merge Posts plugin
+
 ### 0.3.4
 
 * Re-provide a better `Content-Type` header when serving documents from WP Document Revisions.
