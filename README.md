@@ -4,6 +4,10 @@ A WordPress plugin to customize portions of the admin for Washington State Unive
 
 ## Customizations
 
+### 0.3.8
+
+* Register taxonomies from University Taxonomy to content types created by University Center.
+
 ### 0.3.7
 
 * Exclude some custom themes from the WordPress theme update check.

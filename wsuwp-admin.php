@@ -32,6 +32,8 @@ class WSU_Admin {
 		add_filter( 'duplicate_post_allow_submit_for_review', '__return_false' );
 
 		add_filter( 'http_request_args', array( $this, 'hide_custom_themes_from_update_check' ), 10, 2 );
+
+		add_action( 'init', array( $this, 'register_university_center_taxonomies' ), 20 );
 	}
 
 	/**
@@ -309,6 +311,20 @@ class WSU_Admin {
 		$r['body']['themes'] = json_encode( $themes );
 
 		return $r;
+	}
+
+	/**
+	 * Register our central taxonomies as applicable to the content types created by
+	 * the University Center plugin.
+	 */
+	public function register_university_center_taxonomies() {
+		if ( function_exists( 'wsuwp_uc_get_object_type_slugs' ) ) {
+			$uc_content_types = wsuwp_uc_get_object_type_slugs();
+			foreach( $uc_content_types as $uc_content_type ) {
+				register_taxonomy_for_object_type( 'wsuwp_university_category', $uc_content_type );
+				register_taxonomy_for_object_type( 'wsuwp_university_location', $uc_content_type );
+			}
+		}
 	}
 }
 new WSU_Admin();
