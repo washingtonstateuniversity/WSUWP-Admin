@@ -35,6 +35,9 @@ class WSU_Admin {
 
 		add_action( 'init', array( $this, 'register_university_center_taxonomies' ), 20 );
 		add_filter( 'wp_redirect', array( $this, 'prevent_unauthorized_plugin_redirect' ) );
+		add_filter( 'option_wpseo', array( $this, 'filter_wpseo_options' ) );
+		add_filter( 'wpseo_submenu_pages', array( $this, 'filter_wpseo_submenu' ) );
+		add_action( 'init', array( $this, 'remove_wpseo_admin_bar_menu' ), 99 );
 	}
 
 	/**
@@ -343,6 +346,56 @@ class WSU_Admin {
 		}
 
 		return $location;
+	}
+
+	/**
+	 * Provide overriding options for some WordPress SEO settings.
+	 *
+	 * @param array $option
+	 *
+	 * @return array
+	 */
+	public function filter_wpseo_options( $option ) {
+		$override = array(
+			'ignore_tour' => true,
+			'tracking_popup_done' => true,
+			'seen_about' => true,
+			'yoast_tracking' => false,
+			'disableadvanced_meta' => true,
+		);
+		$option = wp_parse_args( $override, $option );
+
+		return $option;
+	}
+
+	/**
+	 * Remove the advanced and licenses sub-menus from WordPress SEO as access to
+	 * these is not necessary throughout the platform.
+	 *
+	 * @param array $menu
+	 *
+	 * @return array
+	 */
+	public function filter_wpseo_submenu( $menu ) {
+		foreach ( $menu as $key => $val ) {
+			if ( isset( $val[4] ) && 'wpseo_advanced' === $val[4] ) {
+				unset( $menu[ $key ] );
+			}
+
+			if ( isset( $val[4] ) && 'wpseo_licenses' === $val[4] ) {
+				unset( $menu[ $key ] );
+			}
+		}
+
+		return $menu;
+	}
+
+	/**
+	 * Remove the admin bar menu inserted by WordPress SEO. Ours is too
+	 * custom to accomodate this.
+	 */
+	public function remove_wpseo_admin_bar_menu() {
+		remove_action( 'admin_bar_menu', 'wpseo_admin_bar_menu', 95 );
 	}
 }
 new WSU_Admin();
