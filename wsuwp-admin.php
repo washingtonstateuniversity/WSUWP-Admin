@@ -34,6 +34,7 @@ class WSU_Admin {
 		add_filter( 'http_request_args', array( $this, 'hide_custom_themes_from_update_check' ), 10, 2 );
 
 		add_action( 'init', array( $this, 'register_university_center_taxonomies' ), 20 );
+		add_filter( 'wp_redirect', array( $this, 'prevent_unauthorized_plugin_redirect' ) );
 	}
 
 	/**
@@ -325,6 +326,23 @@ class WSU_Admin {
 				register_taxonomy_for_object_type( 'wsuwp_university_location', $uc_content_type );
 			}
 		}
+	}
+
+	/**
+	 * Prevent unauthorized redirects from some plugins.
+	 *
+	 * @param string $location The URL string for redirect.
+	 *
+	 * @return bool|string False if a redirect is not desired. The original string if it is.
+	 */
+	public function prevent_unauthorized_plugin_redirect( $location ) {
+		$avoid_url = admin_url( 'admin.php?page=wpseo_dashboard&intro=1' );
+
+		if ( $location === $avoid_url ) {
+			return false;
+		}
+
+		return $location;
 	}
 }
 new WSU_Admin();
