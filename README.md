@@ -4,6 +4,10 @@ A WordPress plugin to customize portions of the admin for Washington State Unive
 
 ## Customizations
 
+### 0.5.1
+
+* Revert changes from 0.3.3 and allow global users access to restricted sites temporarily while we develop less of a hammer.
+
 ### 0.5.0
 
 * Manually override the display of a plugins list to restrict some plugins.
