@@ -38,6 +38,7 @@ class WSU_Admin {
 		add_filter( 'option_wpseo', array( $this, 'filter_wpseo_options' ) );
 		add_filter( 'wpseo_submenu_pages', array( $this, 'filter_wpseo_submenu' ) );
 		add_action( 'init', array( $this, 'remove_wpseo_admin_bar_menu' ), 99 );
+		add_filter( 'all_plugins', array( $this, 'all_plugins' ), 10 );
 	}
 
 	/**
@@ -396,6 +397,46 @@ class WSU_Admin {
 	 */
 	public function remove_wpseo_admin_bar_menu() {
 		remove_action( 'admin_bar_menu', 'wpseo_admin_bar_menu', 95 );
+	}
+
+	/**
+	 * Manage a poor, manual access list for some plugins.
+	 *
+	 * @param array $plugins List of plugins found.
+	 *
+	 * @return array Modified list of plugins.
+	 */
+	public function all_plugins( $plugins ) {
+		global $current_blog;
+
+		$site_only_plugins = array(
+			'buddypress/bp-loader.php',
+		);
+
+		$bp_allowed_sites = array(
+			'dev.hub.wsu.edu/murrow/',
+			'hub.wsu.edu/murrow-alumni/',
+		);
+
+		/**
+		 * Some plugins should not be network activated.
+		 */
+		if ( is_network_admin() ) {
+			foreach( $site_only_plugins as $site_only_plugin ) {
+				if ( isset( $plugins[ $site_only_plugin ] ) ) {
+					unset( $plugins[ $site_only_plugin ] );
+				}
+			}
+		}
+
+		/**
+		 * BuddyPress is only allowed on specific sites at the moment.
+		 */
+		if ( ! in_array( $current_blog->domain . $current_blog->path, $bp_allowed_sites ) && isset( $plugins['buddypress/bp-loader.php'] ) ) {
+			unset( $plugins['buddypress/bp-loader.php'] );
+		}
+
+		return $plugins;
 	}
 }
 new WSU_Admin();
