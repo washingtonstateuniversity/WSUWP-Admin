@@ -4,6 +4,10 @@ A WordPress plugin to customize portions of the admin for Washington State Unive
 
 ## Customizations
 
+### 0.5.0
+
+* Manually override the display of a plugins list to restrict some plugins.
+
 ### 0.4.0
 
 * Introduce support for WordPress SEO and provide several forced customizations.
