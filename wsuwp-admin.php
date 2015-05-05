@@ -416,6 +416,7 @@ class WSU_Admin {
 		$bp_allowed_sites = array(
 			'dev.hub.wsu.edu/murrow/',
 			'hub.wsu.edu/murrow-alumni/',
+			'connect.murrow.wsu.edu/',
 		);
 
 		/**
