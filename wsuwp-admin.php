@@ -39,6 +39,8 @@ class WSU_Admin {
 		add_filter( 'wpseo_submenu_pages', array( $this, 'filter_wpseo_submenu' ) );
 		add_action( 'init', array( $this, 'remove_wpseo_admin_bar_menu' ), 99 );
 		add_filter( 'all_plugins', array( $this, 'all_plugins' ), 10 );
+
+		add_filter( 'user_has_cap', array( $this, 'user_can_switch_users' ), 10, 4 );
 	}
 
 	/**
@@ -438,6 +440,28 @@ class WSU_Admin {
 		}
 
 		return $plugins;
+	}
+
+	/**
+	 * Determine if the user can switch users using the user switching plugin.
+	 *
+	 * @param array   $allcaps All capabilities set for the user right now.
+	 * @param array   $caps    The capabilities being checked.
+	 * @param array   $args    Arguments passed with the has_cap() call.
+	 * @param WP_User $user    The current user being checked.
+	 *
+	 * @return array Modified list of capabilities for the user.
+	 */
+	public function user_can_switch_users( $allcaps, $caps, $args, $user ) {
+		if ( 'switch_to_user' === $args[0] ) {
+			if ( $user && wsuwp_is_global_admin( $user->ID  ) ) {
+				$allcaps['switch_to_user'] = true;
+			} else {
+				unset( $allcaps['switch_to_user'] );
+			}
+		}
+
+		return $allcaps;
 	}
 }
 new WSU_Admin();
