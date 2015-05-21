@@ -4,6 +4,10 @@ A WordPress plugin to customize portions of the admin for Washington State Unive
 
 ## Customizations
 
+### 0.5.3
+
+* Add support for the User Switching plugin and only allow global admins access.
+
 ### 0.5.2
 
 * Add connect.murrow.wsu.edu as an allowed BuddyPress site.
