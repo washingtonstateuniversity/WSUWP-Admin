@@ -413,6 +413,13 @@ class WSU_Admin {
 
 		$site_only_plugins = array(
 			'buddypress/bp-loader.php',
+			'wsuwp-json-web-template/wsuwp-json-web-template.php',
+		);
+
+		$wt_allowed_sites = array(
+			'dev.admission.wsu.edu/',
+			'stage.admission.wsu.edu/',
+			'admission.wsu.edu/',
 		);
 
 		$bp_allowed_sites = array(
@@ -437,6 +444,13 @@ class WSU_Admin {
 		 */
 		if ( ! in_array( $current_blog->domain . $current_blog->path, $bp_allowed_sites ) && isset( $plugins['buddypress/bp-loader.php'] ) ) {
 			unset( $plugins['buddypress/bp-loader.php'] );
+		}
+
+		/**
+		 * WSUWP JSON Web Template is only allowed on specific sites at the moment.
+		 */
+		if ( ! in_array( $current_blog->domain . $current_blog->path, $wt_allowed_sites ) && isset( $plugins['wsuwp-json-web-template/wsuwp-json-web-template.php'] ) ) {
+			unset( $plugins['wsuwp-json-web-template/wsuwp-json-web-template.php'] );
 		}
 
 		return $plugins;
