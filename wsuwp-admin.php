@@ -414,6 +414,7 @@ class WSU_Admin {
 		$site_only_plugins = array(
 			'buddypress/bp-loader.php',
 			'wsuwp-json-web-template/wsuwp-json-web-template.php',
+			'co-authors-plus/co-authors-plus.php',
 		);
 
 		$wt_allowed_sites = array(
@@ -426,6 +427,14 @@ class WSU_Admin {
 			'dev.hub.wsu.edu/murrow/',
 			'hub.wsu.edu/murrow-alumni/',
 			'connect.murrow.wsu.edu/',
+		);
+
+		$cap_allowed_sites = array(
+			'dev.magazine.wsu.edu/',
+			'magazine.wsu.edu/',
+			'stage.magazine.wsu.edu/',
+			'wp.wsu.dev/',
+			'wp.wsu.dev/magazine/',
 		);
 
 		/**
@@ -451,6 +460,13 @@ class WSU_Admin {
 		 */
 		if ( ! in_array( $current_blog->domain . $current_blog->path, $wt_allowed_sites ) && isset( $plugins['wsuwp-json-web-template/wsuwp-json-web-template.php'] ) ) {
 			unset( $plugins['wsuwp-json-web-template/wsuwp-json-web-template.php'] );
+		}
+
+		/**
+		 * Co Authors Plus is only allowed on specific sites at the moment.
+		 */
+		if ( ! in_array( $current_blog->domain . $current_blog->path, $cap_allowed_sites ) && isset( $plugins['co-authors-plus/co-authors-plus.php'] ) ) {
+			unset( $plugins['co-authors-plus/co-authors-plus.php'] );
 		}
 
 		return $plugins;
