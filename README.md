@@ -4,6 +4,10 @@ A WordPress plugin to customize portions of the admin for Washington State Unive
 
 ## Customizations
 
+### 0.5.7
+
+* Account for auto-users via manual option.
+
 ### 0.5.6
 
 * Resolve possible bug when serving document revisions.
