@@ -250,6 +250,12 @@ class WSU_Admin {
 		remove_action( 'template_redirect', 'json_output_link_header', 11, 0 );
 
 		$file = get_attached_file( $post_id );
+
+		// No file exists to load.
+		if ( empty( $file ) ) {
+			return $headers;
+		}
+
 		$mime_type = mime_content_type( $file );
 		$file_size = filesize( $file );
 		if ( empty( $mime_type ) ) {
