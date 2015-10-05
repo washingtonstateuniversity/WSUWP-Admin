@@ -4,6 +4,10 @@ A WordPress plugin to customize portions of the admin for Washington State Unive
 
 ## Customizations
 
+### 0.5.6
+
+* Resolve possible bug when serving document revisions.
+
 ### 0.5.5
 
 * Add support for and restrict access to Co Authors Plus.
