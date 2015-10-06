@@ -220,16 +220,49 @@ class WSU_Admin {
 	}
 
 	/**
+	 * Check if the entry of a password is still required for a document.
+	 *
+	 * This is a duplicate of the WordPress function and is used only because
+	 * we don't have a proper `$post` object built with `post_password`
+	 * included when we need to do our check.
+	 *
+	 * @see WordPress post_password_required()
+	 *
+	 * @param string $post_password Password possibly assigned to a post.
+	 *
+	 * @return bool True if a password is required. False if not.
+	 */
+	private function post_password_required( $post_password ) {
+		if ( empty( $post_password ) ) {
+			return false;
+		}
+
+		if ( ! isset( $_COOKIE['wp-postpass_' . COOKIEHASH] ) ) {
+			return true;
+		}
+
+		require_once ABSPATH . WPINC . '/class-phpass.php';
+		$hasher = new PasswordHash( 8, true );
+
+		$hash = wp_unslash( $_COOKIE[ 'wp-postpass_' . COOKIEHASH ] );
+		if ( 0 !== strpos( $hash, '$P$B' ) )
+			return true;
+
+		return ! $hasher->CheckPassword( $post_password, $hash );
+	}
+
+	/**
 	 * Determine what Content-Type header should be sent with a document revisions
 	 * request. If we don't filter this, text/html is used by default as WordPress
 	 * sets the header before the WP Document Revisions plugin is able to.
+	 *
+	 * @global wpdb $wpdb
 	 *
 	 * @param array $headers List of headers currently set for this request.
 	 *
 	 * @return array Modified list of headers.
 	 */
 	public function document_revisions_headers( $headers ) {
-		/* @var WPDB $wpdb */
 		global $wpdb, $wp;
 
 		if ( 'documents/([0-9]{4})/([0-9]{1,2})/([^.]+)\.[A-Za-z0-9]{3,4}/?$' !== $wp->matched_rule ) {
@@ -243,16 +276,24 @@ class WSU_Admin {
 
 		// Retrieve post_content for the post matching this document request. This post_content is really
 		// the ID of the attachment the document is a mask for.
-		$post_id = $wpdb->get_var( $wpdb->prepare( "SELECT post_content FROM $wpdb->posts WHERE post_type='document' AND post_name = %s", sanitize_title( $wp->query_vars['name'] ) ) );
+		$post_data = $wpdb->get_row( $wpdb->prepare( "SELECT post_content, post_password FROM $wpdb->posts WHERE post_type='document' AND post_name = %s", sanitize_title( $wp->query_vars['name'] ) ) );
+		$post_id = absint( $post_data->post_content );
+		$post_password = $post_data->post_password;
+
 		if ( empty( absint( $post_id ) ) ) {
 			return $headers;
 		}
 
-		// Remove the default WordPress Link header.
-		remove_action( 'template_redirect', 'wp_shortlink_header', 11, 0 );
+		// If the document has a password assigned and the cookie does not exist, don't modify.
+		if ( $this->post_password_required( $post_password ) ) {
+			return $headers;
+		}
 
-		// Remove the WP-API LINK header
-		remove_action( 'template_redirect', 'json_output_link_header', 11, 0 );
+		// Remove the default WordPress Link header.
+		remove_action( 'template_redirect', 'wp_shortlink_header', 11 );
+
+		// Remove the WP-API LINK header.
+		remove_action( 'template_redirect', 'json_output_link_header', 11 );
 
 		$file = get_attached_file( $post_id );
 
