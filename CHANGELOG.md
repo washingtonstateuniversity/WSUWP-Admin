@@ -1,5 +1,11 @@
 # WSUWP Admin Changelog
 
+### 0.5.8
+
+* Fix bug where documents could not be password protected.
+* Prevent WordPress from attempting to drop tables when deleting a site.
+* Clean-up unused code.
+
 ### 0.5.7
 
 * Account for auto-users via manual option.
