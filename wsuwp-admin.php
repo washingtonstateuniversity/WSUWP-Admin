@@ -249,10 +249,10 @@ class WSU_Admin {
 		}
 
 		// Remove the default WordPress Link header.
-		remove_action( 'template_redirect', 'wp_shortlink_header', 11, 0 );
+		remove_action( 'template_redirect', 'wp_shortlink_header', 11 );
 
 		// Remove the WP-API LINK header
-		remove_action( 'template_redirect', 'json_output_link_header', 11, 0 );
+		remove_action( 'template_redirect', 'json_output_link_header', 11 );
 
 		$file = get_attached_file( $post_id );
 
