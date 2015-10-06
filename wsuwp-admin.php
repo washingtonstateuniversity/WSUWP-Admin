@@ -256,12 +256,13 @@ class WSU_Admin {
 	 * request. If we don't filter this, text/html is used by default as WordPress
 	 * sets the header before the WP Document Revisions plugin is able to.
 	 *
+	 * @global wpdb $wpdb
+	 *
 	 * @param array $headers List of headers currently set for this request.
 	 *
 	 * @return array Modified list of headers.
 	 */
 	public function document_revisions_headers( $headers ) {
-		/* @var WPDB $wpdb */
 		global $wpdb, $wp;
 
 		if ( 'documents/([0-9]{4})/([0-9]{1,2})/([^.]+)\.[A-Za-z0-9]{3,4}/?$' !== $wp->matched_rule ) {
@@ -291,7 +292,7 @@ class WSU_Admin {
 		// Remove the default WordPress Link header.
 		remove_action( 'template_redirect', 'wp_shortlink_header', 11 );
 
-		// Remove the WP-API LINK header
+		// Remove the WP-API LINK header.
 		remove_action( 'template_redirect', 'json_output_link_header', 11 );
 
 		$file = get_attached_file( $post_id );
