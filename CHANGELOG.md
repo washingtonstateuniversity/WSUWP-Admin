@@ -1,5 +1,9 @@
 # WSUWP Admin Changelog
 
+### 0.5.9
+
+* Port page and media taxonomy registration from WSUWP Platform.
+
 ### 0.5.8
 
 * Fix bug where documents could not be password protected.
