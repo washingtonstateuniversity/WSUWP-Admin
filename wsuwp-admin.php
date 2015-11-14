@@ -31,7 +31,11 @@ class WSU_Admin {
 
 		add_filter( 'http_request_args', array( $this, 'hide_custom_themes_from_update_check' ), 10, 2 );
 
+		// Taxonomy related hooks.
+		add_action( 'init', array( $this, 'add_taxonomies_to_pages' ) );
+		add_action( 'init', array( $this, 'add_taxonomies_to_media' ) );
 		add_action( 'init', array( $this, 'register_university_center_taxonomies' ), 20 );
+
 		add_filter( 'wp_redirect', array( $this, 'prevent_unauthorized_plugin_redirect' ) );
 		add_filter( 'option_wpseo', array( $this, 'filter_wpseo_options' ) );
 		add_filter( 'wpseo_submenu_pages', array( $this, 'filter_wpseo_submenu' ) );
@@ -336,6 +340,22 @@ class WSU_Admin {
 		$r['body']['themes'] = json_encode( $themes );
 
 		return $r;
+	}
+
+	/**
+	 * Register built in taxonomies - Categories and Tags - to pages.
+	 */
+	public function add_taxonomies_to_pages() {
+		register_taxonomy_for_object_type( 'category', 'page' );
+		register_taxonomy_for_object_type( 'post_tag', 'page' );
+	}
+
+	/**
+	 * Register built in taxonomies - Categories and Tags - to media.
+	 */
+	public function add_taxonomies_to_media() {
+		register_taxonomy_for_object_type( 'category', 'attachment' );
+		register_taxonomy_for_object_type( 'post_tag', 'attachment' );
 	}
 
 	/**
