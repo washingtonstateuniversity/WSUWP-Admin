@@ -1,5 +1,9 @@
 # WSUWP Admin Changelog
 
+### 0.5.10
+
+* Adjust default functionality provided by Shortcake Bakery.
+
 ### 0.5.9
 
 * Port page and media taxonomy registration from WSUWP Platform.
