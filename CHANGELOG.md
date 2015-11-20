@@ -1,5 +1,9 @@
 # WSUWP Admin Changelog
 
+### 0.5.11
+
+* Fix a bug introduced in 0.5.10 that makes everything crash horribly due to a missing class.
+
 ### 0.5.10
 
 * Adjust default functionality provided by Shortcake Bakery.
