@@ -590,7 +590,9 @@ class WSU_Admin {
 	 * "Insert Media" button.
 	 */
 	public function remove_shortcode_bakery_embed_button() {
-		remove_action( 'media_buttons', array( Shortcake_Bakery::get_instance(), 'action_media_buttons' ) );
+		if ( class_exists( 'Shortcake_Bakery' ) ) {
+			remove_action( 'media_buttons', array( Shortcake_Bakery::get_instance(), 'action_media_buttons' ) );
+		}
 	}
 }
 new WSU_Admin();
