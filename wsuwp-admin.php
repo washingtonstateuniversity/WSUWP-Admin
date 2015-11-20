@@ -48,6 +48,10 @@ class WSU_Admin {
 
 		// Prevent WordPress from dropping tables for a deleted site.
 		add_filter( 'wpmu_drop_tables', '__return_empty_array' );
+
+		// Adjust defaults included with Shortcake Bakery
+		add_filter( 'shortcake_bakery_shortcode_classes', array( $this, 'filter_shortcake_bakery_shortcodes' ) );
+		add_action( 'after_setup_theme', array( $this, 'remove_shortcode_bakery_embed_button' ), 999 );
 	}
 
 	/**
@@ -547,6 +551,46 @@ class WSU_Admin {
 		}
 
 		return false;
+	}
+
+	/**
+	 * Filter the default list of shortcodes provided by the Shortcake Bakery plugin.
+	 *
+	 * @return array
+	 */
+	public function filter_shortcake_bakery_shortcodes() {
+		return array(
+			// 'Shortcake_Bakery\Shortcodes\ABC_News',
+			// 'Shortcake_Bakery\Shortcodes\Facebook',
+			'Shortcake_Bakery\Shortcodes\Flickr',
+			'Shortcake_Bakery\Shortcodes\Giphy',
+			// 'Shortcake_Bakery\Shortcodes\Guardian',
+			// 'Shortcake_Bakery\Shortcodes\Iframe',
+			'Shortcake_Bakery\Shortcodes\Image_Comparison',
+			'Shortcake_Bakery\Shortcodes\Infogram',
+			'Shortcake_Bakery\Shortcodes\Instagram',
+			'Shortcake_Bakery\Shortcodes\Livestream',
+			// 'Shortcake_Bakery\Shortcodes\Rap_Genius',
+			'Shortcake_Bakery\Shortcodes\PDF',
+			// 'Shortcake_Bakery\Shortcodes\Playbuzz',
+			'Shortcake_Bakery\Shortcodes\Scribd',
+			// 'Shortcake_Bakery\Shortcodes\Script',
+			// 'Shortcake_Bakery\Shortcodes\Silk',
+			'Shortcake_Bakery\Shortcodes\SoundCloud',
+			'Shortcake_Bakery\Shortcodes\Twitter',
+			// 'Shortcake_Bakery\Shortcodes\Videoo',
+			'Shortcake_Bakery\Shortcodes\Vimeo',
+			'Shortcake_Bakery\Shortcodes\Vine',
+			'Shortcake_Bakery\Shortcodes\YouTube',
+		);
+	}
+
+	/**
+	 * Remove the "Insert Embed" button added by Shortcake Bakery and defer to the standard
+	 * "Insert Media" button.
+	 */
+	public function remove_shortcode_bakery_embed_button() {
+		remove_action( 'media_buttons', array( Shortcake_Bakery::get_instance(), 'action_media_buttons' ) );
 	}
 }
 new WSU_Admin();
