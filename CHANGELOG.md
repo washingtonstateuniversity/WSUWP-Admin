@@ -1,5 +1,9 @@
 # WSUWP Admin Changelog
 
+### 0.6.0
+
+* Add a `spine_option` command for WP-CLI to allow for the retrieval of specific Spine options at the command line.
+
 ### 0.5.11
 
 * Fix a bug introduced in 0.5.10 that makes everything crash horribly due to a missing class.
