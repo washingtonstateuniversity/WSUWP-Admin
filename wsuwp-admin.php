@@ -12,6 +12,10 @@ class WSU_Admin {
 	 * Setup hooks.
 	 */
 	public function __construct() {
+		if ( defined('WP_CLI') && WP_CLI ) {
+			include __DIR__ . '/includes/wp-cli-spine-option.php';
+		}
+
 		add_filter( 'manage_pages_columns', array( $this, 'add_last_updated_column' ) );
 		add_filter( 'manage_posts_columns', array( $this, 'add_last_updated_column' ) );
 		add_action( 'manage_pages_custom_column', array( $this, 'last_updated_column_data' ), 10, 2 );
