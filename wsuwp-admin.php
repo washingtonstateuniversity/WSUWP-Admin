@@ -345,6 +345,10 @@ class WSU_Admin {
 		unset( $themes->themes->spine );
 		unset( $themes->themes->brand );
 
+		// Non-Spine CAHNRS Themes
+		unset( $themes->themes->wsu );
+		unset( $themes->themes->wip );
+
 		$r['body']['themes'] = json_encode( $themes );
 
 		return $r;
