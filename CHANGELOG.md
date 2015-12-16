@@ -1,5 +1,9 @@
 # WSUWP Admin Changelog
 
+### 0.6.1
+
+* Add CAHNRS `wip` and `wsu` themes to the API update exclude list.
+
 ### 0.6.0
 
 * Add a `spine_option` command for WP-CLI to allow for the retrieval of specific Spine options at the command line.
