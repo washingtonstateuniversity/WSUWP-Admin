@@ -1,5 +1,9 @@
 # WSUWP Admin Changelog
 
+### 0.6.4
+
+* Actually remove cache related headers for 404 requests as promised in 0.6.2.
+
 ### 0.6.3
 
 * Fix `$this` bug introduced in 0.6.2
