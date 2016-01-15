@@ -56,6 +56,8 @@ class WSU_Admin {
 		// Adjust defaults included with Shortcake Bakery
 		add_filter( 'shortcake_bakery_shortcode_classes', array( $this, 'filter_shortcake_bakery_shortcodes' ) );
 		add_action( 'after_setup_theme', array( $this, 'remove_shortcode_bakery_embed_button' ), 999 );
+
+		add_filter( 'wp_headers', array( $this, 'filter_404_cache_headers' ), 10, 2 );
 	}
 
 	/**
@@ -601,6 +603,27 @@ class WSU_Admin {
 		if ( class_exists( 'Shortcake_Bakery' ) ) {
 			remove_action( 'media_buttons', array( Shortcake_Bakery::get_instance(), 'action_media_buttons' ) );
 		}
+	}
+
+	/**
+	 * Remove default "no cache headers" added by WordPress for 404 pages.
+	 *
+	 * @param $headers
+	 * @param $this
+	 *
+	 * @return mixed
+	 */
+	public function filter_404_cache_headers( $headers, $this ) {
+		if ( ! empty( $this->query_vars[ 'error'] ) ) {
+			$status = (int) $this->query_vars['error'];
+			if ( 404 === $status ) {
+				unset( $headers[ 'Expires' ] );
+				unset( $headers[ 'Cache-Control' ] );
+				unset( $headers[ 'Pragma' ] );
+			}
+		}
+
+		return $headers;
 	}
 }
 new WSU_Admin();
