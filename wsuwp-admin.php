@@ -609,13 +609,13 @@ class WSU_Admin {
 	 * Remove default "no cache headers" added by WordPress for 404 pages.
 	 *
 	 * @param $headers
-	 * @param $this
+	 * @param $request
 	 *
 	 * @return mixed
 	 */
-	public function filter_404_cache_headers( $headers, $this ) {
-		if ( ! empty( $this->query_vars[ 'error'] ) ) {
-			$status = (int) $this->query_vars['error'];
+	public function filter_404_cache_headers( $headers, $request ) {
+		if ( ! empty( $request->query_vars[ 'error'] ) ) {
+			$status = (int) $request->query_vars['error'];
 			if ( 404 === $status ) {
 				unset( $headers[ 'Expires' ] );
 				unset( $headers[ 'Cache-Control' ] );
