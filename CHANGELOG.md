@@ -1,5 +1,9 @@
 # WSUWP Admin Changelog
 
+### 0.6.2
+
+* Remove cache related headers for 404 requests so that Batcache and Nginx can determine cache status.
+
 ### 0.6.1
 
 * Add CAHNRS `wip` and `wsu` themes to the API update exclude list.
