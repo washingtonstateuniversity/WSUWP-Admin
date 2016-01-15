@@ -57,7 +57,7 @@ class WSU_Admin {
 		add_filter( 'shortcake_bakery_shortcode_classes', array( $this, 'filter_shortcake_bakery_shortcodes' ) );
 		add_action( 'after_setup_theme', array( $this, 'remove_shortcode_bakery_embed_button' ), 999 );
 
-		add_filter( 'wp_headers', array( $this, 'filter_404_cache_headers' ), 10, 2 );
+		add_filter( 'nocache_headers', array( $this, 'filter_404_no_cache_headers' ), 10 );
 	}
 
 	/**
@@ -609,18 +609,16 @@ class WSU_Admin {
 	 * Remove default "no cache headers" added by WordPress for 404 pages.
 	 *
 	 * @param $headers
-	 * @param $request
 	 *
 	 * @return mixed
 	 */
-	public function filter_404_cache_headers( $headers, $request ) {
-		if ( ! empty( $request->query_vars[ 'error'] ) ) {
-			$status = (int) $request->query_vars['error'];
-			if ( 404 === $status ) {
-				unset( $headers[ 'Expires' ] );
-				unset( $headers[ 'Cache-Control' ] );
-				unset( $headers[ 'Pragma' ] );
-			}
+	public function filter_404_no_cache_headers( $headers ) {
+		global $wp_query;
+
+		if ( $wp_query->is_404 && isset( $headers['Pragma'] ) ) {
+			unset( $headers[ 'Expires' ] );
+			unset( $headers[ 'Cache-Control' ] );
+			unset( $headers[ 'Pragma' ] );
 		}
 
 		return $headers;
