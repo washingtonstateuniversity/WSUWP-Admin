@@ -1,5 +1,9 @@
 # WSUWP Admin Changelog
 
+### 0.6.3
+
+* Fix `$this` bug introduced in 0.6.2
+
 ### 0.6.2
 
 * Remove cache related headers for 404 requests so that Batcache and Nginx can determine cache status.
