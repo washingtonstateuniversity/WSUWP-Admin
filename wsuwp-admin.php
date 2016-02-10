@@ -4,7 +4,7 @@ Plugin Name: WSU Admin
 Plugin URI: https://web.wsu.edu/
 Description: Customized portions of the admin area of WordPress for Washington State University
 Author: washingtonstateuniversity, jeremyfelt
-Version: 0.6.5
+Version: 0.6.6
 */
 
 class WSU_Admin {

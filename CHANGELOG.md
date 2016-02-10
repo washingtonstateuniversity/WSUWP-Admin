@@ -4,6 +4,14 @@
 
 * Transfer removal of Events Calendar geolocation action to our WSU Extended Events Calendar plugin.
 
+### 0.6.6
+
+* Remove the WSU People Directory from the list of available site plugins.
+
+### 0.6.5
+
+* Transfer removal of Events Calendar action to Extended Events plugin
+
 ### 0.6.4
 
 * Actually remove cache related headers for 404 requests as promised in 0.6.2.
