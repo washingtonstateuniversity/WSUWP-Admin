@@ -476,6 +476,13 @@ class WSU_Admin {
 			'wp.wsu.dev/magazine/',
 		);
 
+		$people_allowed_sites = array(
+			'dev.people.wsu.edu/',
+			'people.wsu.edu/',
+			'wp.wsu.dev/',
+			'people.wsu.dev/',
+		);
+
 		/**
 		 * Some plugins should not be network activated.
 		 */
@@ -506,6 +513,13 @@ class WSU_Admin {
 		 */
 		if ( ! in_array( $current_blog->domain . $current_blog->path, $cap_allowed_sites ) && isset( $plugins['co-authors-plus/co-authors-plus.php'] ) ) {
 			unset( $plugins['co-authors-plus/co-authors-plus.php'] );
+		}
+
+		/**
+		 * WSU People Directory is only allowed on specific sites at the moment.
+		 */
+		if ( ! in_array( $current_blog->domain . $current_blog->path, $people_allowed_sites ) && isset( $plugins['wsu-people-directory/wsu-people-directory.php'] ) ) {
+			unset( $plugins['wsu-people-directory/wsu-people-directory.php'] );
 		}
 
 		return $plugins;
