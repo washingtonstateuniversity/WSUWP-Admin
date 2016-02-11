@@ -4,6 +4,10 @@
 
 * Transfer removal of Events Calendar geolocation action to our WSU Extended Events Calendar plugin.
 
+### 0.6.7
+
+* Remove the WSU UComm Assets Request plugin from the list of available site plugins.
+
 ### 0.6.6
 
 * Remove the WSU People Directory from the list of available site plugins.
