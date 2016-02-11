@@ -483,6 +483,12 @@ class WSU_Admin {
 			'people.wsu.dev/',
 		);
 
+		$ucomm_assets_allowed_sites = array(
+			'ucomm.wsu.edu/',
+			'dev.ucomm.wsu.edu/',
+			'wp.wsu.dev/',
+		);
+
 		/**
 		 * Some plugins should not be network activated.
 		 */
@@ -520,6 +526,13 @@ class WSU_Admin {
 		 */
 		if ( ! in_array( $current_blog->domain . $current_blog->path, $people_allowed_sites ) && isset( $plugins['wsu-people-directory/wsu-people-directory.php'] ) ) {
 			unset( $plugins['wsu-people-directory/wsu-people-directory.php'] );
+		}
+
+		/**
+		 * The UComm Asset request plugin is only allowed on ucomm.wsu.edu and dev sites.
+		 */
+		if ( ! in_array( $current_blog->domain . $current_blog->path, $ucomm_assets_allowed_sites ) && isset( $plugins['wsuwp-ucomm-asset-request/wsu-ucomm-assets-registration.php'] ) ) {
+			unset( $plugins['wsuwp-ucomm-asset-request/wsu-ucomm-assets-registration.php'] );
 		}
 
 		return $plugins;
