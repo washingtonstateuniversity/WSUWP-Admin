@@ -1,8 +1,8 @@
 # WSUWP Admin Changelog
 
-### 0.6.5
+### 0.6.8
 
-* Transfer removal of Events Calendar geolocation action to our WSU Extended Events Calendar plugin.
+* Allow BuddyPress activation on magazine.wsu.edu/mystory.
 
 ### 0.6.7
 
@@ -14,7 +14,7 @@
 
 ### 0.6.5
 
-* Transfer removal of Events Calendar action to Extended Events plugin
+* Transfer removal of Events Calendar geolocation action to our WSU Extended Events Calendar plugin.
 
 ### 0.6.4
 
