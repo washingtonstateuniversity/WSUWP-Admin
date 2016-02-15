@@ -466,6 +466,7 @@ class WSU_Admin {
 			'dev.hub.wsu.edu/murrow/',
 			'hub.wsu.edu/murrow-alumni/',
 			'connect.murrow.wsu.edu/',
+			'magazine.wsu.edu/mystory/',
 		);
 
 		$cap_allowed_sites = array(
