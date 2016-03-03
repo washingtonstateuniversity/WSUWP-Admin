@@ -1,5 +1,9 @@
 # WSUWP Admin Changelog
 
+### 0.6.9
+
+* Allow Co Authors Plus on hydrogen.wsu.edu.
+
 ### 0.6.8
 
 * Allow BuddyPress activation on magazine.wsu.edu/mystory.
