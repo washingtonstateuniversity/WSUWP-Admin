@@ -473,6 +473,7 @@ class WSU_Admin {
 			'dev.magazine.wsu.edu/',
 			'magazine.wsu.edu/',
 			'stage.magazine.wsu.edu/',
+			'hydrogen.wsu.edu/',
 			'wp.wsu.dev/',
 			'wp.wsu.dev/magazine/',
 		);
