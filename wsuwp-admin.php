@@ -451,18 +451,21 @@ class WSU_Admin {
 		global $current_blog;
 
 		$site_only_plugins = array(
+			'wsuwp-deployment/wsuwp-deployment.php',
 			'buddypress/bp-loader.php',
 			'wsuwp-json-web-template/wsuwp-json-web-template.php',
 			'co-authors-plus/co-authors-plus.php',
 		);
 
 		$wt_allowed_sites = array(
+			'wp.wsu.edu/',
 			'dev.admission.wsu.edu/',
 			'stage.admission.wsu.edu/',
 			'admission.wsu.edu/',
 		);
 
 		$bp_allowed_sites = array(
+			'wp.wsu.edu/',
 			'dev.hub.wsu.edu/murrow/',
 			'hub.wsu.edu/murrow-alumni/',
 			'connect.murrow.wsu.edu/',
@@ -470,6 +473,7 @@ class WSU_Admin {
 		);
 
 		$cap_allowed_sites = array(
+			'wp.wsu.edu/',
 			'dev.magazine.wsu.edu/',
 			'magazine.wsu.edu/',
 			'stage.magazine.wsu.edu/',
@@ -479,6 +483,7 @@ class WSU_Admin {
 		);
 
 		$people_allowed_sites = array(
+			'wp.wsu.edu/',
 			'dev.people.wsu.edu/',
 			'people.wsu.edu/',
 			'wp.wsu.dev/',
@@ -486,8 +491,28 @@ class WSU_Admin {
 		);
 
 		$ucomm_assets_allowed_sites = array(
+			'wp.wsu.edu/',
 			'ucomm.wsu.edu/',
 			'dev.ucomm.wsu.edu/',
+			'wp.wsu.dev/',
+		);
+
+		$wsuwp_tls_allowed_sites = array(
+			'wp.wsu.edu/',
+			'wp2.wsu.edu/',
+			'wp.wsu.dev/',
+		);
+
+		$wsu_news_announcements_allowed_sites = array(
+			'wp.wsu.edu/',
+			'news.wsu.edu/',
+			'news.wsu.edu/announcements/',
+			'wp.wsu.dev/',
+		);
+
+		$wsuwp_deployment_allowed_sites = array(
+			'wp.wsu.edu/',
+			'wp2.wsu.edu/',
 			'wp.wsu.dev/',
 		);
 
@@ -535,6 +560,27 @@ class WSU_Admin {
 		 */
 		if ( ! in_array( $current_blog->domain . $current_blog->path, $ucomm_assets_allowed_sites ) && isset( $plugins['wsuwp-ucomm-asset-request/wsu-ucomm-assets-registration.php'] ) ) {
 			unset( $plugins['wsuwp-ucomm-asset-request/wsu-ucomm-assets-registration.php'] );
+		}
+
+		/**
+		 * WSUWP TLS is an admin plugin that should only be available on the main site.
+		 */
+		if ( ! in_array( $current_blog->domain . $current_blog->path, $wsuwp_tls_allowed_sites ) && isset( $plugins['wsuwp-tls/wsuwp-tls.php'] ) ) {
+			unset( $plugins['wsuwp-tls/wsuwp-tls.php'] );
+		}
+
+		/**
+		 * The WSU News & Announcements plugin is made to work with WSU News only.
+		 */
+		if ( ! in_array( $current_blog->domain . $current_blog->path, $wsu_news_announcements_allowed_sites ) && isset( $plugins['wsu-news-announcements/wsu-news-announcements.php'] ) ) {
+			unset( $plugins['wsu-news-announcements/wsu-news-announcements.php'] );
+		}
+
+		/**
+		 * The plugin we use to manage deployments should be restricted.
+		 */
+		if ( ! in_array( $current_blog->domain . $current_blog->path, $wsuwp_deployment_allowed_sites ) && isset( $plugins['wsuwp-deployment/wsuwp-deployment.php'] ) ) {
+			unset( $plugins['wsuwp-deployment/wsuwp-deployment.php'] );
 		}
 
 		return $plugins;
