@@ -458,12 +458,14 @@ class WSU_Admin {
 		);
 
 		$wt_allowed_sites = array(
+			'wp.wsu.edu/',
 			'dev.admission.wsu.edu/',
 			'stage.admission.wsu.edu/',
 			'admission.wsu.edu/',
 		);
 
 		$bp_allowed_sites = array(
+			'wp.wsu.edu/',
 			'dev.hub.wsu.edu/murrow/',
 			'hub.wsu.edu/murrow-alumni/',
 			'connect.murrow.wsu.edu/',
@@ -471,6 +473,7 @@ class WSU_Admin {
 		);
 
 		$cap_allowed_sites = array(
+			'wp.wsu.edu/',
 			'dev.magazine.wsu.edu/',
 			'magazine.wsu.edu/',
 			'stage.magazine.wsu.edu/',
@@ -480,6 +483,7 @@ class WSU_Admin {
 		);
 
 		$people_allowed_sites = array(
+			'wp.wsu.edu/',
 			'dev.people.wsu.edu/',
 			'people.wsu.edu/',
 			'wp.wsu.dev/',
