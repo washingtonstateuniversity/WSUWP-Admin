@@ -1,5 +1,9 @@
 # WSUWP Admin Changelog
 
+### 0.6.10
+
+* Additional restrictions on several other plugins.
+
 ### 0.6.9
 
 * Allow Co Authors Plus on hydrogen.wsu.edu.
