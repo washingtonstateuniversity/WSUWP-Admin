@@ -455,6 +455,7 @@ class WSU_Admin {
 			'buddypress/bp-loader.php',
 			'wsuwp-json-web-template/wsuwp-json-web-template.php',
 			'co-authors-plus/co-authors-plus.php',
+			'woocommerce/woocommerce.php',
 		);
 
 		$wt_allowed_sites = array(
@@ -480,6 +481,12 @@ class WSU_Admin {
 			'hydrogen.wsu.edu/',
 			'wp.wsu.dev/',
 			'wp.wsu.dev/magazine/',
+		);
+
+		$woo_allowed_sites = array(
+			'wp.wsu.edu/',
+			'wp.wsu.dev/',
+			'ucomm.wsu.edu/promos/',
 		);
 
 		$people_allowed_sites = array(
@@ -546,6 +553,13 @@ class WSU_Admin {
 		 */
 		if ( ! in_array( $current_blog->domain . $current_blog->path, $cap_allowed_sites ) && isset( $plugins['co-authors-plus/co-authors-plus.php'] ) ) {
 			unset( $plugins['co-authors-plus/co-authors-plus.php'] );
+		}
+
+		/**
+		 * WooCommerce is only allowed on specific sites at the moment.
+		 */
+		if ( ! in_array( $current_blog->domain . $current_blog->path, $woo_allowed_sites ) && isset( $plugins['woocommerce/woocommerce.php'] ) ) {
+			unset( $plugins['woocommerce/woocommerce.php'] );
 		}
 
 		/**
