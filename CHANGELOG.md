@@ -1,5 +1,9 @@
 # WSUWP Admin Changelog
 
+### 0.6.11
+
+* Add WooCommerce restriction.
+
 ### 0.6.10
 
 * Additional restrictions on several other plugins.
