@@ -517,6 +517,15 @@ class WSU_Admin {
 			'wp.wsu.dev/',
 		);
 
+		$community_events_allowed_sites = array(
+			'wp.wsu.edu/',
+			'wp.wsu.dev/',
+			'calendar.wsu.edu/',
+			'nursing.wsu.edu/',
+			'momsweekend.wsu.edu/',
+			'footballweekends.wsu.edu/',
+		);
+
 		$wsuwp_deployment_allowed_sites = array(
 			'wp.wsu.edu/',
 			'wp2.wsu.edu/',
@@ -595,6 +604,13 @@ class WSU_Admin {
 		 */
 		if ( ! in_array( $current_blog->domain . $current_blog->path, $wsuwp_deployment_allowed_sites ) && isset( $plugins['wsuwp-deployment/wsuwp-deployment.php'] ) ) {
 			unset( $plugins['wsuwp-deployment/wsuwp-deployment.php'] );
+		}
+
+		/**
+		 * The Events Calendar Community Events is restricted to meet license requirements.
+		 */
+		if ( ! in_array( $current_blog->domain . $current_blog->path, $community_events_allowed_sites ) && isset( $plugins['the-events-calendar-community-events/tribe-community-events.php'] ) ) {
+			unset( $plugins['the-events-calendar-community-events/tribe-community-events.php'] );
 		}
 
 		return $plugins;
