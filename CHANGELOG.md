@@ -1,5 +1,11 @@
 # WSUWP Admin Changelog
 
+### 0.6.13
+
+* Add `tabindex` as an allowed attribute for `div` elements.
+
+### 0.6.12
+
 ### 0.6.11
 
 * Add WooCommerce restriction.
