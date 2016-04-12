@@ -16,6 +16,7 @@ class WSU_Admin {
 			include __DIR__ . '/includes/wp-cli-spine-option.php';
 		}
 
+		add_filter( 'wp_kses_allowed_html', array( $this, 'filter_allowed_html_tags' ), 10, 1 );
 		add_filter( 'manage_pages_columns', array( $this, 'add_last_updated_column' ) );
 		add_filter( 'manage_posts_columns', array( $this, 'add_last_updated_column' ) );
 		add_action( 'manage_pages_custom_column', array( $this, 'last_updated_column_data' ), 10, 2 );
@@ -57,6 +58,19 @@ class WSU_Admin {
 		add_action( 'after_setup_theme', array( $this, 'remove_shortcode_bakery_embed_button' ), 999 );
 
 		add_filter( 'nocache_headers', array( $this, 'filter_404_no_cache_headers' ), 10 );
+	}
+
+	/**
+	 * Filter the allowed list of HTML tags for non super-admins.
+	 *
+	 * @param array $tags An associative array containing allowed tags and attributes.
+	 *
+	 * @return array Modified array of tags and attributes.
+	 */
+	public function filter_allowed_html_tags( $tags ) {
+		$tags['div']['tabindex'] = true;
+
+		return $tags;
 	}
 
 	/**
