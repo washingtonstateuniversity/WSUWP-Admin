@@ -1,5 +1,9 @@
 # WSUWP Admin Changelog
 
+### 0.6.14
+
+* Restrict Gravity Forms Polls to specific sites.
+
 ### 0.6.13
 
 * Add `tabindex` as an allowed attribute for `div` elements.
