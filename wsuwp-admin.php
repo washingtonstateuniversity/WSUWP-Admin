@@ -546,6 +546,12 @@ class WSU_Admin {
 			'wp.wsu.dev/',
 		);
 
+		$polls_allowed_sites = array(
+			'wp.wsu.dev/',
+			'wp.wsu.edu/',
+			'askdruniverse.wsu.edu/',
+		);
+
 		/**
 		 * Some plugins should not be network activated.
 		 */
@@ -625,6 +631,13 @@ class WSU_Admin {
 		 */
 		if ( ! in_array( $current_blog->domain . $current_blog->path, $community_events_allowed_sites ) && isset( $plugins['the-events-calendar-community-events/tribe-community-events.php'] ) ) {
 			unset( $plugins['the-events-calendar-community-events/tribe-community-events.php'] );
+		}
+
+		/**
+		 * The Gravity Forms Polls add-on is restricted for experimental use.
+		 */
+		if ( ! in_array( $current_blog->domain . $current_blog->path, $polls_allowed_sites ) && isset( $plugins['gravityformspolls/polls.php'] ) ) {
+			unset( $plugins['gravityformspolls/polls.php'] );
 		}
 
 		return $plugins;
