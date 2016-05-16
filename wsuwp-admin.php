@@ -49,6 +49,7 @@ class WSU_Admin {
 		add_filter( 'user_has_cap', array( $this, 'user_can_switch_users' ), 10, 4 );
 
 		add_filter( 'wsuwp_sso_create_new_user', array( $this, 'create_auto_users' ) );
+		add_filter( 'wsuwp_sso_create_new_network_user', '__return_true' );
 
 		// Prevent WordPress from dropping tables for a deleted site.
 		add_filter( 'wpmu_drop_tables', '__return_empty_array' );
