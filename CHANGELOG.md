@@ -1,5 +1,14 @@
 # WSUWP Admin Changelog
 
+### 0.6.16
+
+* Enable automatic platform user creation with valid NID via WSUWP SSO Authentication filter.
+* Add support for WSUWP Content Visibility to WP Document Revisions.
+
+### 0.6.15
+
+* Unrestrict access to Gravity Forms Polls.
+
 ### 0.6.14
 
 * Restrict Gravity Forms Polls to specific sites.
