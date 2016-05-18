@@ -40,6 +40,9 @@ class WSU_Admin {
 		add_action( 'init', array( $this, 'add_taxonomies_to_media' ) );
 		add_action( 'init', array( $this, 'register_university_center_taxonomies' ), 20 );
 
+		// WP Document Revisions.
+		add_action( 'init', array( $this, 'add_document_revisions_visibility_support' ), 12 );
+
 		add_filter( 'wp_redirect', array( $this, 'prevent_unauthorized_plugin_redirect' ) );
 		add_filter( 'option_wpseo', array( $this, 'filter_wpseo_options' ) );
 		add_filter( 'wpseo_submenu_pages', array( $this, 'filter_wpseo_submenu' ) );
@@ -85,6 +88,13 @@ class WSU_Admin {
 		$columns = array_merge( $columns, array( 'wsu_last_updated' => 'Last Updated' ) );
 
 		return $columns;
+	}
+
+	/**
+	 * Add support for WSUWP Content Visibility to WP Document Revisions.
+	 */
+	public function add_document_revisions_visibility_support() {
+		add_post_type_support( 'document', 'wsuwp-content-visibility' );
 	}
 
 	/**
