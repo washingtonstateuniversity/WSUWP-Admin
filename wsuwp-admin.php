@@ -22,8 +22,6 @@ class WSU_Admin {
 		add_action( 'manage_pages_custom_column', array( $this, 'last_updated_column_data' ), 10, 2 );
 		add_action( 'manage_posts_custom_column', array( $this, 'last_updated_column_data' ), 10, 2 );
 		add_filter( 'srm_max_redirects', array( $this, 'srm_max_redirects' ), 10, 1 );
-		add_filter( 'document_revisions_enable_webdav', '__return_false' );
-		add_filter( 'wp_headers', array( $this, 'document_revisions_headers' ), 10, 1 );
 		add_action( 'wpmu_new_blog', array( $this, 'preconfigure_project_site' ), 10, 3 );
 		add_action( 'wpmu_new_blog', array( $this, 'preconfigure_sites_site' ), 10, 3 );
 		add_action( 'wsuwp_project_flush_rewrite_rules', array( $this, 'flush_rewrite_rules' ), 10 );
@@ -39,6 +37,11 @@ class WSU_Admin {
 		add_action( 'init', array( $this, 'add_taxonomies_to_pages' ) );
 		add_action( 'init', array( $this, 'add_taxonomies_to_media' ) );
 		add_action( 'init', array( $this, 'register_university_center_taxonomies' ), 20 );
+
+		// WP Document Revisions.
+		add_action( 'init', array( $this, 'add_document_revisions_visibility_support' ), 12 );
+		add_filter( 'document_revisions_enable_webdav', '__return_false' );
+		add_filter( 'wp_headers', array( $this, 'document_revisions_headers' ), 10, 1 );
 
 		add_filter( 'wp_redirect', array( $this, 'prevent_unauthorized_plugin_redirect' ) );
 		add_filter( 'option_wpseo', array( $this, 'filter_wpseo_options' ) );
@@ -85,6 +88,13 @@ class WSU_Admin {
 		$columns = array_merge( $columns, array( 'wsu_last_updated' => 'Last Updated' ) );
 
 		return $columns;
+	}
+
+	/**
+	 * Add support for WSUWP Content Visibility to WP Document Revisions.
+	 */
+	public function add_document_revisions_visibility_support() {
+		add_post_type_support( 'document', 'wsuwp-content-visibility' );
 	}
 
 	/**
