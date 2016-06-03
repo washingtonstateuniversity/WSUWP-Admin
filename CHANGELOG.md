@@ -1,5 +1,9 @@
 # WSUWP Admin Changelog
 
+### 0.6.17
+
+* Filter WSUWP Content Visibility to manage capabilities for WP Document Revisions
+
 ### 0.6.16
 
 * Enable automatic platform user creation with valid NID via WSUWP SSO Authentication filter.
