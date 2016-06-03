@@ -40,6 +40,7 @@ class WSU_Admin {
 
 		// WP Document Revisions.
 		add_action( 'init', array( $this, 'add_document_revisions_visibility_support' ), 12 );
+		add_filter( 'wsuwp_content_visibility_caps', array ( $this, 'add_document_revisions_visibility_caps' ), 10 );
 		add_filter( 'document_revisions_enable_webdav', '__return_false' );
 		add_filter( 'wp_headers', array( $this, 'document_revisions_headers' ), 10, 1 );
 
@@ -95,6 +96,20 @@ class WSU_Admin {
 	 */
 	public function add_document_revisions_visibility_support() {
 		add_post_type_support( 'document', 'wsuwp-content-visibility' );
+	}
+
+	/**
+	 * Modifies the list of capabilities monitored by WSUWP Content Visibility and adds
+	 * support for WP Document Revisions.
+	 *
+	 * @param array $caps
+	 *
+	 * @return array
+	 */
+	public function add_document_revisions_visibility_caps( $caps ) {
+		$caps[] = 'read_document';
+
+		return $caps;
 	}
 
 	/**
