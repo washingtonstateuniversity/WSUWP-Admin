@@ -16,6 +16,8 @@ class WSU_Admin {
 			include __DIR__ . '/includes/wp-cli-spine-option.php';
 		}
 
+		add_action( 'init', array( $this, 'remove_general_template_actions' ), 10 );
+
 		add_filter( 'wp_kses_allowed_html', array( $this, 'filter_allowed_html_tags' ), 10, 1 );
 		add_filter( 'manage_pages_columns', array( $this, 'add_last_updated_column' ) );
 		add_filter( 'manage_posts_columns', array( $this, 'add_last_updated_column' ) );
@@ -63,6 +65,19 @@ class WSU_Admin {
 		add_action( 'after_setup_theme', array( $this, 'remove_shortcode_bakery_embed_button' ), 999 );
 
 		add_filter( 'nocache_headers', array( $this, 'filter_404_no_cache_headers' ), 10 );
+	}
+
+	/**
+	 * Removes several default actions added by WordPress to output RSD, manifest, and
+	 * shortlink information in the header.
+	 *
+	 * @since 0.6.18
+	 */
+	public function remove_general_template_actions() {
+		remove_action( 'wp_head', 'rsd_link' );
+		remove_action( 'wp_head', 'wlwmanifest_link' );
+		remove_action( 'wp_head', 'wp_shortlink_wp_head', 10 );
+		remove_action( 'template_redirect', 'wp_shortlink_header', 11 );
 	}
 
 	/**

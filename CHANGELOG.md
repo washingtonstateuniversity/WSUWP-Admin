@@ -1,5 +1,9 @@
 # WSUWP Admin Changelog
 
+### 0.6.18
+
+* Remove several default actions added by WordPress to output RSD, manifest, and shortlink information in the header.
+
 ### 0.6.17
 
 * Filter WSUWP Content Visibility to manage capabilities for WP Document Revisions
