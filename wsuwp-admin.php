@@ -511,6 +511,7 @@ class WSU_Admin {
 			'wsuwp-json-web-template/wsuwp-json-web-template.php',
 			'co-authors-plus/co-authors-plus.php',
 			'woocommerce/woocommerce.php',
+			'make-plus/make-plus.php',
 		);
 
 		$wt_allowed_sites = array(
@@ -542,6 +543,11 @@ class WSU_Admin {
 			'wp.wsu.edu/',
 			'wp.wsu.dev/',
 			'ucomm.wsu.edu/promos/',
+		);
+
+		$mp_allowed_sites = array(
+			'wp.wsu.edu/',
+			'aswsu.wsu.edu/',
 		);
 
 		$people_allowed_sites = array(
@@ -624,6 +630,13 @@ class WSU_Admin {
 		 */
 		if ( ! in_array( $current_blog->domain . $current_blog->path, $woo_allowed_sites ) && isset( $plugins['woocommerce/woocommerce.php'] ) ) {
 			unset( $plugins['woocommerce/woocommerce.php'] );
+		}
+
+		/**
+		 * Make Plus is only allowed on aswsu.wsu.edu at the moment.
+		 */
+		if ( ! in_array( $current_blog->domain . $current_blog->path, $mp_allowed_sites ) && isset( $plugins['make-plus/make-plus.php'] ) ) {
+			unset( $plugins['make-plus/make-plus.php'] );
 		}
 
 		/**
