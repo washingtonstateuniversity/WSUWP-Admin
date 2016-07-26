@@ -1,5 +1,13 @@
 # WSUWP Admin Changelog
 
+### 0.6.20
+
+* Enable Community Events on native.wsu.edu.
+
+### 0.6.19
+
+* Restrict the Make Plus plugin to aswsu.wsu.edu.
+
 ### 0.6.18
 
 * Remove several default actions added by WordPress to output RSD, manifest, and shortlink information in the header.
