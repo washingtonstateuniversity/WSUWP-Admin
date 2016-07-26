@@ -585,6 +585,8 @@ class WSU_Admin {
 			'nursing.wsu.edu/',
 			'momsweekend.wsu.edu/',
 			'footballweekends.wsu.edu/',
+			'stage.native.wsu.edu',
+			'native.wsu.edu',
 		);
 
 		$wsuwp_deployment_allowed_sites = array(
