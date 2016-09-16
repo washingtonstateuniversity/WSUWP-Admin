@@ -65,6 +65,7 @@ class WSU_Admin {
 		add_action( 'after_setup_theme', array( $this, 'remove_shortcode_bakery_embed_button' ), 999 );
 
 		add_filter( 'nocache_headers', array( $this, 'filter_404_no_cache_headers' ), 10 );
+		add_filter( 'post_password_expires', array( $this, 'filter_post_password_expires' ) );
 	}
 
 	/**
@@ -784,6 +785,18 @@ class WSU_Admin {
 		}
 
 		return $headers;
+	}
+
+	/**
+	 * Filters the post password cookie to be a session cookie rather than one
+	 * that expires in 10 days.
+	 *
+	 * @param int $expires The number of seconds the post password expires cookie is valid for.
+	 *
+	 * @return int Modified post password expires value.
+	 */
+	public function filter_post_password_expires( $expires ) {
+		return 0;
 	}
 }
 new WSU_Admin();
