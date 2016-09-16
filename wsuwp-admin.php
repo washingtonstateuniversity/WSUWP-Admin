@@ -1,10 +1,11 @@
 <?php
 /*
 Plugin Name: WSU Admin
-Plugin URI: https://web.wsu.edu/
+Plugin URI: https://github.com/washingtonstateuniversity/WSUWP-Admin
 Description: Customized portions of the admin area of WordPress for Washington State University
 Author: washingtonstateuniversity, jeremyfelt
-Version: 0.6.20
+Author URI: https://web.wsu.edu
+Version: 0.6.21
 */
 
 class WSU_Admin {

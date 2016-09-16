@@ -1,5 +1,8 @@
 # WSUWP Admin Changelog
 
+### 0.6.21 (September 16, 2016)
+
+* Filter password protected posts cookie to be a session cookie rather than the default 10 day expiration.
 ### 0.6.20
 
 * Enable Community Events on native.wsu.edu.
