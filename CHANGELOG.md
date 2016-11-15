@@ -1,5 +1,9 @@
 # WSUWP Admin Changelog
 
+### 0.6.22 (November 15, 2016)
+
+* Fix a bug with mime type detection and S3 Uploads.
+
 ### 0.6.21 (September 16, 2016)
 
 * Filter password protected posts cookie to be a session cookie rather than the default 10 day expiration.
