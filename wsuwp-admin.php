@@ -358,7 +358,18 @@ class WSU_Admin {
 			return $headers;
 		}
 
-		$mime_type = mime_content_type( $file );
+		/**
+		 * mime_content_type() is not handled by the S3 stream wrapper, so we
+		 * handle content type detection differently when S3 uploads are enabled.
+		 */
+		if ( function_exists( 's3_uploads_enabled') && s3_uploads_enabled() ) {
+			include_once __DIR__ . '/includes/upstream-file-mime-type-mapping.php';
+			$mime_type_mapping = wsuwp_file_default_mimetype_mapping();
+			$mime_type = S3_Uploads_Local_Stream_Wrapper::getMimeType( $file, $mime_type_mapping );
+		} else {
+			$mime_type = mime_content_type( $file );
+		}
+
 		$file_size = filesize( $file );
 		if ( empty( $mime_type ) ) {
 			return $headers;
