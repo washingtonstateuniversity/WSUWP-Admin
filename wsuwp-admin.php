@@ -600,6 +600,7 @@ class WSU_Admin {
 			'footballweekends.wsu.edu/',
 			'stage.native.wsu.edu',
 			'native.wsu.edu',
+			'research.wsu.edu'
 		);
 
 		$wsuwp_deployment_allowed_sites = array(
