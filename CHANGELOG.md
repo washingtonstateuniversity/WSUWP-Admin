@@ -1,5 +1,9 @@
 # WSUWP Admin Changelog
 
+### 0.6.23 (November 17, 2016)
+
+* Enable Community Events for research.wsu.edu.
+
 ### 0.6.22 (November 15, 2016)
 
 * Fix a bug with mime type detection and S3 Uploads.
