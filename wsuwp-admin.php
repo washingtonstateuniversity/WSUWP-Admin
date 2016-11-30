@@ -556,6 +556,10 @@ class WSU_Admin {
 			'wp.wsu.edu/',
 			'wp.wsu.dev/',
 			'ucomm.wsu.edu/promos/',
+			'stage.wsupress.wsu.edu/',
+			'wsupress.wsu.edu/',
+			'dev.wsupress.wsu.edu/',
+			'wp.wsu.dev/wsupress/',
 		);
 
 		$mp_allowed_sites = array(
