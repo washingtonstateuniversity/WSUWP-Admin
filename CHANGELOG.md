@@ -1,5 +1,9 @@
 # WSUWP Admin Changelog
 
+### 0.6.24 (November 30, 2016)
+
+* Enable WooCommerce for WSU Press sites.
+
 ### 0.6.23 (November 17, 2016)
 
 * Enable Community Events for research.wsu.edu.
