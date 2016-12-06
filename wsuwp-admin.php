@@ -600,6 +600,10 @@ class WSU_Admin {
 				'footballweekends.wsu.edu/',
 				'research.wsu.edu/',
 			),
+			'wsuwp-plugin-idonate/wsuwp-plugin-idonate.php' => array(
+				'foundation.wsu.edu/',
+				'hub.wsu.edu/foundation-sandbox/',
+			)
 		);
 
 		foreach( $plugin_access_list as $plugin_key => $plugin_sites ) {
