@@ -527,90 +527,6 @@ class WSU_Admin {
 			'make-plus/make-plus.php',
 		);
 
-		$wt_allowed_sites = array(
-			'wp.wsu.edu/',
-			'dev.admission.wsu.edu/',
-			'stage.admission.wsu.edu/',
-			'admission.wsu.edu/',
-		);
-
-		$bp_allowed_sites = array(
-			'wp.wsu.edu/',
-			'dev.hub.wsu.edu/murrow/',
-			'hub.wsu.edu/murrow-alumni/',
-			'connect.murrow.wsu.edu/',
-			'magazine.wsu.edu/mystory/',
-		);
-
-		$cap_allowed_sites = array(
-			'wp.wsu.edu/',
-			'dev.magazine.wsu.edu/',
-			'magazine.wsu.edu/',
-			'stage.magazine.wsu.edu/',
-			'hydrogen.wsu.edu/',
-			'wp.wsu.dev/',
-			'wp.wsu.dev/magazine/',
-		);
-
-		$woo_allowed_sites = array(
-			'wp.wsu.edu/',
-			'wp.wsu.dev/',
-			'ucomm.wsu.edu/promos/',
-			'stage.wsupress.wsu.edu/',
-			'wsupress.wsu.edu/',
-			'dev.wsupress.wsu.edu/',
-			'wp.wsu.dev/wsupress/',
-		);
-
-		$mp_allowed_sites = array(
-			'wp.wsu.edu/',
-			'aswsu.wsu.edu/',
-		);
-
-		$people_allowed_sites = array(
-			'wp.wsu.edu/',
-			'dev.people.wsu.edu/',
-			'people.wsu.edu/',
-			'wp.wsu.dev/',
-			'people.wsu.dev/',
-		);
-
-		$ucomm_assets_allowed_sites = array(
-			'wp.wsu.edu/',
-			'ucomm.wsu.edu/',
-			'dev.ucomm.wsu.edu/',
-			'wp.wsu.dev/',
-		);
-
-		$wsuwp_tls_allowed_sites = array(
-			'wp.wsu.edu/',
-			'wp2.wsu.edu/',
-			'wp.wsu.dev/',
-		);
-
-		$wsu_news_announcements_allowed_sites = array(
-			'wp.wsu.edu/',
-			'news.wsu.edu/',
-			'news.wsu.edu/announcements/',
-			'wp.wsu.dev/',
-		);
-
-		$community_events_allowed_sites = array(
-			'wp.wsu.edu/',
-			'wp.wsu.dev/',
-			'calendar.wsu.edu/',
-			'nursing.wsu.edu/',
-			'momsweekend.wsu.edu/',
-			'footballweekends.wsu.edu/',
-			'research.wsu.edu/',
-		);
-
-		$wsuwp_deployment_allowed_sites = array(
-			'wp.wsu.edu/',
-			'wp2.wsu.edu/',
-			'wp.wsu.dev/',
-		);
-
 		/**
 		 * Some plugins should not be network activated.
 		 */
@@ -622,81 +538,74 @@ class WSU_Admin {
 			}
 		}
 
-		/**
-		 * BuddyPress is only allowed on specific sites at the moment.
-		 */
-		if ( ! in_array( $current_blog->domain . $current_blog->path, $bp_allowed_sites ) && isset( $plugins['buddypress/bp-loader.php'] ) ) {
-			unset( $plugins['buddypress/bp-loader.php'] );
+		$current_site_address = $current_blog->domain . $current_blog->path;
+
+		// Allow all plugins at the top level site in production and dev.
+		if ( 'wp.wsu.edu/' === $current_site_address || 'wp.wsu.dev/' === $current_site_address ) {
+			return $plugins;
 		}
 
-		/**
-		 * WSUWP JSON Web Template is only allowed on specific sites at the moment.
-		 */
-		if ( ! in_array( $current_blog->domain . $current_blog->path, $wt_allowed_sites ) && isset( $plugins['wsuwp-json-web-template/wsuwp-json-web-template.php'] ) ) {
-			unset( $plugins['wsuwp-json-web-template/wsuwp-json-web-template.php'] );
-		}
+		$plugin_access_list = array(
+			'buddypress/bp-loader.php' => array(
+				'dev.hub.wsu.edu/murrow/',
+				'hub.wsu.edu/murrow-alumni/',
+				'connect.murrow.wsu.edu/',
+				'magazine.wsu.edu/mystory/',
+			),
+			'wsuwp-json-web-template/wsuwp-json-web-template.php' => array(
+				'dev.admission.wsu.edu/',
+				'stage.admission.wsu.edu/',
+				'admission.wsu.edu/',
+			),
+			'co-authors-plus/co-authors-plus.php' => array(
+				'dev.magazine.wsu.edu/',
+				'magazine.wsu.edu/',
+				'stage.magazine.wsu.edu/',
+				'hydrogen.wsu.edu/',
+				'wp.wsu.dev/magazine/',
+			),
+			'woocommerce/woocommerce.php' => array(
+				'ucomm.wsu.edu/promos/',
+				'stage.wsupress.wsu.edu/',
+				'wsupress.wsu.edu/',
+				'dev.wsupress.wsu.edu/',
+				'wp.wsu.dev/wsupress/',
+			),
+			'make-plus/make-plus.php' => array(
+				'aswsu.wsu.edu/',
+			),
+			'wsu-people-directory/wsu-people-directory.php' => array(
+				'dev.people.wsu.edu/',
+				'people.wsu.edu/',
+				'people.wsu.dev/',
+			),
+			'wsuwp-ucomm-asset-request/wsu-ucomm-assets-registration.php' => array(
+				'ucomm.wsu.edu/',
+				'dev.ucomm.wsu.edu/',
+			),
+			'wsuwp-tls/wsuwp-tls.php' => array(
+				'wp2.wsu.edu/',
+			),
+			'wsu-news-announcements/wsu-news-announcements.php' => array(
+				'news.wsu.edu/',
+				'news.wsu.edu/announcements/',
+			),
+			'wsuwp-deployment/wsuwp-deployment.php' => array(
+				'wp2.wsu.edu/',
+			),
+			'the-events-calendar-community-events/tribe-community-events.php' => array(
+				'calendar.wsu.edu/',
+				'nursing.wsu.edu/',
+				'momsweekend.wsu.edu/',
+				'footballweekends.wsu.edu/',
+				'research.wsu.edu/',
+			),
+		);
 
-		/**
-		 * Co Authors Plus is only allowed on specific sites at the moment.
-		 */
-		if ( ! in_array( $current_blog->domain . $current_blog->path, $cap_allowed_sites ) && isset( $plugins['co-authors-plus/co-authors-plus.php'] ) ) {
-			unset( $plugins['co-authors-plus/co-authors-plus.php'] );
-		}
-
-		/**
-		 * WooCommerce is only allowed on specific sites at the moment.
-		 */
-		if ( ! in_array( $current_blog->domain . $current_blog->path, $woo_allowed_sites ) && isset( $plugins['woocommerce/woocommerce.php'] ) ) {
-			unset( $plugins['woocommerce/woocommerce.php'] );
-		}
-
-		/**
-		 * Make Plus is only allowed on aswsu.wsu.edu at the moment.
-		 */
-		if ( ! in_array( $current_blog->domain . $current_blog->path, $mp_allowed_sites ) && isset( $plugins['make-plus/make-plus.php'] ) ) {
-			unset( $plugins['make-plus/make-plus.php'] );
-		}
-
-		/**
-		 * WSU People Directory is only allowed on specific sites at the moment.
-		 */
-		if ( ! in_array( $current_blog->domain . $current_blog->path, $people_allowed_sites ) && isset( $plugins['wsu-people-directory/wsu-people-directory.php'] ) ) {
-			unset( $plugins['wsu-people-directory/wsu-people-directory.php'] );
-		}
-
-		/**
-		 * The UComm Asset request plugin is only allowed on ucomm.wsu.edu and dev sites.
-		 */
-		if ( ! in_array( $current_blog->domain . $current_blog->path, $ucomm_assets_allowed_sites ) && isset( $plugins['wsuwp-ucomm-asset-request/wsu-ucomm-assets-registration.php'] ) ) {
-			unset( $plugins['wsuwp-ucomm-asset-request/wsu-ucomm-assets-registration.php'] );
-		}
-
-		/**
-		 * WSUWP TLS is an admin plugin that should only be available on the main site.
-		 */
-		if ( ! in_array( $current_blog->domain . $current_blog->path, $wsuwp_tls_allowed_sites ) && isset( $plugins['wsuwp-tls/wsuwp-tls.php'] ) ) {
-			unset( $plugins['wsuwp-tls/wsuwp-tls.php'] );
-		}
-
-		/**
-		 * The WSU News & Announcements plugin is made to work with WSU News only.
-		 */
-		if ( ! in_array( $current_blog->domain . $current_blog->path, $wsu_news_announcements_allowed_sites ) && isset( $plugins['wsu-news-announcements/wsu-news-announcements.php'] ) ) {
-			unset( $plugins['wsu-news-announcements/wsu-news-announcements.php'] );
-		}
-
-		/**
-		 * The plugin we use to manage deployments should be restricted.
-		 */
-		if ( ! in_array( $current_blog->domain . $current_blog->path, $wsuwp_deployment_allowed_sites ) && isset( $plugins['wsuwp-deployment/wsuwp-deployment.php'] ) ) {
-			unset( $plugins['wsuwp-deployment/wsuwp-deployment.php'] );
-		}
-
-		/**
-		 * The Events Calendar Community Events is restricted to meet license requirements.
-		 */
-		if ( ! in_array( $current_blog->domain . $current_blog->path, $community_events_allowed_sites ) && isset( $plugins['the-events-calendar-community-events/tribe-community-events.php'] ) ) {
-			unset( $plugins['the-events-calendar-community-events/tribe-community-events.php'] );
+		foreach( $plugin_access_list as $plugin_key => $plugin_sites ) {
+			if ( ! in_array( $current_site_address, $plugin_sites ) && isset( $plugins[ $plugin_key ] ) ) {
+				unset( $plugins[ $plugin_key ] );
+			}
 		}
 
 		return $plugins;
