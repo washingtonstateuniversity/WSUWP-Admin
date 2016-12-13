@@ -1,5 +1,10 @@
 # WSUWP Admin Changelog
 
+### 0.7.0 (December 13, 2016)
+
+* Refactor the handling of the plugin access list.
+* Add iDonate to the plugin access list.
+
 ### 0.6.24 (November 30, 2016)
 
 * Enable WooCommerce for WSU Press sites.
