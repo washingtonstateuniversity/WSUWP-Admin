@@ -541,7 +541,7 @@ class WSU_Admin {
 		$current_site_address = $current_blog->domain . $current_blog->path;
 
 		// Allow all plugins at the top level site in production and dev.
-		if ( 'wp.wsu.edu/' === $current_site_address || 'wp.wsu.dev/' === $current_site_address ) {
+		if ( 'wp.wsu.edu/' === $current_site_address || 'wp.wsu.dev' === $current_blog->domain ) {
 			return $plugins;
 		}
 
