@@ -67,6 +67,8 @@ class WSU_Admin {
 
 		add_filter( 'nocache_headers', array( $this, 'filter_404_no_cache_headers' ), 10 );
 		add_filter( 'post_password_expires', array( $this, 'filter_post_password_expires' ) );
+
+		add_filter( 'tablepress_wp_search_integration', '__return_false' );
 	}
 
 	/**
