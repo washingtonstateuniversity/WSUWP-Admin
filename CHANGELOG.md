@@ -1,5 +1,9 @@
 # WSUWP Admin Changelog
 
+### 0.7.1 (January 26, 2017)
+
+* Remove TablePress from WP search queries.
+
 ### 0.7.0 (December 13, 2016)
 
 * Refactor the handling of the plugin access list.
