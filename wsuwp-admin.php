@@ -69,6 +69,7 @@ class WSU_Admin {
 		add_filter( 'post_password_expires', array( $this, 'filter_post_password_expires' ) );
 
 		add_filter( 'tablepress_wp_search_integration', '__return_false' );
+		add_filter( 'wp_check_filetype_and_ext', array( $this, 'wp39550_disable_real_mime_check' ), 10, 4 );
 	}
 
 	/**
@@ -727,6 +728,30 @@ class WSU_Admin {
 	 */
 	public function filter_post_password_expires( $expires ) {
 		return 0;
+	}
+
+	/**
+	 * Restores the ability to upload non-image files in WordPress 4.7.1 and 4.7.2.
+	 *
+	 * This is temporary until https://core.trac.wordpress.org/ticket/39550 is fixed.
+	 *
+	 * Thanks to Sergey! http://profiles.wordpress.org/sergeybiryukov/
+	 *
+	 * @param $data
+	 * @param $file
+	 * @param $filename
+	 * @param $mimes
+	 *
+	 * @return array
+	 */
+	public function wp39550_disable_real_mime_check( $data, $file, $filename, $mimes ) {
+		$wp_filetype = wp_check_filetype( $filename, $mimes );
+
+		$ext = $wp_filetype['ext'];
+		$type = $wp_filetype['type'];
+		$proper_filename = $data['proper_filename'];
+
+		return compact( 'ext', 'type', 'proper_filename' );
 	}
 }
 new WSU_Admin();
