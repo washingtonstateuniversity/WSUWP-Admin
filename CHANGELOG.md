@@ -1,5 +1,9 @@
 # WSUWP Admin Changelog
 
+### 0.7.2 (January 27, 2017)
+
+* Temporarily disable strict mime type checking.
+
 ### 0.7.1 (January 26, 2017)
 
 * Remove TablePress from WP search queries.
