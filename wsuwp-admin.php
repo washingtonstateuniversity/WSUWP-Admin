@@ -607,7 +607,7 @@ class WSU_Admin {
 				'footballweekends.wsu.edu/',
 				'research.wsu.edu/',
 			),
-			'wsuwp-plugin-idonate/wsuwp-plugin-idonate.php' => array(
+			'wsu-idonate/wsuwp-plugin-idonate.php' => array(
 				'foundation.wsu.edu/',
 				'hub.wsu.edu/foundation-sandbox/',
 			)
