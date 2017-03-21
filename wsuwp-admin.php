@@ -574,6 +574,10 @@ class WSU_Admin {
 				'dev.wsupress.wsu.edu/',
 				'wp.wsu.dev/wsupress/',
 			),
+			'wsuws-woocommerce-payment-gateway/wsuws-woocommerce-payment-gateway.php' => array(
+				'stage.wsupress.wsu.edu/',
+				'wsupress.wsu.edu/',
+			),
 			'make-plus/make-plus.php' => array(
 				'aswsu.wsu.edu/',
 			),
@@ -603,7 +607,7 @@ class WSU_Admin {
 				'footballweekends.wsu.edu/',
 				'research.wsu.edu/',
 			),
-			'wsuwp-plugin-idonate/wsuwp-plugin-idonate.php' => array(
+			'wsu-idonate/wsuwp-plugin-idonate.php' => array(
 				'foundation.wsu.edu/',
 				'hub.wsu.edu/foundation-sandbox/',
 			)
