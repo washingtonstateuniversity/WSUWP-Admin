@@ -1,5 +1,9 @@
 # WSUWP Admin Changelog
 
+### 0.7.3 (March 21, 2017)
+
+* Restrict WSUWS WooCommerce payment gateway to specific sites.
+
 ### 0.7.2 (January 27, 2017)
 
 * Temporarily disable strict mime type checking.
