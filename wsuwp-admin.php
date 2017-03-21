@@ -574,6 +574,10 @@ class WSU_Admin {
 				'dev.wsupress.wsu.edu/',
 				'wp.wsu.dev/wsupress/',
 			),
+			'wsuws-woocommerce-payment-gateway/wsuws-woocommerce-payment-gateway.php' => array(
+				'stage.wsupress.wsu.edu/',
+				'wsupress.wsu.edu/',
+			),
 			'make-plus/make-plus.php' => array(
 				'aswsu.wsu.edu/',
 			),
