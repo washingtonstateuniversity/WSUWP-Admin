@@ -342,6 +342,7 @@ class WSUWP_Admin {
 	 */
 	public function preconfigure_sites_with_s3_uploads( $blog_id, $user_id, $domain ) {
 		$forced_s3_domains = array(
+			'sites.wsu.edu',
 			'hub.wsu.edu',
 			'faculty.business.wsu.edu',
 		);
