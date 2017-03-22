@@ -20,7 +20,9 @@ add_action( 'after_setup_theme', 'WSUWP_Admin' );
 /**
  * Start things up.
  *
- * @return \WSUWP_Plugin_Skeleton
+ * @since 1.0.0
+ *
+ * @return \WSUWP_Admin
  */
 function WSUWP_Admin() {
 	return WSUWP_Admin::get_instance();
