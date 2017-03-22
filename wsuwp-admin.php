@@ -155,14 +155,14 @@ class WSU_Admin {
 		$current_time = time() + ( get_option( 'gmt_offset', 0 ) * HOUR_IN_SECONDS );
 
 		foreach ( $revisions as $revision ) {
-			echo get_the_author_meta( 'display_name', $revision->post_author );
+			echo esc_html( get_the_author_meta( 'display_name', $revision->post_author ) );
 			echo '<br>';
 
 			// If within 24 hours, show a human readable version instead
 			if ( ( $current_time - strtotime( $revision->post_date ) ) < DAY_IN_SECONDS ) {
-				echo human_time_diff( $current_time, strtotime( $revision->post_date ) ) . ' ago';
+				echo esc_html( human_time_diff( $current_time, strtotime( $revision->post_date ) ) . ' ago' );
 			} else {
-				echo date( 'Y/m/d', strtotime( $revision->post_date ) );
+				echo esc_html( date( 'Y/m/d', strtotime( $revision->post_date ) ) );
 			}
 			break;
 		}
