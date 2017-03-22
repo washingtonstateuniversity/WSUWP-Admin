@@ -479,7 +479,7 @@ class WSU_Admin {
 		unset( $themes->themes->wsu );
 		unset( $themes->themes->wip );
 
-		$r['body']['themes'] = json_encode( $themes );
+		$r['body']['themes'] = wp_json_encode( $themes );
 
 		return $r;
 	}
