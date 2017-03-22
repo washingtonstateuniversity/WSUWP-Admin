@@ -14,7 +14,8 @@ class WSU_Admin {
 	 */
 	public function __construct() {
 		if ( defined( 'WP_CLI' ) && WP_CLI ) {
-			include __DIR__ . '/includes/wp-cli-spine-option.php';
+			include __DIR__ . '/includes/class-wsu-cli-spine-option.php';
+			WP_CLI::add_command( 'spine_option', 'WSU_CLI_Spine_Option' );
 		}
 
 		add_action( 'init', array( $this, 'remove_general_template_actions' ), 10 );
