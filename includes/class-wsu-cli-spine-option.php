@@ -30,5 +30,3 @@ class WSU_CLI_Spine_Option extends WP_CLI_Command {
 		WP_CLI::line( "$value" );
 	}
 }
-
-WP_CLI::add_command( 'spine_option', 'WSU_CLI_Spine_Option' );
