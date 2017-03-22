@@ -13,7 +13,7 @@ class WSU_Admin {
 	 * Setup hooks.
 	 */
 	public function __construct() {
-		if ( defined('WP_CLI') && WP_CLI ) {
+		if ( defined( 'WP_CLI' ) && WP_CLI ) {
 			include __DIR__ . '/includes/wp-cli-spine-option.php';
 		}
 
@@ -44,7 +44,7 @@ class WSU_Admin {
 
 		// WP Document Revisions.
 		add_action( 'init', array( $this, 'add_document_revisions_visibility_support' ), 12 );
-		add_filter( 'wsuwp_content_visibility_caps', array ( $this, 'add_document_revisions_visibility_caps' ), 10 );
+		add_filter( 'wsuwp_content_visibility_caps', array( $this, 'add_document_revisions_visibility_caps' ), 10 );
 		add_filter( 'document_revisions_enable_webdav', '__return_false' );
 		add_filter( 'wp_headers', array( $this, 'document_revisions_headers' ), 10, 1 );
 
@@ -107,7 +107,9 @@ class WSU_Admin {
 	 * @return array Modified list of columns.
 	 */
 	public function add_last_updated_column( $columns ) {
-		$columns = array_merge( $columns, array( 'wsu_last_updated' => 'Last Updated' ) );
+		$columns = array_merge( $columns, array(
+			'wsu_last_updated' => 'Last Updated',
+		) );
 
 		return $columns;
 	}
@@ -145,13 +147,15 @@ class WSU_Admin {
 		}
 
 		// Retrieve the last revision for this post, which should also be the last updated record.
-		$revisions = wp_get_post_revisions( $post_id, array( 'numberposts' => 1 ) );
+		$revisions = wp_get_post_revisions( $post_id, array(
+			'numberposts' => 1,
+		) );
 
 		// Calculate the last updated display based on our current timezone.
 		$current_time = time() + ( get_option( 'gmt_offset', 0 ) * HOUR_IN_SECONDS );
 
 		foreach ( $revisions as $revision ) {
-			echo get_the_author_meta('display_name', $revision->post_author );
+			echo get_the_author_meta( 'display_name', $revision->post_author );
 			echo '<br>';
 
 			// If within 24 hours, show a human readable version instead
@@ -189,7 +193,7 @@ class WSU_Admin {
 	 */
 	public function preconfigure_project_site( $blog_id, $user_id, $domain ) {
 		// Only apply these defaults to project sites.
-		if ( ! in_array( $domain, array( 'project.wsu.edu', 'project.wsu.dev' ) ) ) {
+		if ( ! in_array( $domain, array( 'project.wsu.edu', 'project.wsu.dev' ), true ) ) {
 			return;
 		}
 
@@ -217,10 +221,47 @@ class WSU_Admin {
 		}
 
 		// Setup common P2 widgets.
-		update_option( 'widget_mention_me', array( 2 => array( 'title' => '', 'num_to_show' => 5, 'avatar_size' => 32, 'show_also_post_followups' => false, 'show_also_comment_followups' => false ), '_multiwidget' => 1 ) );
-		update_option( 'widget_p2_recent_tags', array( 2 => array( 'title' => '', 'num_to_show' => 15 ), '_multiwidget' => 1 ) );
-		update_option( 'widget_p2_recent_comments', array( 2 => array( 'title' => '', 'num_to_show' => 5, 'avatar_size' => 32 ), '_multiwidget' => 1 ) );
-		update_option( 'sidebars_widgets',       array ( 'wp_inactive_widgets' => array (), 'sidebar-1' => array ( 0 => 'search-2', 1 => 'mention_me-2', 2 => 'p2_recent_tags-2', 3 => 'p2_recent_comments-2', 4 => 'recent-posts-2' ), 'sidebar-2' => array (), 'sidebar-3' => array (), 'array_version' => 3 ) );
+		update_option( 'widget_mention_me', array(
+			2 => array(
+				'title' => '',
+				'num_to_show' => 5,
+				'avatar_size' => 32,
+				'show_also_post_followups' => false,
+				'show_also_comment_followups' => false,
+			),
+			'_multiwidget' => 1,
+		) );
+
+		update_option( 'widget_p2_recent_tags', array(
+			2 => array(
+				'title' => '',
+				'num_to_show' => 15,
+			),
+			'_multiwidget' => 1,
+		) );
+
+		update_option( 'widget_p2_recent_comments', array(
+			2 => array(
+				'title' => '',
+				'num_to_show' => 5,
+				'avatar_size' => 32,
+			),
+			'_multiwidget' => 1,
+		) );
+
+		update_option( 'sidebars_widgets', array(
+			'wp_inactive_widgets' => array(),
+			'sidebar-1' => array(
+				0 => 'search-2',
+				1 => 'mention_me-2',
+				2 => 'p2_recent_tags-2',
+				3 => 'p2_recent_comments-2',
+				4 => 'recent-posts-2',
+			),
+			'sidebar-2' => array(),
+			'sidebar-3' => array(),
+			'array_version' => 3,
+		) );
 
 		wp_schedule_single_event( time() + 5, 'wsuwp_project_flush_rewrite_rules' );
 		wp_cache_delete( 'alloptions', 'options' );
@@ -242,7 +283,7 @@ class WSU_Admin {
 	 */
 	public function preconfigure_sites_site( $blog_id, $user_id, $domain ) {
 		// Only apply these defaults to sites sites. ;)
-		if ( ! in_array( $domain, array( 'sites.wsu.edu', 'sites.wsu.dev' ) ) ) {
+		if ( ! in_array( $domain, array( 'sites.wsu.edu', 'sites.wsu.dev' ), true ) ) {
 			return;
 		}
 
@@ -324,7 +365,7 @@ class WSU_Admin {
 			return false;
 		}
 
-		if ( ! isset( $_COOKIE['wp-postpass_' . COOKIEHASH] ) ) {
+		if ( ! isset( $_COOKIE[ 'wp-postpass_' . COOKIEHASH ] ) ) {
 			return true;
 		}
 
@@ -332,8 +373,9 @@ class WSU_Admin {
 		$hasher = new PasswordHash( 8, true );
 
 		$hash = wp_unslash( $_COOKIE[ 'wp-postpass_' . COOKIEHASH ] );
-		if ( 0 !== strpos( $hash, '$P$B' ) )
+		if ( 0 !== strpos( $hash, '$P$B' ) ) {
 			return true;
+		}
 
 		return ! $hasher->CheckPassword( $post_password, $hash );
 	}
@@ -393,7 +435,7 @@ class WSU_Admin {
 		 * mime_content_type() is not handled by the S3 stream wrapper, so we
 		 * handle content type detection differently when S3 uploads are enabled.
 		 */
-		if ( function_exists( 's3_uploads_enabled') && s3_uploads_enabled() ) {
+		if ( function_exists( 's3_uploads_enabled' ) && s3_uploads_enabled() ) {
 			include_once __DIR__ . '/includes/upstream-file-mime-type-mapping.php';
 			$mime_type_mapping = wsuwp_file_default_mimetype_mapping();
 			$mime_type = S3_Uploads_Local_Stream_Wrapper::getMimeType( $file, $mime_type_mapping );
@@ -465,7 +507,7 @@ class WSU_Admin {
 	public function register_university_center_taxonomies() {
 		if ( function_exists( 'wsuwp_uc_get_object_type_slugs' ) ) {
 			$uc_content_types = wsuwp_uc_get_object_type_slugs();
-			foreach( $uc_content_types as $uc_content_type ) {
+			foreach ( $uc_content_types as $uc_content_type ) {
 				register_taxonomy_for_object_type( 'wsuwp_university_category', $uc_content_type );
 				register_taxonomy_for_object_type( 'wsuwp_university_location', $uc_content_type );
 			}
@@ -562,7 +604,7 @@ class WSU_Admin {
 		 * Some plugins should not be network activated.
 		 */
 		if ( is_network_admin() ) {
-			foreach( $site_only_plugins as $site_only_plugin ) {
+			foreach ( $site_only_plugins as $site_only_plugin ) {
 				if ( isset( $plugins[ $site_only_plugin ] ) ) {
 					unset( $plugins[ $site_only_plugin ] );
 				}
@@ -638,11 +680,11 @@ class WSU_Admin {
 			'wsu-idonate/wsuwp-plugin-idonate.php' => array(
 				'foundation.wsu.edu/',
 				'hub.wsu.edu/foundation-sandbox/',
-			)
+			),
 		);
 
-		foreach( $plugin_access_list as $plugin_key => $plugin_sites ) {
-			if ( ! in_array( $current_site_address, $plugin_sites ) && isset( $plugins[ $plugin_key ] ) ) {
+		foreach ( $plugin_access_list as $plugin_key => $plugin_sites ) {
+			if ( ! in_array( $current_site_address, $plugin_sites, true ) && isset( $plugins[ $plugin_key ] ) ) {
 				unset( $plugins[ $plugin_key ] );
 			}
 		}
@@ -662,7 +704,7 @@ class WSU_Admin {
 	 */
 	public function user_can_switch_users( $allcaps, $caps, $args, $user ) {
 		if ( 'switch_to_user' === $args[0] ) {
-			if ( $user && wsuwp_is_global_admin( $user->ID  ) ) {
+			if ( $user && wsuwp_is_global_admin( $user->ID ) ) {
 				$allcaps['switch_to_user'] = true;
 			} else {
 				unset( $allcaps['switch_to_user'] );
@@ -742,9 +784,9 @@ class WSU_Admin {
 		global $wp_query;
 
 		if ( $wp_query->is_404 && isset( $headers['Pragma'] ) ) {
-			unset( $headers[ 'Expires' ] );
-			unset( $headers[ 'Cache-Control' ] );
-			unset( $headers[ 'Pragma' ] );
+			unset( $headers['Expires'] );
+			unset( $headers['Cache-Control'] );
+			unset( $headers['Pragma'] );
 		}
 
 		return $headers;
