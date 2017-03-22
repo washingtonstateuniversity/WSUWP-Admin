@@ -1,10 +1,35 @@
 <?php
 
-class WSU_Admin {
+class WSUWP_Admin {
 	/**
-	 * Setup hooks.
+	 * @since 1.0.0
+	 *
+	 * @var WSUWP_Admin
 	 */
-	public function __construct() {
+	private static $instance;
+
+	/**
+	 * Maintain and return the one instance. Initiate hooks when
+	 * called the first time.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return \WSUWP_Admin
+	 */
+	public static function get_instance() {
+		if ( ! isset( self::$instance ) ) {
+			self::$instance = new WSUWP_Admin();
+			self::$instance->setup_hooks();
+		}
+		return self::$instance;
+	}
+
+	/**
+	 * Adds hooks used by the plugin.
+	 *
+	 * @since 1.0.0
+	 */
+	public function setup_hooks() {
 		if ( defined( 'WP_CLI' ) && WP_CLI ) {
 			include __DIR__ . '/includes/class-wsu-cli-spine-option.php';
 			WP_CLI::add_command( 'spine_option', 'WSU_CLI_Spine_Option' );
@@ -821,4 +846,3 @@ class WSU_Admin {
 		return compact( 'ext', 'type', 'proper_filename' );
 	}
 }
-new WSU_Admin();
