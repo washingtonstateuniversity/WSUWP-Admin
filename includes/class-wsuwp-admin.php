@@ -334,7 +334,7 @@ class WSUWP_Admin {
 	/**
 	 * Sets new sites on specific domains to use S3 uploads on creation.
 	 *
-	 * @since 0.7.4
+	 * @since 1.0.0
 	 *
 	 * @param int    $blog_id
 	 * @param int    $user_id
