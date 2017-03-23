@@ -1,5 +1,9 @@
 # WSUWP Admin Changelog
 
+### 1.0.1 (March 22, 2017)
+
+* Fix include path.
+
 ### 1.0.0 (March 22, 2017)
 
 * Refactor plugin structure.
