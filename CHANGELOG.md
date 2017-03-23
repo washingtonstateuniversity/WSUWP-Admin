@@ -1,5 +1,10 @@
 # WSUWP Admin Changelog
 
+### 1.0.0 (March 22, 2017)
+
+* Refactor plugin structure.
+* Auto-enable S3 uploads for new sites on a given list of domains.
+
 ### 0.7.3 (March 21, 2017)
 
 * Restrict WSUWS WooCommerce payment gateway to specific sites.
