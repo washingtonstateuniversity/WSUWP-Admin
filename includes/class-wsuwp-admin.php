@@ -31,7 +31,7 @@ class WSUWP_Admin {
 	 */
 	public function setup_hooks() {
 		if ( defined( 'WP_CLI' ) && WP_CLI ) {
-			include __DIR__ . '/includes/class-wsu-cli-spine-option.php';
+			include __DIR__ . '/class-wsu-cli-spine-option.php';
 			WP_CLI::add_command( 'spine_option', 'WSU_CLI_Spine_Option' );
 		}
 
@@ -457,7 +457,7 @@ class WSUWP_Admin {
 		 * handle content type detection differently when S3 uploads are enabled.
 		 */
 		if ( function_exists( 's3_uploads_enabled' ) && s3_uploads_enabled() ) {
-			include_once __DIR__ . '/includes/upstream-file-mime-type-mapping.php';
+			include_once __DIR__ . '/upstream-file-mime-type-mapping.php';
 			$mime_type_mapping = wsuwp_file_default_mimetype_mapping();
 			$mime_type = S3_Uploads_Local_Stream_Wrapper::getMimeType( $file, $mime_type_mapping );
 		} else {
