@@ -77,9 +77,6 @@ class WSUWP_Admin {
 		add_filter( 'wsuwp_sso_create_new_user', array( $this, 'create_auto_users' ) );
 		add_filter( 'wsuwp_sso_create_new_network_user', '__return_true' );
 
-		// Prevent WordPress from dropping tables for a deleted site.
-		add_filter( 'wpmu_drop_tables', '__return_empty_array' );
-
 		// Adjust defaults included with Shortcake Bakery
 		add_filter( 'shortcake_bakery_shortcode_classes', array( $this, 'filter_shortcake_bakery_shortcodes' ) );
 		add_action( 'after_setup_theme', array( $this, 'remove_shortcode_bakery_embed_button' ), 999 );
