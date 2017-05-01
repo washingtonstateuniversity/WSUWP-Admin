@@ -1,5 +1,14 @@
 # WSUWP Admin Changelog
 
+### 1.0.3 (May 1, 2017)
+
+* Set Safe Redirect Manager max redirects to 1000.
+* Remove `wpmu_drop_tables` filter, moved to MU plugin.
+
+### 1.0.2 (March 24, 2017)
+
+* Filter the index used to save labs.wsu.edu content in ES
+
 ### 1.0.1 (March 22, 2017)
 
 * Fix include path.
