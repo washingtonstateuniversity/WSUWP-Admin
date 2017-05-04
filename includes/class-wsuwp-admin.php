@@ -191,7 +191,7 @@ class WSUWP_Admin {
 	 * @return int Number of redirects supported.
 	 */
 	public function srm_max_redirects() {
-		return 1000;
+		return 2000;
 	}
 
 	/**
