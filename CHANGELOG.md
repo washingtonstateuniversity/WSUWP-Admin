@@ -1,5 +1,9 @@
 # WSUWP Admin Changelog
 
+### 1.0.4 (May 4, 2017)
+
+* Set Safe Redirect Manager max redirects to 2000.
+
 ### 1.0.3 (May 1, 2017)
 
 * Set Safe Redirect Manager max redirects to 1000.
