@@ -701,6 +701,7 @@ class WSUWP_Admin {
 				'foundation.wsu.edu/',
 				'hub.wsu.edu/foundation-sandbox/',
 			),
+			'wsuwp-rest-email-proxy/plugin.php' => array(), // Only allow on main site.
 		);
 
 		foreach ( $plugin_access_list as $plugin_key => $plugin_sites ) {
