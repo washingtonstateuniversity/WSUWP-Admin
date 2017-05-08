@@ -1,5 +1,9 @@
 # WSUWP Admin Changelog
 
+### 1.0.5 (May 8, 2017)
+
+* Restrict REST Email Proxy to the main site only.
+
 ### 1.0.4 (May 4, 2017)
 
 * Set Safe Redirect Manager max redirects to 2000.
