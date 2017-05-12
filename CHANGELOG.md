@@ -1,5 +1,9 @@
 # WSUWP Admin Changelog
 
+### 1.0.6 (May 12, 2017)
+
+* Restrict WP API Menus to specific sites.
+
 ### 1.0.5 (May 8, 2017)
 
 * Restrict REST Email Proxy to the main site only.
