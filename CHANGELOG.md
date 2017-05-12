@@ -1,6 +1,6 @@
 # WSUWP Admin Changelog
 
-### 1.0.6 (May 15, 2017)
+### 1.0.6 (May 12, 2017)
 
 * Restrict WP API Menus to specific sites.
 
