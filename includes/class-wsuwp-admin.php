@@ -618,6 +618,7 @@ class WSUWP_Admin {
 			'co-authors-plus/co-authors-plus.php',
 			'woocommerce/woocommerce.php',
 			'make-plus/make-plus.php',
+			'wp-api-menus/wp-api-menus.php',
 		);
 
 		/**
@@ -702,6 +703,9 @@ class WSUWP_Admin {
 				'hub.wsu.edu/foundation-sandbox/',
 			),
 			'wsuwp-rest-email-proxy/plugin.php' => array(), // Only allow on main site.
+			'wp-api-menus/wp-api-menus.php' => array(
+				'financialaid.wsu.edu/'
+			),
 		);
 
 		foreach ( $plugin_access_list as $plugin_key => $plugin_sites ) {
