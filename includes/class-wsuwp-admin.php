@@ -60,6 +60,9 @@ class WSUWP_Admin {
 		add_action( 'init', array( $this, 'add_taxonomies_to_media' ) );
 		add_action( 'init', array( $this, 'register_university_center_taxonomies' ), 20 );
 
+		// Editorial Access Manager.
+		add_filter( 'eam_post_types', array( $this, 'filter_eam_post_types' ), 10 );
+
 		// WP Document Revisions.
 		add_action( 'init', array( $this, 'add_document_revisions_visibility_support' ), 12 );
 		add_filter( 'wsuwp_content_visibility_caps', array( $this, 'add_document_revisions_visibility_caps' ), 10 );
@@ -125,6 +128,24 @@ class WSUWP_Admin {
 		) );
 
 		return $columns;
+	}
+
+	/**
+	 * Filters the post types managed with Editorial Access Manager.
+	 *
+	 * @since 1.0.7
+	 *
+	 * @return array
+	 */
+	public function filter_eam_post_types() {
+		return array(
+			'post' => 'post',
+			'page' => 'page',
+			'document' => 'document',
+			'tribe_events' => 'tribe_events',
+			'idonate_fund' => 'idonate_fund',
+			'gs-factsheet' => 'gs-factsheet',
+		);
 	}
 
 	/**
