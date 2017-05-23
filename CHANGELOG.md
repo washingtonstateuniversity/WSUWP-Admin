@@ -1,5 +1,10 @@
 # WSUWP Admin Changelog
 
+### 1.0.7 (May 23, 2017)
+
+* Move Shortcake Bakery filters to WSUWP Extended Shortcode UI.
+* Filter the list of post types used with Editorial Access Manager.
+
 ### 1.0.6 (May 12, 2017)
 
 * Restrict WP API Menus to specific sites.
