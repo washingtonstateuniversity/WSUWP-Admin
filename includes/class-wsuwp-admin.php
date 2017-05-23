@@ -147,6 +147,8 @@ class WSUWP_Admin {
 			'page' => 'page',
 			'document' => 'document',
 			'tribe_events' => 'tribe_events',
+			'idonate_fund' => 'idonate_fund',
+			'gs-factsheet' => 'gs-factsheet',
 		);
 	}
 
