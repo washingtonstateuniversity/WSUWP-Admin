@@ -85,8 +85,6 @@ class WSUWP_Admin {
 
 		add_filter( 'tablepress_wp_search_integration', '__return_false' );
 		add_filter( 'wp_check_filetype_and_ext', array( $this, 'wp39550_disable_real_mime_check' ), 10, 4 );
-
-		add_filter( 'wsuwp_search_index_slug', array( $this, 'filter_search_index_slug' ), 10 );
 	}
 
 	/**
@@ -826,22 +824,5 @@ class WSUWP_Admin {
 		$proper_filename = $data['proper_filename'];
 
 		return compact( 'ext', 'type', 'proper_filename' );
-	}
-
-	/**
-	 * Filters the slug used to index saved data.
-	 *
-	 * @since 1.0.2
-	 *
-	 * @param string $slug
-	 *
-	 * @return string
-	 */
-	public function filter_search_index_slug( $slug ) {
-		if ( 'labs.wsu.edu' === get_site()->domain ) {
-			return 'wsu-search';
-		}
-
-		return $slug;
 	}
 }
