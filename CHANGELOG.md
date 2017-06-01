@@ -1,5 +1,9 @@
 # WSUWP Admin Changelog
 
+### 1.0.8 (June 1, 2017)
+
+* Revert 1.0.2 change to store labs.wsu.edu in a different ES index.
+
 ### 1.0.7 (May 23, 2017)
 
 * Move Shortcake Bakery filters to WSUWP Extended Shortcode UI.
