@@ -634,6 +634,7 @@ class WSUWP_Admin {
 			'woocommerce/woocommerce.php',
 			'make-plus/make-plus.php',
 			'wp-api-menus/wp-api-menus.php',
+			'wordpress-seo/wp-seo.php',
 		);
 
 		/**
