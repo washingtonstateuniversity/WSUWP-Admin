@@ -1,5 +1,10 @@
 # WSUWP Admin Changelog
 
+### 1.0.9 (July 19, 2017)
+
+* Restrict WordPress SEO to sites that have already activated it.
+* Restrict WordPress SEO to site activation only.
+
 ### 1.0.8 (June 1, 2017)
 
 * Revert 1.0.2 change to store labs.wsu.edu in a different ES index.
