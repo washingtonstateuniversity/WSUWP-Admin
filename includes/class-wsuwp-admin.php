@@ -692,6 +692,9 @@ class WSUWP_Admin {
 				'dev.people.wsu.edu/',
 				'people.wsu.edu/',
 				'people.wsu.dev/',
+				'stage.murrow.wsu.edu/',
+				'dev.murrow.wsu.edu/',
+				'murrow.wsu.edu/',
 			),
 			'wsuwp-ucomm-asset-request/wsu-ucomm-assets-registration.php' => array(
 				'ucomm.wsu.edu/',
