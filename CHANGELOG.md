@@ -1,5 +1,11 @@
 # WSUWP Admin Changelog
 
+### 1.1.0 (July 26, 2017)
+
+* Introduce a method for managing remarketing pixels. Fun!
+* Add a remarketing pixel for etm.wsu.edu.
+* Remove more sites from WordPress SEO whitelist.
+
 ### 1.0.9 (July 19, 2017)
 
 * Restrict WordPress SEO to sites that have already activated it.
