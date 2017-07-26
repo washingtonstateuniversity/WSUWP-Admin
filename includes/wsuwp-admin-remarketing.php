@@ -14,6 +14,7 @@ add_action( 'wp_footer', 'WSUWP\Admin\Remarketing\output_etm_tag', 999 );
  */
 function get_remarketing_id() {
 	$ids = array(
+		'etm.wsu.edu/' => 848095247, // Managed by kellybrady.com for etm.wsu.edu home page, added 07/26/2017
 	);
 
 	$site = get_site();
