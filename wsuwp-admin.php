@@ -13,17 +13,26 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-// The core plugin class.
-require dirname( __FILE__ ) . '/includes/class-wsuwp-admin.php';
+// This plugin uses namespaces and requires PHP 5.3 or greater.
+if ( version_compare( PHP_VERSION, '5.3', '<' ) ) {
+	add_action( 'admin_notices', create_function( '',
+	"echo '<div class=\"error\"><p>" . __( 'WSUWP Admin requires PHP 5.3 to function properly. Please upgrade PHP or deactivate the plugin.', 'wsuwp-admin' ) . "</p></div>';" ) );
+	return;
+} else {
+	// The core plugin class.
+	require dirname( __FILE__ ) . '/includes/class-wsuwp-admin.php';
 
-add_action( 'after_setup_theme', 'WSUWP_Admin' );
-/**
- * Start things up.
- *
- * @since 1.0.0
- *
- * @return \WSUWP_Admin
- */
-function WSUWP_Admin() {
-	return WSUWP_Admin::get_instance();
+	add_action( 'after_setup_theme', 'WSUWP_Admin' );
+	/**
+	 * Start things up.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return \WSUWP_Admin
+	 */
+	function WSUWP_Admin() {
+		return WSUWP_Admin::get_instance();
+	}
+
+	include_once __DIR__ . '/includes/wsuwp-admin-remarketing.php';
 }
