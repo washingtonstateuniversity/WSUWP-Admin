@@ -1,6 +1,6 @@
 # WSUWP Admin Changelog
 
-### 1.1.0 (July 26, 2017)
+### 1.1.0 (July 27, 2017)
 
 * Introduce a method for managing remarketing pixels. Fun!
 * Add a remarketing pixel for etm.wsu.edu.
