@@ -1,5 +1,9 @@
 # WSUWP Admin Changelog
 
+### 1.1.1 (July 31, 2017)
+
+* Adjust remarketing script output location.
+
 ### 1.1.0 (July 27, 2017)
 
 * Introduce a method for managing remarketing pixels. Fun!
