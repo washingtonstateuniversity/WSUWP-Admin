@@ -2,7 +2,6 @@
 
 namespace WSUWP\Admin\Remarketing;
 
-add_action( 'wp_enqueue_scripts', 'WSUWP\Admin\Remarketing\enqueue_conversion_js', 999 );
 add_action( 'wp_footer', 'WSUWP\Admin\Remarketing\output_etm_tag', 999 );
 
 /**
@@ -27,19 +26,6 @@ function get_remarketing_id() {
 }
 
 /**
- * Enqueue the remarketing conversion script provided by Google Ad Services.
- *
- * @since 1.1.0
- */
-function enqueue_conversion_js() {
-	if ( false === get_remarketing_id() ) {
-		return;
-	}
-
-	wp_enqueue_script( 'wsuwp-admin-remarketing', 'https://www.googleadservices.com/pagead/conversion.js', array(), false, true );
-}
-
-/**
  * Output a configured remarketing tag in the footer of a page.
  *
  * @since 1.1.0
@@ -51,6 +37,7 @@ function output_etm_tag() {
 		return;
 	}
 
+	// @codingStandardsIgnoreStart
 	?>
 	<!-- Google Code for Remarketing Tag -->
 	<!--------------------------------------------------
@@ -63,11 +50,13 @@ function output_etm_tag() {
 		var google_remarketing_only = true;
 		/* ]]> */
 	</script>
+	<script type="text/javascript" src="https://www.googleadservices.com/pagead/conversion.js"></script>
 	<noscript>
 		<div style="display:inline;">
 			<img height="1" width="1" style="border-style:none;" alt="" src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/848095247/?guid=ON&amp;script=0"/>
 		</div>
 	</noscript>
 	<?php
+	// @codingStandardsIgnoreEnd
 }
 
