@@ -361,6 +361,16 @@ class WSUWP_Admin {
 			'sites.wsu.edu',
 			'hub.wsu.edu',
 			'faculty.business.wsu.edu',
+			'people.ses.wsu.edu',
+			'archive.wsu.edu',
+			'business.wsu.edu',
+			'education.wsu.edu',
+			'gradschool.wsu.edu',
+			'museum.wsu.edu',
+			'puyallup.wsu.edu',
+			'spokane.wsu.edu',
+			'students.ses.wsu.edu',
+			'ucomm.wsu.edu',
 		);
 
 		if ( ! in_array( $domain, $forced_s3_domains, true ) ) {
