@@ -1,5 +1,13 @@
 # WSUWP Admin Changelog
 
+### 1.1.3 (September 6, 2017)
+
+* Enable S3 uploads on all new sites by default.
+
+### 1.1.2 (August 30, 2017)
+
+* Enable Community Events on Pharmacy sites.
+
 ### 1.1.1 (July 31, 2017)
 
 * Adjust remarketing script output location.
