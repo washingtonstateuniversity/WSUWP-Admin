@@ -346,7 +346,7 @@ class WSUWP_Admin {
 	}
 
 	/**
-	 * Sets new sites on specific domains to use S3 uploads on creation.
+	 * Configure new sites to use S3 Uploads.
 	 *
 	 * @since 1.0.0
 	 *
@@ -355,18 +355,6 @@ class WSUWP_Admin {
 	 * @param string $domain
 	 */
 	public function preconfigure_sites_with_s3_uploads( $blog_id, $user_id, $domain ) {
-		$forced_s3_domains = array(
-			'labs.wsu.edu',
-			'project.wsu.edu',
-			'sites.wsu.edu',
-			'hub.wsu.edu',
-			'faculty.business.wsu.edu',
-		);
-
-		if ( ! in_array( $domain, $forced_s3_domains, true ) ) {
-			return;
-		}
-
 		switch_to_blog( $blog_id );
 		update_option( 's3_uploads_enabled', 'enabled' );
 		wp_cache_delete( 'alloptions', 'options' );
