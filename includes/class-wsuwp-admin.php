@@ -45,7 +45,6 @@ class WSUWP_Admin {
 		add_filter( 'srm_max_redirects', array( $this, 'srm_max_redirects' ), 10, 1 );
 		add_action( 'wpmu_new_blog', array( $this, 'preconfigure_project_site' ), 10, 3 );
 		add_action( 'wpmu_new_blog', array( $this, 'preconfigure_sites_site' ), 10, 3 );
-		add_action( 'wpmu_new_blog', array( $this, 'preconfigure_sites_with_s3_uploads' ), 10, 3 );
 		add_action( 'wsuwp_project_flush_rewrite_rules', array( $this, 'flush_rewrite_rules' ), 10 );
 
 		// Don't send submit for review emails in Duplicate and Merge Posts.
@@ -339,24 +338,6 @@ class WSUWP_Admin {
 			update_option( 'home', $home_url );
 		}
 
-		wp_cache_delete( 'alloptions', 'options' );
-		restore_current_blog();
-
-		refresh_blog_details( $blog_id );
-	}
-
-	/**
-	 * Configure new sites to use S3 Uploads.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @param int    $blog_id
-	 * @param int    $user_id
-	 * @param string $domain
-	 */
-	public function preconfigure_sites_with_s3_uploads( $blog_id, $user_id, $domain ) {
-		switch_to_blog( $blog_id );
-		update_option( 's3_uploads_enabled', 'enabled' );
 		wp_cache_delete( 'alloptions', 'options' );
 		restore_current_blog();
 
