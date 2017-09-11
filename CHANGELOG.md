@@ -1,5 +1,9 @@
 # WSUWP Admin Changelog
 
+### 1.1.4 (September 11, 2017)
+
+* Remove S3 upload handling now that plugin is fully auto-activated in `wp-config.php`.
+
 ### 1.1.3 (September 6, 2017)
 
 * Enable S3 uploads on all new sites by default.
