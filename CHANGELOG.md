@@ -1,6 +1,6 @@
 # WSUWP Admin Changelog
 
-### 1.1.5 (TBD)
+### 1.1.5 (September 21, 2017)
 
 * Remove admin notices displayed by Restricted Site Access.
 
