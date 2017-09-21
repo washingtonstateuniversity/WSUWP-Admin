@@ -1,5 +1,9 @@
 # WSUWP Admin Changelog
 
+### 1.1.5 (TBD)
+
+* Remove admin notices displayed by Restricted Site Access.
+
 ### 1.1.4 (September 11, 2017)
 
 * Remove S3 upload handling now that plugin is fully auto-activated in `wp-config.php`.
