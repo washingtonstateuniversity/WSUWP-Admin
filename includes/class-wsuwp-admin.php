@@ -664,6 +664,8 @@ class WSUWP_Admin {
 				'stage.murrow.wsu.edu/',
 				'dev.murrow.wsu.edu/',
 				'murrow.wsu.edu/',
+				'nursing.wsu.edu/',
+				'stage.pharmacy.wsu.edu/',
 			),
 			'wsuwp-ucomm-asset-request/wsu-ucomm-assets-registration.php' => array(
 				'ucomm.wsu.edu/',
