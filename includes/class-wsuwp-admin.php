@@ -695,6 +695,7 @@ class WSUWP_Admin {
 			'wsuwp-rest-email-proxy/plugin.php' => array(), // Only allow on main site.
 			'wp-api-menus/wp-api-menus.php' => array(
 				'financialaid.wsu.edu/',
+				'stage.pharmacy.wsu.edu/',
 			),
 			'wordpress-seo/wp-seo.php' => array(
 				'spokane.wsu.edu/',
