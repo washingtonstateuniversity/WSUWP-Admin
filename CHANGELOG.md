@@ -1,5 +1,10 @@
 # WSUWP Admin Changelog
 
+### 1.1.6 (September 25, 2017)
+
+* Enable WP API Menus on stage.pharmacy.wsu.edu.
+* Enable WSU People Directory on stage.pharmacy.wsu.edu and nursing.wsu.edu.
+
 ### 1.1.5 (September 21, 2017)
 
 * Remove admin notices displayed by Restricted Site Access.
