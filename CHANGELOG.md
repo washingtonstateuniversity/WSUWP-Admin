@@ -1,5 +1,9 @@
 # WSUWP Admin Changelog
 
+### 1.1.7 (October 5, 2017)
+
+* Add support for excerpts to pages.
+
 ### 1.1.6 (September 25, 2017)
 
 * Enable WP API Menus on stage.pharmacy.wsu.edu.
