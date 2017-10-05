@@ -59,6 +59,8 @@ class WSUWP_Admin {
 		add_action( 'init', array( $this, 'add_taxonomies_to_media' ) );
 		add_action( 'init', array( $this, 'register_university_center_taxonomies' ), 20 );
 
+		add_action( 'init', array( $this, 'add_excerpts_to_pages' ) );
+
 		// Editorial Access Manager.
 		add_filter( 'eam_post_types', array( $this, 'filter_eam_post_types' ), 10 );
 
@@ -516,6 +518,15 @@ class WSUWP_Admin {
 				register_taxonomy_for_object_type( 'wsuwp_university_location', $uc_content_type );
 			}
 		}
+	}
+
+	/**
+	 * Add excerpt support to pages.
+	 *
+	 * @since 1.1.7
+	 */
+	public function add_excerpts_to_pages() {
+		add_post_type_support( 'page', 'excerpt' );
 	}
 
 	/**
