@@ -1,5 +1,9 @@
 # WSUWP Admin Changelog
 
+### 1.1.8 (October 16, 2017)
+
+* Restrict sites to members of the site in Restricted Site Access when authentication is required.
+
 ### 1.1.7 (October 5, 2017)
 
 * Add support for excerpts to pages.
