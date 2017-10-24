@@ -6,7 +6,7 @@
     }
   ],
   "require-dev": {
-    "squizlabs/php_codesniffer": "3.0.x",
+    "squizlabs/php_codesniffer": "3.x.x",
     "wp-coding-standards/wpcs": "0.13.x"
   },
   "scripts": {
