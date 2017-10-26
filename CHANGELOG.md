@@ -1,5 +1,9 @@
 # WSUWP Admin Changelog
 
+### 1.1.10 (October 26, 2017)
+
+* Fix an issue with our Restricted Site Access hook.
+
 ### 1.1.9 (October 24, 2017)
 
 * Enable WSU People Directory on physics.wsu.edu and stage.physics.wsu.edu.
