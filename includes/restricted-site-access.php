@@ -37,7 +37,7 @@ function restrict_to_site_members( $is_restricted ) {
 		$mode = get_site_option( 'rsa_mode', 'default' );
 	}
 
-	if ( RSA_IS_NETWORK && 'enforce' === $mode ) {
+	if ( defined( 'RSA_IS_NETWORK' ) && RSA_IS_NETWORK && 'enforce' === $mode ) {
 		$blog_public = get_site_option( 'blog_public', 2 );
 	} else {
 		$blog_public = get_option( 'blog_public', 2 );
