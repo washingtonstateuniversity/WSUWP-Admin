@@ -19,6 +19,8 @@ if ( version_compare( PHP_VERSION, '5.3', '<' ) ) {
 	"echo '<div class=\"error\"><p>" . __( 'WSUWP Admin requires PHP 5.3 to function properly. Please upgrade PHP or deactivate the plugin.', 'wsuwp-admin' ) . "</p></div>';" ) );
 	return;
 } else {
+	include_once __DIR__ . '/includes/common.php';
+
 	// The core plugin class.
 	require dirname( __FILE__ ) . '/includes/class-wsuwp-admin.php';
 

@@ -64,7 +64,7 @@ function document_revisions_headers( $headers ) {
 	}
 
 	// If the document has a password assigned and the cookie does not exist, don't modify.
-	if ( $this->post_password_required( $post_password ) ) {
+	if ( \WSUWP\Admin\Common\post_password_required( $post_password ) ) {
 		return $headers;
 	}
 
