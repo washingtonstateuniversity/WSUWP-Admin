@@ -18,7 +18,7 @@ class WSU_CLI_Spine_Option extends WP_CLI_Command {
 	 *
 	 * @synopsis <name>
 	 */
-	function get( $args, $assoc_args ) {
+	public function get( $args, $assoc_args ) {
 		list( $option ) = $args;
 
 		if ( function_exists( 'spine_get_option' ) ) {
