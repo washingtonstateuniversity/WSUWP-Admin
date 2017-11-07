@@ -1,5 +1,9 @@
 # WSUWP Admin Changelog
 
+### 1.2.0 (November 7, 2017)
+
+* Fix an error in Safari where `X-Frame-Options` headers were conflicting.
+
 ### 1.1.10 (October 26, 2017)
 
 * Fix an issue with our Restricted Site Access hook.
