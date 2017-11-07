@@ -36,4 +36,5 @@ if ( version_compare( PHP_VERSION, '5.3', '<' ) ) {
 
 	include_once __DIR__ . '/includes/restricted-site-access.php';
 	include_once __DIR__ . '/includes/wsuwp-admin-remarketing.php';
+	include_once __DIR__ . '/includes/response-headers.php';
 }
