@@ -1,5 +1,9 @@
 # WSUWP Admin Changelog
 
+### 1.2.1 (November 9, 2017)
+
+* Filter HTTP headers in WP Document Revisions in an improved way.
+
 ### 1.2.0 (November 7, 2017)
 
 * Fix an error in Safari where `X-Frame-Options` headers were conflicting.
