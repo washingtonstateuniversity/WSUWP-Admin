@@ -704,6 +704,12 @@ class WSUWP_Admin {
 				'cewp.wsu.edu/',
 				'gradschool.wsu.edu/',
 			),
+			'wsuwp-extended-polylang/plugin.php' => array(
+				'financialaid.wsu.edu/',
+			),
+			'polylang/polylang.php' => array(
+				'financialaid.wsu.edu/',
+			),
 		);
 
 		foreach ( $plugin_access_list as $plugin_key => $plugin_sites ) {
