@@ -1,5 +1,10 @@
 # WSUWP Admin Changelog
 
+### 1.2.2 (November 27, 2017)
+
+* Enable Polylang on financialaid.wsu.edu.
+* Enable WSUWP Extended Polylang on financialaid.wsu.edu.
+
 ### 1.2.1 (November 9, 2017)
 
 * Filter HTTP headers in WP Document Revisions in an improved way.
