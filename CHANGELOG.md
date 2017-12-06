@@ -1,5 +1,9 @@
 # WSUWP Admin Changelog
 
+### 1.3.0 (December 6, 2017)
+
+* Remove code controlling site defaults for project.wsu.edu and sites.wsu.edu.
+
 ### 1.2.2 (November 27, 2017)
 
 * Enable Polylang on financialaid.wsu.edu.
