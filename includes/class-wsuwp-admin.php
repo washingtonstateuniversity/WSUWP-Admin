@@ -408,9 +408,6 @@ class WSUWP_Admin {
 				'stage.wsupress.wsu.edu/',
 				'wsupress.wsu.edu/',
 			),
-			'make-plus/make-plus.php' => array(
-				'aswsu.wsu.edu/',
-			),
 			'wsu-people-directory/wsu-people-directory.php' => array(
 				'dev.people.wsu.edu/',
 				'people.wsu.edu/',
