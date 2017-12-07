@@ -355,7 +355,7 @@ class WSUWP_Admin {
 			'wsuwp-json-web-template/wsuwp-json-web-template.php',
 			'co-authors-plus/co-authors-plus.php',
 			'woocommerce/woocommerce.php',
-			'make-plus/make-plus.php',
+			'gutenberg/gutenberg.php',
 			'wp-api-menus/wp-api-menus.php',
 			'wordpress-seo/wp-seo.php',
 		);
@@ -373,15 +373,18 @@ class WSUWP_Admin {
 
 		$current_site_address = $current_blog->domain . $current_blog->path;
 
-		// Allow all plugins at the top level site in production and dev.
-		if ( 'wp.wsu.edu/' === $current_site_address || 'wp.wsu.dev' === $current_blog->domain ) {
+		// Allow all plugins on development domains.
+		if ( 'wp.wsu.dev' === $current_blog->domain || 'wp.wsu.test' === $current_blog->domain ) {
+			return $plugins;
+		}
+
+		// Allow all plugins at the top level site in production.
+		if ( 'wp.wsu.edu/' === $current_site_address || 'wp2.wsu.edu/' === $current_site_address ) {
 			return $plugins;
 		}
 
 		$plugin_access_list = array(
 			'buddypress/bp-loader.php' => array(
-				'dev.hub.wsu.edu/murrow/',
-				'hub.wsu.edu/murrow-alumni/',
 				'connect.murrow.wsu.edu/',
 				'magazine.wsu.edu/mystory/',
 			),
@@ -395,21 +398,16 @@ class WSUWP_Admin {
 				'magazine.wsu.edu/',
 				'stage.magazine.wsu.edu/',
 				'hydrogen.wsu.edu/',
-				'wp.wsu.dev/magazine/',
 			),
 			'woocommerce/woocommerce.php' => array(
 				'ucomm.wsu.edu/promos/',
 				'stage.wsupress.wsu.edu/',
 				'wsupress.wsu.edu/',
 				'dev.wsupress.wsu.edu/',
-				'wp.wsu.dev/wsupress/',
 			),
 			'wsuws-woocommerce-payment-gateway/wsuws-woocommerce-payment-gateway.php' => array(
 				'stage.wsupress.wsu.edu/',
 				'wsupress.wsu.edu/',
-			),
-			'make-plus/make-plus.php' => array(
-				'aswsu.wsu.edu/',
 			),
 			'wsu-people-directory/wsu-people-directory.php' => array(
 				'dev.people.wsu.edu/',
@@ -427,16 +425,12 @@ class WSUWP_Admin {
 				'ucomm.wsu.edu/',
 				'dev.ucomm.wsu.edu/',
 			),
-			'wsuwp-tls/wsuwp-tls.php' => array(
-				'wp2.wsu.edu/',
-			),
+			'wsuwp-tls/wsuwp-tls.php' => array(),
 			'wsu-news-announcements/wsu-news-announcements.php' => array(
 				'news.wsu.edu/',
 				'news.wsu.edu/announcements/',
 			),
-			'wsuwp-deployment/wsuwp-deployment.php' => array(
-				'wp2.wsu.edu/',
-			),
+			'wsuwp-deployment/wsuwp-deployment.php' => array(),
 			'the-events-calendar-community-events/tribe-community-events.php' => array(
 				'calendar.wsu.edu/',
 				'nursing.wsu.edu/',
@@ -445,6 +439,73 @@ class WSUWP_Admin {
 				'research.wsu.edu/',
 				'stage.pharmacy.wsu.edu', // Remove once pharmacy.wsu.edu is live.
 				'pharmacy.wsu.edu',
+			),
+			'events-calendar-pro/events-calendar-pro.php' => array(
+				'chem.wsu.edu/',
+				'business.wsu.edu/',
+				'nursing.wsu.edu/',
+				'ccgrs.wsu.edu/',
+				'distinguishedscholarships.wsu.edu/',
+				'undergraduateresearch.wsu.edu/',
+				'commonreading.wsu.edu/',
+				'honors.wsu.edu/',
+				'ip.wsu.edu/',
+				'education.wsu.edu/',
+				'economicdevelopment.wsu.edu/',
+				'vcea.wsu.edu/',
+				'everett.wsu.edu/',
+				'materials.wsu.edu/',
+				'finearts.wsu.edu/',
+				'financialaid.wsu.edu/',
+				'forlang.wsu.edu/',
+				'ansci.wsu.edu/',
+				'fieldtrips.wsu.edu/',
+				'calendar.wsu.edu/',
+				'puyallup.wsu.edu/',
+				'puyallup.wsu.edu/lcs/',
+				'puyallup.wsu.edu/poplar/',
+				'ppo.puyallup.wsu.edu/',
+				'nutrition.wsu.edu/',
+				'schoolipm.wsu.edu/',
+				'healthprofessions.wsu.edu/',
+				'vcea.wsu.edu/fiz/',
+				'dairynews.puyallup.wsu.edu/',
+				'asia.wsu.edu/',
+				'hws.wsu.edu/',
+				'momsweekend.wsu.edu/',
+				'beasley.wsu.edu/',
+				'pnwcosmos.org/',
+				'cougarsuccess.wsu.edu/',
+				'history.wsu.edu/rci/',
+				'ip.wsu.edu/scholars-abroad/',
+				'ip.wsu.edu/on-campus/',
+				'research.wsu.edu/',
+				'labs.wsu.edu/tipl/',
+				'advising.wsu.edu/',
+				'wow.wsu.edu/',
+				'prelaw.wsu.edu/',
+				'ppls.wsu.edu/',
+				'spokane.wsu.edu/communications/',
+				'footballweekends.wsu.edu/',
+				'museum.wsu.edu/events/',
+				'onlinemastratcomm.murrow.wsu.edu/',
+				'bsyse.wsu.edu/',
+				'prssa.wsu.edu/',
+				'dtc.wsu.edu/',
+				'connections.wsu.edu/',
+				'spokane.wsu.edu/calendar/',
+				'hub.wsu.edu/ise/',
+				'hpc.wsu.edu/',
+				'wsupress.wsu.edu/',
+				'sbs.wsu.edu/',
+				'aswsu.wsu.edu/',
+				'writingprogram.wsu.edu/',
+				'gradschool.wsu.edu/pdi/',
+				'labs.wsu.edu/coe/',
+				'gradschool.wsu.edu/',
+				'nuclearscience.wsu.edu/',
+				'spokane.wsu.edu/campuspantry/',
+				'entrepreneurship.wsu.edu/',
 			),
 			'wsu-idonate/wsuwp-plugin-idonate.php' => array(
 				'foundation.wsu.edu/',
@@ -563,6 +624,11 @@ class WSUWP_Admin {
 			),
 			'polylang/polylang.php' => array(
 				'financialaid.wsu.edu/',
+			),
+			'gutenberg/gutenberg.php' => array(
+				'web.wsu.edu/',
+				'hub.wsu.edu/phil/',
+				'hub.wsu.edu/jeremy/',
 			),
 		);
 
