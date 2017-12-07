@@ -373,8 +373,13 @@ class WSUWP_Admin {
 
 		$current_site_address = $current_blog->domain . $current_blog->path;
 
-		// Allow all plugins at the top level site in production and dev.
-		if ( 'wp.wsu.edu/' === $current_site_address || 'wp.wsu.dev' === $current_blog->domain ) {
+		// Allow all plugins on development domains.
+		if ( 'wp.wsu.dev' === $current_blog->domain || 'wp.wsu.test' === $current_blog->domain ) {
+			return $plugins;
+		}
+
+		// Allow all plugins at the top level site in production.
+		if ( 'wp.wsu.edu/' === $current_site_address || 'wp2.wsu.edu/' === $current_site_address ) {
 			return $plugins;
 		}
 
@@ -420,16 +425,12 @@ class WSUWP_Admin {
 				'ucomm.wsu.edu/',
 				'dev.ucomm.wsu.edu/',
 			),
-			'wsuwp-tls/wsuwp-tls.php' => array(
-				'wp2.wsu.edu/',
-			),
+			'wsuwp-tls/wsuwp-tls.php' => array(),
 			'wsu-news-announcements/wsu-news-announcements.php' => array(
 				'news.wsu.edu/',
 				'news.wsu.edu/announcements/',
 			),
-			'wsuwp-deployment/wsuwp-deployment.php' => array(
-				'wp2.wsu.edu/',
-			),
+			'wsuwp-deployment/wsuwp-deployment.php' => array(),
 			'the-events-calendar-community-events/tribe-community-events.php' => array(
 				'calendar.wsu.edu/',
 				'nursing.wsu.edu/',
