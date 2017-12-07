@@ -380,8 +380,6 @@ class WSUWP_Admin {
 
 		$plugin_access_list = array(
 			'buddypress/bp-loader.php' => array(
-				'dev.hub.wsu.edu/murrow/',
-				'hub.wsu.edu/murrow-alumni/',
 				'connect.murrow.wsu.edu/',
 				'magazine.wsu.edu/mystory/',
 			),
