@@ -393,14 +393,12 @@ class WSUWP_Admin {
 				'magazine.wsu.edu/',
 				'stage.magazine.wsu.edu/',
 				'hydrogen.wsu.edu/',
-				'wp.wsu.dev/magazine/',
 			),
 			'woocommerce/woocommerce.php' => array(
 				'ucomm.wsu.edu/promos/',
 				'stage.wsupress.wsu.edu/',
 				'wsupress.wsu.edu/',
 				'dev.wsupress.wsu.edu/',
-				'wp.wsu.dev/wsupress/',
 			),
 			'wsuws-woocommerce-payment-gateway/wsuws-woocommerce-payment-gateway.php' => array(
 				'stage.wsupress.wsu.edu/',
