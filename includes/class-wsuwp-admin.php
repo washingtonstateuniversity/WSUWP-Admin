@@ -355,7 +355,6 @@ class WSUWP_Admin {
 			'wsuwp-json-web-template/wsuwp-json-web-template.php',
 			'co-authors-plus/co-authors-plus.php',
 			'woocommerce/woocommerce.php',
-			'make-plus/make-plus.php',
 			'wp-api-menus/wp-api-menus.php',
 			'wordpress-seo/wp-seo.php',
 		);
