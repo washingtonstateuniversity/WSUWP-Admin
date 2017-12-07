@@ -1,5 +1,9 @@
 # WSUWP Admin Changelog
 
+### 1.3.1 (December 6, 2017)
+
+* Adjust several plugin restrictions.
+
 ### 1.3.0 (December 6, 2017)
 
 * Remove code controlling site defaults for project.wsu.edu and sites.wsu.edu.
