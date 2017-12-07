@@ -355,6 +355,7 @@ class WSUWP_Admin {
 			'wsuwp-json-web-template/wsuwp-json-web-template.php',
 			'co-authors-plus/co-authors-plus.php',
 			'woocommerce/woocommerce.php',
+			'gutenberg/gutenberg.php',
 			'wp-api-menus/wp-api-menus.php',
 			'wordpress-seo/wp-seo.php',
 		);
@@ -623,6 +624,11 @@ class WSUWP_Admin {
 			),
 			'polylang/polylang.php' => array(
 				'financialaid.wsu.edu/',
+			),
+			'gutenberg/gutenberg.php' => array(
+				'web.wsu.edu/',
+				'hub.wsu.edu/phil/',
+				'hub.wsu.edu/jeremy/',
 			),
 		);
 
