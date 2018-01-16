@@ -629,6 +629,7 @@ class WSUWP_Admin {
 				'web.wsu.edu/',
 				'hub.wsu.edu/phil/',
 				'hub.wsu.edu/jeremy/',
+				'globalcampus.wp.wsu.edu/playground/',
 			),
 		);
 
