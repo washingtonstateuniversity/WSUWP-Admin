@@ -1,5 +1,9 @@
 # WSUWP Admin Changelog
 
+### 1.3.2 (January 16, 2018)
+
+* Enable Gutenberg for globalcampus.wp.wsu.edu/playground
+
 ### 1.3.1 (December 6, 2017)
 
 * Adjust several plugin restrictions.
