@@ -1,5 +1,10 @@
 # WSUWP Admin Changelog
 
+### 1.3.3 (February 13, 2018)
+
+* Enable WP Event Calendar for stage.events.wsu.edu.
+* Enable WSUWP Extended WP Event Calendar for stage.events.wsu.edu.
+
 ### 1.3.2 (January 16, 2018)
 
 * Enable Gutenberg for globalcampus.wp.wsu.edu/playground
