@@ -631,6 +631,12 @@ class WSUWP_Admin {
 				'hub.wsu.edu/jeremy/',
 				'globalcampus.wp.wsu.edu/playground/',
 			),
+			'wsuwp-extended-wp-event-calendar/plugin.php' => array(
+				'stage.events.wsu.edu/',
+			),
+			'wp-event-calendar/wp-event-calendar.php' => array(
+				'stage.events.wsu.edu/',
+			),
 		);
 
 		foreach ( $plugin_access_list as $plugin_key => $plugin_sites ) {
