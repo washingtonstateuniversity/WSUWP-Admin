@@ -1,5 +1,10 @@
 # WSUWP Admin Changelog
 
+### 1.4.0 (February 15, 2018)
+
+* Move several customizations from WSUWP Multiple Networks into this plugin.
+* Clear s3.wp.wsu.edu cache when a file is deleted from S3 Uploads.
+
 ### 1.3.3 (February 13, 2018)
 
 * Enable WP Event Calendar for stage.events.wsu.edu.
