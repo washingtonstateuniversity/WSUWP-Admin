@@ -4,7 +4,7 @@ namespace WSUWP\Admin\S3_Uploads;
 
 // Hook in before S3 Uploads filters the data.
 add_filter( 'wp_delete_file', '\WSUWP\Admin\S3_Uploads\delete_file', 3, 1 );
-add_action( 'wsuwp_clear_s3_proxy_cache', '\WSUWP\Admin\S3_Uploads\clear_s3_proxy_cache', 10, 2 );
+add_action( 'wsuwp_clear_s3_proxy_cache', '\WSUWP\Admin\S3_Uploads\clear_s3_proxy_cache', 10, 1 );
 
 /**
  * Schedule an event to clear nginx's proxy cache 30 seconds after
