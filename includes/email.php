@@ -3,6 +3,7 @@
 namespace WSUWP\Admin\Email;
 
 add_filter( 'update_welcome_user_email', 'WSUWP\Admin\Email\network_welcome_user_email', 10, 4 );
+add_filter( 'wsuwp_add_user_to_site_email', 'WSUWP\Admin\Email\new_site_user_email', 10 );
 
 /**
  * Provide a default email to send when welcoming a user to a network.
@@ -30,4 +31,25 @@ Welcome!
 	);
 
 	return $welcome_email;
+}
+
+/**
+ * Filter the email message sent to new users added to sites in WSUWP Multiple Networks.
+ *
+ * @return string
+ */
+function new_site_user_email() {
+	// 1 = site name, 2 = URL, 3 = role, 4 = login URL, 5 = a vs an
+	$message = 'Hello,
+
+You are now %5$s %3$s at %1$s.
+
+Visit this site at %2$s and login with your WSU Network ID at %4$s
+
+Welcome!
+
+- WSUWP Platform (wp.wsu.edu)
+';
+
+	return $message;
 }
