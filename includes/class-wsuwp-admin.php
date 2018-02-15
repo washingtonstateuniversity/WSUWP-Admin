@@ -81,6 +81,8 @@ class WSUWP_Admin {
 
 		add_filter( 'tablepress_wp_search_integration', '__return_false' );
 		add_filter( 'wp_check_filetype_and_ext', array( $this, 'wp39550_disable_real_mime_check' ), 10, 4 );
+
+		add_filter( 'wsuwp_display_networks_menu', array( $this, 'should_display_networks_menu' ) );
 	}
 
 	/**
@@ -721,5 +723,21 @@ class WSUWP_Admin {
 		$proper_filename = $data['proper_filename'];
 
 		return compact( 'ext', 'type', 'proper_filename' );
+	}
+
+	/**
+	 * Remove networks and sites menu displayed by WSUWP Multiple Networks if the user
+	 * is a global admin.
+	 *
+	 * @param bool $display
+	 *
+	 * @return bool
+	 */
+	public function should_display_networks_menu( $display ) {
+		if ( function_exists( 'wsuwp_is_global_admin' ) && wsuwp_is_global_admin( wp_get_current_user()->ID ) ) {
+			return false;
+		}
+
+		return $display;
 	}
 }
