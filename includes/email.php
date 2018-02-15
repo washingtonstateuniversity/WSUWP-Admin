@@ -4,6 +4,7 @@ namespace WSUWP\Admin\Email;
 
 add_filter( 'update_welcome_user_email', 'WSUWP\Admin\Email\network_welcome_user_email', 10, 4 );
 add_filter( 'wsuwp_add_user_to_site_email', 'WSUWP\Admin\Email\new_site_user_email', 10 );
+add_filter( 'wp_new_user_notification_email_admin', 'WSUWP\Admin\Email\new_user_admin_notification', 10, 3 );
 
 /**
  * Provide a default email to send when welcoming a user to a network.
@@ -52,4 +53,26 @@ Welcome!
 ';
 
 	return $message;
+}
+
+/**
+ * Filter the new user notification sent to site admins.
+ *
+ * @param array    $email    Contains to, subject, message, and headers.
+ * @param \WP_User $user     The user just added.
+ * @param string   $blogname The name of the site the user was added to.
+ *
+ * @return array Modified admin email.
+ */
+function new_user_admin_notification( $email, $user, $blogname ) {
+	$message  = sprintf( __( 'A new user has been added to %s:' ), $blogname ) . "\r\n\r\n";
+	$message .= sprintf( __( 'Username: %s' ), $user->user_login ) . "\r\n\r\n";
+	$message .= sprintf( __( 'E-mail: %s' ), $user->user_email ) . "\r\n\r\n";
+	$message .= 'No action is necessary. This message is purely informative.' . "\r\n\r\n";
+	$message .= '- WSUWP Platform (wp.wsu.edu)';
+
+	$email['message'] = $message;
+	$email['subject'] = '[%s] New User Added';
+
+	return $email;
 }
