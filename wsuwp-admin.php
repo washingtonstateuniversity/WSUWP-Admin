@@ -20,6 +20,7 @@ if ( version_compare( PHP_VERSION, '5.3', '<' ) ) {
 	return;
 } else {
 	include_once __DIR__ . '/includes/common.php';
+	include_once __DIR__ . '/includes/email.php';
 
 	// The core plugin class.
 	require dirname( __FILE__ ) . '/includes/class-wsuwp-admin.php';
