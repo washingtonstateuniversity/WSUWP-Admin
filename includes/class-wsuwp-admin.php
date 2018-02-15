@@ -83,6 +83,9 @@ class WSUWP_Admin {
 		add_filter( 'wp_check_filetype_and_ext', array( $this, 'wp39550_disable_real_mime_check' ), 10, 4 );
 
 		add_filter( 'wsuwp_display_networks_menu', array( $this, 'should_display_networks_menu' ) );
+
+		add_action( 'edit_user_profile', array( $this, 'toggle_capabilities' ) );
+		add_action( 'edit_user_profile_update', array( $this, 'toggle_capabilities_update' ) );
 	}
 
 	/**
@@ -739,5 +742,42 @@ class WSUWP_Admin {
 		}
 
 		return $display;
+	}
+
+	/**
+	 * Provide a method for adding custom capabilities to a user through the user edit screen.
+	 *
+	 * Depending on the capability being added, only network or global admins will be able to
+	 * see these options.
+	 *
+	 * @param WP_User $profile_user User currently being edited.
+	 */
+	public function toggle_capabilities( $profile_user ) {
+		$user = wp_get_current_user();
+		if ( function_exists( 'wsuwp_is_global_admin' ) && wsuwp_is_global_admin( $user->ID ) ) {
+			?>
+			<table class="form-table">
+			<tr>
+				<th><?php _e( 'Javascript Editor' ); ?></th>
+				<td><p><label><input type="checkbox" id="javascript_editor"  name="javascript_editor" <?php checked( user_can( $profile_user->ID, 'edit_javascript' ) ); ?> /><?php _e( 'Grant this user access to the Custom Javascript Editor.' ); ?></label></p></td>
+			</tr>
+			</table><?php
+		}
+	}
+
+	/**
+	 * Handle the updating of custom capabilities through the user edit screen.
+	 *
+	 * @param int $user_id ID of the user being saved.
+	 */
+	public function toggle_capabilities_update( $user_id ) {
+		if ( function_exists( 'wsuwp_is_global_admin' ) && wsuwp_is_global_admin( wp_get_current_user()->ID ) ) {
+			// Process Javascript editor assigment at any level.
+			if ( empty( $_POST['javascript_editor'] ) ) {
+				delete_user_meta( $user_id, 'wsuwp_can_edit_javascript' );
+			} elseif ( 'on' === $_POST['javascript_editor'] ) {
+				update_user_meta( $user_id, 'wsuwp_can_edit_javascript', '1' );
+			}
+		}
 	}
 }
