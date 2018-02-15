@@ -758,8 +758,8 @@ class WSUWP_Admin {
 			?>
 			<table class="form-table">
 			<tr>
-				<th><?php _e( 'Javascript Editor' ); ?></th>
-				<td><p><label><input type="checkbox" id="javascript_editor"  name="javascript_editor" <?php checked( user_can( $profile_user->ID, 'edit_javascript' ) ); ?> /><?php _e( 'Grant this user access to the Custom Javascript Editor.' ); ?></label></p></td>
+				<th><?php esc_html_e( 'Javascript Editor' ); ?></th>
+				<td><p><label><input type="checkbox" id="javascript_editor"  name="javascript_editor" <?php checked( user_can( $profile_user->ID, 'edit_javascript' ) ); ?> /><?php esc_html_e( 'Grant this user access to the Custom Javascript Editor.' ); ?></label></p></td>
 			</tr>
 			</table><?php
 		}
@@ -773,9 +773,9 @@ class WSUWP_Admin {
 	public function toggle_capabilities_update( $user_id ) {
 		if ( function_exists( 'wsuwp_is_global_admin' ) && wsuwp_is_global_admin( wp_get_current_user()->ID ) ) {
 			// Process Javascript editor assigment at any level.
-			if ( empty( $_POST['javascript_editor'] ) ) {
+			if ( empty( $_POST['javascript_editor'] ) ) { // WPCS: CSRF Ok.
 				delete_user_meta( $user_id, 'wsuwp_can_edit_javascript' );
-			} elseif ( 'on' === $_POST['javascript_editor'] ) {
+			} elseif ( 'on' === $_POST['javascript_editor'] ) { // WPCS: CSRF Ok.
 				update_user_meta( $user_id, 'wsuwp_can_edit_javascript', '1' );
 			}
 		}
