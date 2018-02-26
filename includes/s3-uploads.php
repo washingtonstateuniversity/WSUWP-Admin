@@ -22,7 +22,7 @@ function delete_file( $file ) {
 		return $file;
 	}
 
-	$url = str_replace( 's3:// ' . S3_UPLOADS_BUCKET, S3_UPLOADS_BUCKET_URL, $file );
+	$url = str_replace( 's3://' . S3_UPLOADS_BUCKET, S3_UPLOADS_BUCKET_URL, $file );
 
 	wp_schedule_single_event( time() + 30, 'wsuwp_clear_s3_proxy_cache', array(
 		$url,

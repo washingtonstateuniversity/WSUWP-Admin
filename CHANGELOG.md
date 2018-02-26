@@ -1,5 +1,9 @@
 # WSUWP Admin Changelog
 
+### 1.4.1 (February 26, 2018)
+
+* Fix bug in s3.wp.wsu.edu cache invalidation.
+
 ### 1.4.0 (February 15, 2018)
 
 * Move several customizations from WSUWP Multiple Networks into this plugin.
