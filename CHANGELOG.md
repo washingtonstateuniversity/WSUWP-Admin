@@ -1,5 +1,10 @@
 # WSUWP Admin Changelog
 
+### 1.4.2 (February 27, 2018)
+
+* Enable WSU People Directory for pharacy.wsu.edu.
+* Enable WP API Menus for pharacy.wsu.edu.
+
 ### 1.4.1 (February 26, 2018)
 
 * Fix bug in s3.wp.wsu.edu cache invalidation.
