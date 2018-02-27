@@ -423,6 +423,7 @@ class WSUWP_Admin {
 				'murrow.wsu.edu/',
 				'nursing.wsu.edu/',
 				'stage.pharmacy.wsu.edu/',
+				'pharmacy.wsu.edu/',
 				'physics.wsu.edu/',
 				'stage.physics.wsu.edu/',
 			),
@@ -520,6 +521,7 @@ class WSUWP_Admin {
 			'wp-api-menus/wp-api-menus.php' => array(
 				'financialaid.wsu.edu/',
 				'stage.pharmacy.wsu.edu/',
+				'pharmacy.wsu.edu/',
 			),
 			'wordpress-seo/wp-seo.php' => array(
 				'spokane.wsu.edu/',
