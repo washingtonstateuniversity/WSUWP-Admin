@@ -442,8 +442,8 @@ class WSUWP_Admin {
 				'momsweekend.wsu.edu/',
 				'footballweekends.wsu.edu/',
 				'research.wsu.edu/',
-				'stage.pharmacy.wsu.edu', // Remove once pharmacy.wsu.edu is live.
-				'pharmacy.wsu.edu',
+				'stage.pharmacy.wsu.edu/', // Remove once pharmacy.wsu.edu is live.
+				'pharmacy.wsu.edu/',
 			),
 			'events-calendar-pro/events-calendar-pro.php' => array(
 				'chem.wsu.edu/',
