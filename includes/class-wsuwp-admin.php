@@ -412,7 +412,6 @@ class WSUWP_Admin {
 			'co-authors-plus/co-authors-plus.php' => array(
 				'dev.magazine.wsu.edu/',
 				'magazine.wsu.edu/',
-				'stage.magazine.wsu.edu/',
 				'hydrogen.wsu.edu/',
 			),
 			'woocommerce/woocommerce.php' => array(
@@ -428,7 +427,6 @@ class WSUWP_Admin {
 			'wsu-people-directory/wsu-people-directory.php' => array(
 				'dev.people.wsu.edu/',
 				'people.wsu.edu/',
-				'people.wsu.dev/',
 				'stage.murrow.wsu.edu/',
 				'dev.murrow.wsu.edu/',
 				'murrow.wsu.edu/',
@@ -450,7 +448,6 @@ class WSUWP_Admin {
 				'momsweekend.wsu.edu/',
 				'footballweekends.wsu.edu/',
 				'research.wsu.edu/',
-				'stage.pharmacy.wsu.edu/', // Remove once pharmacy.wsu.edu is live.
 				'pharmacy.wsu.edu/',
 			),
 			'events-calendar-pro/events-calendar-pro.php' => array(
