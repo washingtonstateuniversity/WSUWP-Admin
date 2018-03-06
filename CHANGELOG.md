@@ -1,5 +1,9 @@
 # WSUWP Admin Changelog
 
+### 1.4.3 (March 6, 2018)
+
+* Hide the MSM Sitemap admin screen from the dashboard.
+
 ### 1.4.2 (February 27, 2018)
 
 * Enable WSU People Directory for pharmacy.wsu.edu.

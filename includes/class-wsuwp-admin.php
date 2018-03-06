@@ -36,6 +36,7 @@ class WSUWP_Admin {
 		}
 
 		add_action( 'init', array( $this, 'remove_general_template_actions' ), 10 );
+		add_action( 'init', array( $this, 'remove_msm_sitemap_admin' ), 11 );
 
 		add_filter( 'wp_kses_allowed_html', array( $this, 'filter_allowed_html_tags' ), 10, 1 );
 		add_filter( 'manage_pages_columns', array( $this, 'add_last_updated_column' ) );
@@ -99,6 +100,16 @@ class WSUWP_Admin {
 		remove_action( 'wp_head', 'wlwmanifest_link' );
 		remove_action( 'wp_head', 'wp_shortlink_wp_head', 10 );
 		remove_action( 'template_redirect', 'wp_shortlink_header', 11 );
+	}
+
+	/**
+	 * Hide the admin menu and screen for the MSM Sitemap plugin. The building of sitemaps through
+	 * this plugin is controled solely through WP-CLI and cron.
+	 *
+	 * @since 1.4.3
+	 */
+	public function remove_msm_sitemap_admin() {
+		remove_action( 'admin_menu', array( 'Metro_Sitemap', 'metro_sitemap_menu' ) );
 	}
 
 	/**
