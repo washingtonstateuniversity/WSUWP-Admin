@@ -443,10 +443,6 @@ class WSUWP_Admin {
 				'dev.ucomm.wsu.edu/',
 			),
 			'wsuwp-tls/wsuwp-tls.php' => array(),
-			'wsu-news-announcements/wsu-news-announcements.php' => array(
-				'news.wsu.edu/',
-				'news.wsu.edu/announcements/',
-			),
 			'wsuwp-deployment/wsuwp-deployment.php' => array(),
 			'the-events-calendar-community-events/tribe-community-events.php' => array(
 				'calendar.wsu.edu/',
