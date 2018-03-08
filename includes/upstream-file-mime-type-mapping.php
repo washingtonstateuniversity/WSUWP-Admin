@@ -375,6 +375,7 @@ function wsuwp_file_default_mimetype_mapping() {
 			343 => 'x-conference/x-cooltalk',
 			344 => 'x-epoc/x-sisx-app',
 			345 => 'x-world/x-vrml',
+			359 => 'application/acad',
 		),
 
 		// Extensions added to this list MUST be lower-case.
@@ -854,6 +855,7 @@ function wsuwp_file_default_mimetype_mapping() {
 			'weba' => 356,
 			'webm' => 357,
 			'vtt' => 358,
+			'dwg' => 359,
 		),
 	);
 }
