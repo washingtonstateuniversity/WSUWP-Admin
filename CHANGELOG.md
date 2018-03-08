@@ -1,5 +1,10 @@
 # WSUWP Admin Changelog
 
+### 1.4.4 (March 8, 2018)
+
+* Adjust a handful of plugin permissions.
+* Add DWG (autocad) to allowed upload mime types.
+
 ### 1.4.3 (March 6, 2018)
 
 * Hide the MSM Sitemap admin screen from the dashboard.
