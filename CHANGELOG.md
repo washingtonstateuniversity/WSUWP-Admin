@@ -1,5 +1,9 @@
 # WSUWP Admin Changelog
 
+### 1.4.5 (March 27, 2018)
+
+* Add CAHNRS sites to plugin access list.
+
 ### 1.4.4 (March 8, 2018)
 
 * Adjust a handful of plugin permissions.
