@@ -1,5 +1,9 @@
 # WSUWP Admin Changelog
 
+### 1.4.6 (March 29, 2018)
+
+* Enable Gutenberg for inquvo.com.
+
 ### 1.4.5 (March 27, 2018)
 
 * Add CAHNRS sites to plugin access list.
