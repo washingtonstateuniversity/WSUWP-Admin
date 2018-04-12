@@ -1,5 +1,10 @@
 # WSUWP Admin Changelog
 
+### 1.4.7 (April 12, 2018)
+
+* Add CAHNRS core plugin to restricted plugin list.
+* Fix restrictions for CAHNRS page builder plugin.
+
 ### 1.4.6 (March 29, 2018)
 
 * Enable Gutenberg for inquvo.com.
