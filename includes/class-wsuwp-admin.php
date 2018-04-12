@@ -756,6 +756,26 @@ class WSUWP_Admin {
 				'cahnrs.wsu.edu/tci/',
 				'cahnrs.wsu.edu/accessibility/',
 			),
+			'cahnrswsuwp-plugin-core/plugin.php' => array(
+				'cahnrs.wsu.edu/',
+				'cahnrs.wsu.edu/academics/',
+				'cahnrs.wsu.edu/alumni/',
+				'cahnrs.wsu.edu/communications/',
+				'cahnrs.wsu.edu/wolf-livestock-research/',
+				'cahnrs.wsu.edu/cosmiccrisp/',
+				'cahnrs.wsu.edu/research/',
+				'cahnrs.wsu.edu/tidal/',
+				'cahnrs.wsu.edu/honors/',
+				'cahnrs.wsu.edu/ciser/',
+				'cahnrs.wsu.edu/ctll/',
+				'cahnrs.wsu.edu/communications-stage/',
+				'cahnrs.wsu.edu/reconnect/',
+				'cahnrs.wsu.edu/about/',
+				'cahnrs.wsu.edu/pioneeringideas2017/',
+				'cahnrs.wsu.edu/ignite/',
+				'cahnrs.wsu.edu/tci/',
+				'cahnrs.wsu.edu/accessibility/',
+			)
 		);
 
 		foreach ( $plugin_access_list as $plugin_key => $plugin_sites ) {
