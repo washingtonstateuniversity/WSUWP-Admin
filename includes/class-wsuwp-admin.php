@@ -757,7 +757,7 @@ class WSUWP_Admin {
 				'cahnrs.wsu.edu/ignite/',
 				'cahnrs.wsu.edu/tci/',
 				'cahnrs.wsu.edu/accessibility/',
-			)
+			),
 		);
 
 		foreach ( $plugin_access_list as $plugin_key => $plugin_sites ) {
