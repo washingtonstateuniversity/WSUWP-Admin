@@ -18,7 +18,7 @@ add_filter( 'user_in_content_visibility_groups', 'WSUWP\Admin\ContentVisibility\
 function modify_default_groups( $groups ) {
 	$site = get_site();
 
-	if ( 'stage.web.wsu.edu' === $site->domain && 'aoisupport/' === $site->path ) {
+	if ( 'stage.web.wsu.edu' === $site->domain && '/aoisupport/' === $site->path ) {
 		$aoi_groups = array(
 			array(
 				'id'   => 'aoi-employees-all',
@@ -47,7 +47,7 @@ function user_in_groups( $allowed, $user_id, $groups ) {
 
 	// This is the only site we provide custom groups for at this time. Once we
 	// expand to other sites, this check will likely need to change.
-	if ( 'stage.web.wsu.edu' !== $site->domain || 'aoisupport/' !== $site->path ) {
+	if ( 'stage.web.wsu.edu' !== $site->domain || '/aoisupport/' !== $site->path ) {
 		return $allowed;
 	}
 
