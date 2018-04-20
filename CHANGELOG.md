@@ -1,5 +1,10 @@
 # WSUWP Admin Changelog
 
+### 1.5.0 (April 20, 2018)
+
+* Add support for Content Visibility customizations.
+* Add an AD group to Content Visibility for AOI support.
+
 ### 1.4.7 (April 12, 2018)
 
 * Add CAHNRS core plugin to restricted plugin list.
