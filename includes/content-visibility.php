@@ -67,7 +67,7 @@ function user_in_groups( $allowed, $user_id, $groups ) {
 		return $allowed;
 	}
 
-	$user = new WP_User( $user_id );
+	$user = new \WP_User( $user_id );
 	$user_ad_data = WSUWP_SSO_Authentication()->refresh_user_data( $user );
 
 	if ( in_array( 'aoi-employees-all', $groups, true ) && in_array( 'AOI.Employees.All', $user_ad_data['memberof'], true ) ) {
