@@ -1,5 +1,9 @@
 # WSUWP Admin Changelog
 
+### 1.5.1 (April 23, 2018)
+
+* Fix fatal error in content visibility extension.
+
 ### 1.5.0 (April 20, 2018)
 
 * Add support for Content Visibility customizations.
