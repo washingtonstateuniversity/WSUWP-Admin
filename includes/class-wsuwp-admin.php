@@ -711,6 +711,7 @@ class WSUWP_Admin {
 				'hub.wsu.edu/jeremy/',
 				'globalcampus.wp.wsu.edu/playground/',
 				'inquvo.com/',
+				'stage.web.wsu.edu/jcdream/',
 			),
 			'wsuwp-extended-wp-event-calendar/plugin.php' => array(
 				'stage.events.wsu.edu/',

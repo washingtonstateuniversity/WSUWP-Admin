@@ -1,5 +1,9 @@
 # WSUWP Admin Changelog
 
+### 1.5.2 (May 4, 2018)
+
+* Add JCDREAM staging site to allowed Gutenberg list.
+
 ### 1.5.1 (April 23, 2018)
 
 * Fix fatal error in content visibility extension.
