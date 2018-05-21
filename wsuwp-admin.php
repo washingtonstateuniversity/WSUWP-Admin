@@ -42,4 +42,5 @@ if ( version_compare( PHP_VERSION, '5.3', '<' ) ) {
 	include_once __DIR__ . '/includes/wsuwp-admin-remarketing.php';
 	include_once __DIR__ . '/includes/response-headers.php';
 	include_once __DIR__ . '/includes/content-visibility.php';
+	include_once __DIR__ . '/includes/gravity-forms.php';
 }
