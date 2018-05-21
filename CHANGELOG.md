@@ -1,5 +1,9 @@
 # WSUWP Admin Changelog
 
+### 1.6.0 (May 21, 2018)
+
+* Prevent Gravity Forms System Status page from appearing.
+
 ### 1.5.2 (May 4, 2018)
 
 * Add JCDREAM staging site to allowed Gutenberg list.
