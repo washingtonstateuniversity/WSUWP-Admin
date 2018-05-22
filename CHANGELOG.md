@@ -1,5 +1,9 @@
 # WSUWP Admin Changelog
 
+### 1.6.2 (May 22, 2018)
+
+* Restrict access to the CAHNRS Extension Core plugin.
+
 ### 1.6.1 (May 22, 2018)
 
 * Add Extension sites to plugin access list.
