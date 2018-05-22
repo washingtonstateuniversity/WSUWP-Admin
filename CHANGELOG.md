@@ -1,5 +1,9 @@
 # WSUWP Admin Changelog
 
+### 1.6.1 (May 22, 2018)
+
+* Add Extension sites to plugin access list.
+
 ### 1.6.0 (May 21, 2018)
 
 * Prevent Gravity Forms System Status page from appearing.
