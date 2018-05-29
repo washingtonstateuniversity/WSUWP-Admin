@@ -37,6 +37,7 @@ if ( version_compare( PHP_VERSION, '5.3', '<' ) ) {
 		return WSUWP_Admin::get_instance();
 	}
 
+	include_once __DIR__ . '/includes/sso-authentication.php';
 	include_once __DIR__ . '/includes/s3-uploads.php';
 	include_once __DIR__ . '/includes/restricted-site-access.php';
 	include_once __DIR__ . '/includes/wsuwp-admin-remarketing.php';
