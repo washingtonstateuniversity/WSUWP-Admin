@@ -75,9 +75,6 @@ class WSUWP_Admin {
 
 		add_filter( 'user_has_cap', array( $this, 'user_can_switch_users' ), 10, 4 );
 
-		add_filter( 'wsuwp_sso_create_new_user', array( $this, 'create_auto_users' ) );
-		add_filter( 'wsuwp_sso_create_new_network_user', '__return_true' );
-
 		add_filter( 'post_password_expires', array( $this, 'filter_post_password_expires' ) );
 
 		add_filter( 'tablepress_wp_search_integration', '__return_false' );
@@ -1044,23 +1041,6 @@ class WSUWP_Admin {
 		}
 
 		return $allcaps;
-	}
-
-	/**
-	 * Account for a manual flag to enable auto user creation when a user has a
-	 * valid WSU NID. This will only work currently if the option has been set for
-	 * a site via WP-CLI.
-	 *
-	 * @return bool
-	 */
-	public function create_auto_users() {
-		$auto_users_enabled = get_option( 'wsu_enable_auto_users', false );
-
-		if ( 'enabled' === $auto_users_enabled ) {
-			return true;
-		}
-
-		return false;
 	}
 
 	/**

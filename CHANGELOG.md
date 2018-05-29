@@ -1,5 +1,9 @@
 # WSUWP Admin Changelog
 
+### (TBD)
+
+* Allow standard authentication on the platform.
+
 ### 1.6.2 (May 22, 2018)
 
 * Restrict access to the CAHNRS Extension Core plugin.
