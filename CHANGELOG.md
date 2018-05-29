@@ -1,6 +1,6 @@
 # WSUWP Admin Changelog
 
-### (TBD)
+### 1.6.3 (May 29, 2018)
 
 * Allow standard authentication on the platform.
 
