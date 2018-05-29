@@ -4,6 +4,7 @@ namespace WSUWP\Admin\SSOAuthentication;
 
 add_filter( 'wsuwp_sso_create_new_user', 'WSUWP\Admin\SSOAuthentication\create_auto_users' );
 add_filter( 'wsuwp_sso_create_new_network_user', '__return_true' );
+add_filter( 'wsuwp_sso_allow_wp_auth', '__return_true' );
 
 /**
  * Account for a manual flag to enable auto user creation when a user has a
