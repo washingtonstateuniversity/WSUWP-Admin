@@ -1,5 +1,10 @@
 # WSUWP Admin Changelog
 
+### 1.7.0 (June 4, 2018)
+
+* Filter Akismet to remove GDPR notice.
+* Filter MSM Sitemap to include pages in sitemaps.
+
 ### 1.6.3 (May 29, 2018)
 
 * Allow standard authentication on the platform.
