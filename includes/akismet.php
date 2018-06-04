@@ -7,7 +7,7 @@ add_filter( 'pre_option_akismet_comment_form_privacy_notice', __NAMESPACE__ . '\
 /**
  * Hide the Akismet comment form privacy notice.
  *
- * @since 1.6.4
+ * @since 1.7.0
  *
  * @return string
  */
