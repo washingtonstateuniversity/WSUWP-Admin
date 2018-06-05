@@ -747,6 +747,7 @@ class WSUWP_Admin {
 				'extension.wsu.edu/berrypathology/',
 				'extension.wsu.edu/maritimefruit/',
 				'extension.wsu.edu/foodsanitation/',
+				'extension.wsu.edu/colville-reservation/',
 			),
 			'wsuwp-extended-polylang/plugin.php' => array(
 				'financialaid.wsu.edu/',
@@ -850,6 +851,7 @@ class WSUWP_Admin {
 				'extension.wsu.edu/berrypathology/',
 				'extension.wsu.edu/maritimefruit/',
 				'extension.wsu.edu/foodsanitation/',
+				'extension.wsu.edu/colville-reservation/',
 			),
 			'cahnrswsuwp-plugin-core/plugin.php' => array(
 				'cahnrs.wsu.edu/',
@@ -933,6 +935,7 @@ class WSUWP_Admin {
 				'extension.wsu.edu/berrypathology/',
 				'extension.wsu.edu/maritimefruit/',
 				'extension.wsu.edu/foodsanitation/',
+				'extension.wsu.edu/colville-reservation/',
 			),
 			'cahnrswsuwp-plugin-extension-core/plugin.php' => array(
 				'extension.wsu.edu/',
@@ -998,6 +1001,7 @@ class WSUWP_Admin {
 				'extension.wsu.edu/berrypathology/',
 				'extension.wsu.edu/maritimefruit/',
 				'extension.wsu.edu/foodsanitation/',
+				'extension.wsu.edu/colville-reservation/',
 			),
 		);
 

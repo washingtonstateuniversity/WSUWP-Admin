@@ -1,5 +1,9 @@
 # WSUWP Admin Changelog
 
+### 1.7.1 (June 4, 2018)
+
+* Add a new extension site to plugin access list.
+
 ### 1.7.0 (June 4, 2018)
 
 * Filter Akismet to remove GDPR notice.
