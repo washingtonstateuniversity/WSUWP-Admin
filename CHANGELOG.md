@@ -1,5 +1,9 @@
 # WSUWP Admin Changelog
 
+### 1.8.0 (June 6, 2018)
+
+* Notify Slack whenever `blog_public` is modified on a site.
+
 ### 1.7.2 (June 6, 2018)
 
 * Make WP Event Calendar visible to events.wsu.edu.
