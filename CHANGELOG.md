@@ -1,5 +1,9 @@
 # WSUWP Admin Changelog
 
+### 1.7.2 (June 6, 2018)
+
+* Make WP Event Calendar visible to events.wsu.edu.
+
 ### 1.7.1 (June 4, 2018)
 
 * Add a new extension site to plugin access list.
