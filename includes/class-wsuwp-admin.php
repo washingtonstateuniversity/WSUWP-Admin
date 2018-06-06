@@ -765,9 +765,13 @@ class WSUWP_Admin {
 			),
 			'wsuwp-extended-wp-event-calendar/plugin.php' => array(
 				'stage.events.wsu.edu/',
+				'stage.web.wsu.edu/events',
+				'events.wsu.edu/',
 			),
 			'wp-event-calendar/wp-event-calendar.php' => array(
 				'stage.events.wsu.edu/',
+				'stage.web.wsu.edu/events',
+				'events.wsu.edu/',
 			),
 			'cahnrswsuwp-plugin-pagebuilder/plugin.php' => array(
 				'cahnrs.wsu.edu/',
