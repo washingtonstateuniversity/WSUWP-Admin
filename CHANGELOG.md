@@ -1,5 +1,9 @@
 # WSUWP Admin Changelog
 
+### 1.8.1 (June 7, 2018)
+
+* Improve strict comparison of options when deciding to notify of a change.
+
 ### 1.8.0 (June 6, 2018)
 
 * Notify Slack whenever `blog_public` is modified on a site.
