@@ -15,7 +15,7 @@ add_filter( 'pre_update_option_blog_public', __NAMESPACE__ . '\\option_change', 
  * @return mixed
  */
 function option_change( $value, $old_value, $option ) {
-	if ( $value === $old_value ) {
+	if ( absint( $value ) === absint( $old_value ) ) {
 		return $value;
 	}
 
