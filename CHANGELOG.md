@@ -1,5 +1,9 @@
 # WSUWP Admin Changelog
 
+### 1.8.2 (June 13, 2018)
+
+* Add cahnrs.wsu.edu/news/ to CAHNRS Core and Pagebuilder plugin whitelists.
+
 ### 1.8.1 (June 7, 2018)
 
 * Improve strict comparison of options when deciding to notify of a change.
