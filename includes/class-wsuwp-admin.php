@@ -947,6 +947,10 @@ class WSUWP_Admin {
 				'foodprocessing.wsu.edu/',
 				'molecularplants.wsu.edu/',
 				'framenetworks.cw.wsu.edu/',
+				'bearcenter.wsu.edu/',
+				'horticulture.wsu.edu/',
+				'environment.wsu.edu/',
+				'plantpath.wsu.edu/',
 			),
 			'cahnrswsuwp-plugin-core/plugin.php' => array(
 				'cahnrs.wsu.edu/',
@@ -1077,6 +1081,10 @@ class WSUWP_Admin {
 				'foodprocessing.wsu.edu/',
 				'molecularplants.wsu.edu/',
 				'framenetworks.cw.wsu.edu/',
+				'bearcenter.wsu.edu/',
+				'horticulture.wsu.edu/',
+				'environment.wsu.edu/',
+				'plantpath.wsu.edu/',
 			),
 			'cahnrswsuwp-plugin-extension-core/plugin.php' => array(
 				'extension.wsu.edu/',
