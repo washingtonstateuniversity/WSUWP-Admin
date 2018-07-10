@@ -1,5 +1,10 @@
 # WSUWP Admin Changelog
 
+### 1.8.5 (July 10, 2018)
+
+* Add CAHNRS WSUWP2 staging sites to Core and Pagebuilder plugin whitelist.
+* Improve whitelisting of cahnrs.wsu.edu and extension.wsu.edu domains.
+
 ### 1.8.4 (July 9, 2018)
 
 * Add CAHNRS WSUWP2 sites to Core and Pagebuilder plugin whitelist.
