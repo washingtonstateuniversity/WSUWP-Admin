@@ -880,8 +880,7 @@ class WSUWP_Admin {
 				'stage.web.wsu.edu/plantpath-dajohn/',
 				'stage.web.wsu.edu/plantpath-diagnostics/',
 			),
-			'cahnrswsuwp-plugin-extension-core/plugin.php' => array(
-			),
+			'cahnrswsuwp-plugin-extension-core/plugin.php' => array(),
 		);
 
 		foreach ( $plugin_access_list as $plugin_key => $plugin_sites ) {
@@ -898,11 +897,11 @@ class WSUWP_Admin {
 		// CAHNRS sites get CAHNRS specific plugins.
 		if ( in_array( $current_blog->domain, $cahnrs_domains, true ) ) {
 			if ( isset( $plugins_original['cahnrswsuwp-plugin-core/plugin.php'] ) ) {
-				$plugins[ 'cahnrswsuwp-plugin-core/plugin.php' ] = $plugins_original['cahnrswsuwp-plugin-core/plugin.php'];
+				$plugins['cahnrswsuwp-plugin-core/plugin.php'] = $plugins_original['cahnrswsuwp-plugin-core/plugin.php'];
 			}
 
-			if ( isset( $plugins_original[ 'cahnrswsuwp-plugin-pagebuilder/plugin.php'] ) ) {
-				$plugins[ 'cahnrswsuwp-plugin-pagebuilder/plugin.php'] = $plugins_original[ 'cahnrswsuwp-plugin-pagebuilder/plugin.php'];
+			if ( isset( $plugins_original['cahnrswsuwp-plugin-pagebuilder/plugin.php'] ) ) {
+				$plugins['cahnrswsuwp-plugin-pagebuilder/plugin.php'] = $plugins_original['cahnrswsuwp-plugin-pagebuilder/plugin.php'];
 			}
 		}
 
