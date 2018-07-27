@@ -554,6 +554,9 @@ class WSUWP_Admin {
 				'foodprocessing.wsu.edu/',
 				'molecularplants.wsu.edu/',
 				'framenetworks.cw.wsu.edu/',
+				'plantpath.wsu.edu/',
+				'plantpath.wsu.edu/diagnostics/',
+				'environment.wsu.edu/',
 			),
 			'wsu-idonate/wsuwp-plugin-idonate.php' => array(
 				'foundation.wsu.edu/',
