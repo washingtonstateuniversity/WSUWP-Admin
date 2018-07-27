@@ -1,5 +1,9 @@
 # WSUWP Admin Changelog
 
+### 1.8.6 (July 27, 2018)
+
+* Add three new CAHNRS sites to Event Calendar Pro whitelist.
+
 ### 1.8.5 (July 10, 2018)
 
 * Add CAHNRS WSUWP2 staging sites to Core and Pagebuilder plugin whitelist.
