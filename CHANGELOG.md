@@ -1,5 +1,9 @@
 # WSUWP Admin Changelog
 
+### 1.8.9 (August 1, 2018)
+
+* Update last staging sites for CAHNRS.
+
 ### 1.8.8 (August 1, 2018)
 
 * Update CAHNRS site list for latest launched sites.
