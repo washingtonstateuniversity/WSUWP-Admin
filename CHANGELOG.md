@@ -1,5 +1,9 @@
 # WSUWP Admin Changelog
 
+### 1.8.10 (August 9, 2018)
+
+* Add VCEA staging site to allowed Gutenberg list.
+
 ### 1.8.9 (August 1, 2018)
 
 * Update last staging sites for CAHNRS.
