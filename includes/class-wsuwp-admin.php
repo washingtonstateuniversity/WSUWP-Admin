@@ -762,6 +762,7 @@ class WSUWP_Admin {
 				'globalcampus.wp.wsu.edu/playground/',
 				'inquvo.com/',
 				'jcdream.tech/',
+				'stage.web.wsu.edu/vcea/',
 			),
 			'wsuwp-extended-wp-event-calendar/plugin.php' => array(
 				'events.wsu.edu/',
