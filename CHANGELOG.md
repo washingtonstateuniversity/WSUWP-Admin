@@ -1,5 +1,9 @@
 # WSUWP Admin Changelog
 
+### 1.8.11 (August 17, 2018)
+
+* Update Events Calendar Pro plugin access list with more CAHNRS sites.
+
 ### 1.8.10 (August 9, 2018)
 
 * Add VCEA staging site to allowed Gutenberg list.
