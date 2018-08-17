@@ -557,6 +557,8 @@ class WSUWP_Admin {
 				'plantpath.wsu.edu/',
 				'plantpath.wsu.edu/diagnostics/',
 				'environment.wsu.edu/',
+				'foodsystems.wsu.edu/',
+				'extension.wsu.edu/colville-reservation/',
 			),
 			'wsu-idonate/wsuwp-plugin-idonate.php' => array(
 				'foundation.wsu.edu/',
