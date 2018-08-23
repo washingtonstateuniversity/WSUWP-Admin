@@ -3,6 +3,11 @@
 namespace WSUWP\Admin\Common;
 
 /**
+ * Hide the "Try Gutenberg" callout.
+ */
+remove_action( 'try_gutenberg_panel', 'wp_try_gutenberg_panel' );
+
+/**
  * Check if the entry of a password is still required for a document.
  *
  * This is a duplicate of the WordPress function and is used only because
