@@ -1,5 +1,9 @@
 # WSUWP Admin Changelog
 
+### 1.8.12 (August 23, 2018)
+
+* Hide the "Try Gutenberg" callout.
+
 ### 1.8.11 (August 17, 2018)
 
 * Update Events Calendar Pro plugin access list with more CAHNRS sites.
