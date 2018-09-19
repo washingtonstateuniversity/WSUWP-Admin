@@ -553,7 +553,7 @@ class WSUWP_Admin {
 				'hardwoodbiofuels.cw.wsu.edu/',
 				'foodprocessing.wsu.edu/',
 				'molecularplants.wsu.edu/',
-				'framenetworks.cw.wsu.edu/',
+				'framenetworks.wsu.edu/',
 				'plantpath.wsu.edu/',
 				'plantpath.wsu.edu/diagnostics/',
 				'environment.wsu.edu/',
@@ -817,7 +817,7 @@ class WSUWP_Admin {
 				'hardwoodbiofuels.cw.wsu.edu/',
 				'foodprocessing.wsu.edu/',
 				'molecularplants.wsu.edu/',
-				'framenetworks.cw.wsu.edu/',
+				'framenetworks.wsu.edu/',
 				'bearcenter.wsu.edu/',
 				'horticulture.wsu.edu/',
 				'environment.wsu.edu/',
@@ -834,6 +834,7 @@ class WSUWP_Admin {
 				'waae.wsu.edu/',
 				'pep.wsu.edu/',
 				'hd.wsu.edu/',
+				'broadband.wsu.edu/',
 			),
 			'cahnrswsuwp-plugin-core/plugin.php' => array(
 				'cw.wp.wsu.edu/',
@@ -880,7 +881,7 @@ class WSUWP_Admin {
 				'hardwoodbiofuels.cw.wsu.edu/',
 				'foodprocessing.wsu.edu/',
 				'molecularplants.wsu.edu/',
-				'framenetworks.cw.wsu.edu/',
+				'framenetworks.wsu.edu/',
 				'bearcenter.wsu.edu/',
 				'horticulture.wsu.edu/',
 				'environment.wsu.edu/',
@@ -897,8 +898,11 @@ class WSUWP_Admin {
 				'waae.wsu.edu/',
 				'pep.wsu.edu/',
 				'hd.wsu.edu/',
+				'broadband.wsu.edu/',
 			),
-			'cahnrswsuwp-plugin-extension-core/plugin.php' => array(),
+			'cahnrswsuwp-plugin-extension-core/plugin.php' => array(
+				'broadband.wsu.edu/',
+			),
 		);
 
 		foreach ( $plugin_access_list as $plugin_key => $plugin_sites ) {
