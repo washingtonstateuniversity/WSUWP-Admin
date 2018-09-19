@@ -1,5 +1,9 @@
 # WSUWP Admin Changelog
 
+### 1.8.13 (September 19, 2018)
+
+* Added broadband.wsu.edu and updated framenetworks.wsu.edu for plugin access.
+
 ### 1.8.12 (August 23, 2018)
 
 * Hide the "Try Gutenberg" callout.
