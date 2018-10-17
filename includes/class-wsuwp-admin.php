@@ -571,6 +571,7 @@ class WSUWP_Admin {
 			),
 			'wordpress-seo/wp-seo.php' => array(
 				'business.wsu.edu/',
+				'business.wsu.edu/celebratecarson/',
 				'spokane.wsu.edu/',
 				'ip.wsu.edu/',
 				'education.wsu.edu/',
