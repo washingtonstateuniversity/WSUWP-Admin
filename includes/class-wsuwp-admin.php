@@ -905,12 +905,13 @@ class WSUWP_Admin {
 				'broadband.wsu.edu/',
 			),
 			'wsu-plugin-toolbox/plugin.php' => array(
-				'medicine.wsu.edu',
-				'askdruniverse.wsu.edu',
-				'entrepreneurship.wsu.edu',
+				'medicine.wsu.edu/',
+				'askdruniverse.wsu.edu/',
+				'entrepreneurship.wsu.edu/',
 			),
 			'cahnrswsuwp-plugin-modules/plugin.php' => array(
-				'cahnrs.wsu.edu',
+				'cahnrs.wsu.edu/',
+				'hardwoodbiofuels.org/',
 			),
 		);
 
