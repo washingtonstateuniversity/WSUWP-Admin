@@ -836,6 +836,7 @@ class WSUWP_Admin {
 				'pep.wsu.edu/',
 				'hd.wsu.edu/',
 				'broadband.wsu.edu/',
+				'stage.web.wsu.edu/dahlia/',
 			),
 			'cahnrswsuwp-plugin-core/plugin.php' => array(
 				'cw.wp.wsu.edu/',
@@ -900,6 +901,7 @@ class WSUWP_Admin {
 				'pep.wsu.edu/',
 				'hd.wsu.edu/',
 				'broadband.wsu.edu/',
+				'stage.web.wsu.edu/dahlia/',
 			),
 			'cahnrswsuwp-plugin-extension-core/plugin.php' => array(
 				'broadband.wsu.edu/',
