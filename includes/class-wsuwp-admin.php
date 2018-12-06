@@ -904,6 +904,14 @@ class WSUWP_Admin {
 			'cahnrswsuwp-plugin-extension-core/plugin.php' => array(
 				'broadband.wsu.edu/',
 			),
+			'wsu-plugin-toolbox/plugin.php' => array(
+				'medicine.wsu.edu',
+				'askdruniverse.wsu.edu',
+				'entrepreneurship.wsu.edu',
+			),
+			'cahnrswsuwp-plugin-modules/plugin.php' => array(
+				'cahnrs.wsu.edu',
+			),
 		);
 
 		foreach ( $plugin_access_list as $plugin_key => $plugin_sites ) {
