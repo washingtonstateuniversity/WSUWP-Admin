@@ -920,10 +920,10 @@ class WSUWP_Admin {
 				'hardwoodbiofuels.org/',
 			),
 			'wsuwp-plugin-spine-themes/plugin.php' => array(
-				'stage.web.wsu.edu/rainier/',
-				'stage.web.wsu.edu/baker/',
-				'stage.web.wsu.edu/adams/',
-				'stage.web.wsu.edu/olympus/',
+				'stage.web.wsu.edu/rainier-theme/',
+				'stage.web.wsu.edu/baker-theme/',
+				'stage.web.wsu.edu/adams-theme/',
+				'stage.web.wsu.edu/olympus-theme/',
 			),
 		);
 
