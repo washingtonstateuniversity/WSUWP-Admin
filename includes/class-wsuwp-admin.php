@@ -915,6 +915,16 @@ class WSUWP_Admin {
 				'cahnrs.wsu.edu/',
 				'hardwoodbiofuels.org/',
 			),
+			'cahnrswsuwp-plugin-modules/plugin.php' => array(
+				'cahnrs.wsu.edu/',
+				'hardwoodbiofuels.org/',
+			),
+			'wsuwp-plugin-spine-themes/plugin.php' => array(
+				'stage.web.wsu.edu/rainier/',
+				'stage.web.wsu.edu/baker/',
+				'stage.web.wsu.edu/adams/',
+				'stage.web.wsu.edu/olympus/',
+			),
 		);
 
 		foreach ( $plugin_access_list as $plugin_key => $plugin_sites ) {
