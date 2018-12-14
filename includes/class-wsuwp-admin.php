@@ -910,6 +910,7 @@ class WSUWP_Admin {
 				'medicine.wsu.edu/',
 				'askdruniverse.wsu.edu/',
 				'entrepreneurship.wsu.edu/',
+				'spokane.wsu.edu/',
 			),
 			'cahnrswsuwp-plugin-modules/plugin.php' => array(
 				'cahnrs.wsu.edu/',
