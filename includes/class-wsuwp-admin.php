@@ -925,11 +925,15 @@ class WSUWP_Admin {
 				'stage.web.wsu.edu/baker-theme/',
 				'stage.web.wsu.edu/adams-theme/',
 				'stage.web.wsu.edu/olympus-theme/',
+				'stage.web.wsu.edu/aoisupport/',
+				'allow-super-admin',
 			),
 		);
 
 		foreach ( $plugin_access_list as $plugin_key => $plugin_sites ) {
-			if ( ! in_array( $current_site_address, $plugin_sites, true ) && isset( $plugins[ $plugin_key ] ) ) {
+			if ( in_array( 'allow-super-admin', $plugin_sites, true ) && is_super_admin() ) {
+				continue;
+			} elseif ( ! in_array( $current_site_address, $plugin_sites, true ) && isset( $plugins[ $plugin_key ] ) ) {
 				unset( $plugins[ $plugin_key ] );
 			}
 		}
