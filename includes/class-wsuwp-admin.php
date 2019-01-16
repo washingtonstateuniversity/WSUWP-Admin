@@ -911,6 +911,7 @@ class WSUWP_Admin {
 				'askdruniverse.wsu.edu/',
 				'entrepreneurship.wsu.edu/',
 				'spokane.wsu.edu/',
+				'allow-super-admin',
 			),
 			'cahnrswsuwp-plugin-modules/plugin.php' => array(
 				'cahnrs.wsu.edu/',
