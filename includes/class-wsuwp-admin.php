@@ -176,26 +176,16 @@ class WSUWP_Admin {
 			return;
 		}
 
-		// Retrieve the last revision for this post, which should also be the last updated record.
-		$revisions = wp_get_post_revisions( $post_id, array(
-			'numberposts' => 1,
-		) );
+		the_modified_author();
 
-		// Calculate the last updated display based on our current timezone.
-		$current_time = time() + ( get_option( 'gmt_offset', 0 ) * HOUR_IN_SECONDS );
+		echo '<br>';
 
-		foreach ( $revisions as $revision ) {
-			echo esc_html( get_the_author_meta( 'display_name', $revision->post_author ) );
-			echo '<br>';
+		the_modified_date( 'F j, Y' );
 
-			// If within 24 hours, show a human readable version instead
-			if ( ( $current_time - strtotime( $revision->post_date ) ) < DAY_IN_SECONDS ) {
-				echo esc_html( human_time_diff( $current_time, strtotime( $revision->post_date ) ) . ' ago' );
-			} else {
-				echo esc_html( date( 'Y/m/d', strtotime( $revision->post_date ) ) );
-			}
-			break;
-		}
+		echo ' at ';
+
+		the_modified_date( 'g:i a' );
+
 	}
 
 	/**
