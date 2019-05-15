@@ -549,6 +549,7 @@ class WSUWP_Admin {
 				'environment.wsu.edu/',
 				'foodsystems.wsu.edu/',
 				'extension.wsu.edu/colville-reservation/',
+				'allow-super-admin',
 			),
 			'wsu-idonate/wsuwp-plugin-idonate.php' => array(
 				'foundation.wsu.edu/',
@@ -827,6 +828,7 @@ class WSUWP_Admin {
 				'hd.wsu.edu/',
 				'broadband.wsu.edu/',
 				'stage.web.wsu.edu/dahlia/',
+				'allow-super-admin',
 			),
 			'cahnrswsuwp-plugin-core/plugin.php' => array(
 				'cw.wp.wsu.edu/',
@@ -892,6 +894,7 @@ class WSUWP_Admin {
 				'hd.wsu.edu/',
 				'broadband.wsu.edu/',
 				'stage.web.wsu.edu/dahlia/',
+				'allow-super-admin',
 			),
 			'cahnrswsuwp-plugin-extension-core/plugin.php' => array(
 				'broadband.wsu.edu/',
