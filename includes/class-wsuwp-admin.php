@@ -743,6 +743,7 @@ class WSUWP_Admin {
 				'extension.wsu.edu/foodsanitation/',
 				'extension.wsu.edu/colville-reservation/',
 				'jcdream.tech/',
+				'allow-super-admin',
 			),
 			'wsuwp-extended-polylang/plugin.php' => array(
 				'financialaid.wsu.edu/',
@@ -925,21 +926,27 @@ class WSUWP_Admin {
 			),
 			'fusion-core/fusion-core.php' => array(
 				'jcdream.tech',
+				'allow-super-admin',
 			),
 			'fusion-white-label-branding/fusion-white-label-branding.php' => array(
 				'jcdream.tech',
+				'allow-super-admin',
 			),
 			'fusion-builder/fusion-builder.php' => array(
 				'jcdream.tech',
+				'allow-super-admin',
 			),
 			'revslider/revslider.php' => array(
 				'jcdream.tech',
+				'allow-super-admin',
 			),
 			'convertplug/convertplug.php' => array(
 				'jcdream.tech',
+				'allow-super-admin',
 			),
 			'layerslider/layerslider.php' => array(
 				'jcdream.tech',
+				'allow-super-admin',
 			),
 		);
 
