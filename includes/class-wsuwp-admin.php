@@ -415,6 +415,7 @@ class WSUWP_Admin {
 				'footballweekends.wsu.edu/',
 				'research.wsu.edu/',
 				'pharmacy.wsu.edu/',
+				'allow-super-admin',
 			),
 			'events-calendar-pro/events-calendar-pro.php' => array(
 				'chem.wsu.edu/',
