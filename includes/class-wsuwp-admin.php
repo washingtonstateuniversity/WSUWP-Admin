@@ -760,6 +760,7 @@ class WSUWP_Admin {
 				'inquvo.com/',
 				'jcdream.tech/',
 				'stage.web.wsu.edu/vcea/',
+				'allow-super-admin',
 			),
 			'wsuwp-extended-wp-event-calendar/plugin.php' => array(
 				'events.wsu.edu/',
