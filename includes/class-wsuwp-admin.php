@@ -383,6 +383,9 @@ class WSUWP_Admin {
 				'connect.murrow.wsu.edu/',
 				'magazine.wsu.edu/mystory/',
 			),
+			'powerpress/powerpress.php' => array(
+				'allow-super-admin',
+			),
 			'wsuwp-json-web-template/wsuwp-json-web-template.php' => array(
 				'admission.wsu.edu/',
 			),
