@@ -396,9 +396,11 @@ class WSUWP_Admin {
 			'woocommerce/woocommerce.php' => array(
 				'ucomm.wsu.edu/promos/',
 				'wsupress.wsu.edu/',
+				'allow-super-admin',
 			),
 			'wsuws-woocommerce-payment-gateway/wsuws-woocommerce-payment-gateway.php' => array(
 				'wsupress.wsu.edu/',
+				'allow-super-admin',
 			),
 			'wsu-people-directory/wsu-people-directory.php' => array(
 				'people.wsu.edu/',
