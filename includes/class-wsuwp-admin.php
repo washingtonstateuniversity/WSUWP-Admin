@@ -386,6 +386,9 @@ class WSUWP_Admin {
 			'powerpress/powerpress.php' => array(
 				'allow-super-admin',
 			),
+			'CAHNRSWSUWP-Plugin-People-master/plugin.php' => array(
+				'allow-super-admin',
+			),
 			'wsuwp-json-web-template/wsuwp-json-web-template.php' => array(
 				'admission.wsu.edu/',
 			),
