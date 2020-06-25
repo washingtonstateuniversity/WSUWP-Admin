@@ -753,6 +753,7 @@ class WSUWP_Admin {
 			),
 			'wsuwp-extended-polylang/plugin.php' => array(
 				'financialaid.wsu.edu/',
+				'labs.wsu.edu/apac/',
 			),
 			'polylang/polylang.php' => array(
 				'financialaid.wsu.edu/',
