@@ -408,6 +408,7 @@ class WSUWP_Admin {
 				'nursing.wsu.edu/',
 				'pharmacy.wsu.edu/',
 				'physics.wsu.edu/',
+				'allow-super-admin',
 			),
 			'wsuwp-ucomm-asset-request/wsu-ucomm-assets-registration.php' => array(
 				'ucomm.wsu.edu/',
