@@ -379,6 +379,9 @@ class WSUWP_Admin {
 		}
 
 		$plugin_access_list = array(
+			'wsuwp-plugin-blocks/wsuwp-plugin-blocks.php' => array(
+				'allow-super-admin',
+			),
 			'buddypress/bp-loader.php' => array(
 				'connect.murrow.wsu.edu/',
 				'magazine.wsu.edu/mystory/',
