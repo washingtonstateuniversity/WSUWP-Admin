@@ -382,6 +382,9 @@ class WSUWP_Admin {
 			'wsuwp-plugin-blocks/wsuwp-plugin-blocks.php' => array(
 				'allow-super-admin',
 			),
+			'wp-timelines-wsu/timeline.php' => array(
+				'allow-super-admin',
+			),
 			'buddypress/bp-loader.php' => array(
 				'connect.murrow.wsu.edu/',
 				'magazine.wsu.edu/mystory/',
